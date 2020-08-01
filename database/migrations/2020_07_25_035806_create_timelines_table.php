@@ -18,7 +18,7 @@ class CreateTimelinesTable extends Migration
             $table->unsignedBigInteger('dog_id');
             $table->foreign('dog_id')->references('id')->on('dogs');
 //            $table->integer('dog_id');
-            $table->integer('type');
+            $table->text('type');
             $table->string('content');
             $table->string('links');
             $table->string('video');

@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('', function () {
+//    return view('admin.admin-form');
+//});
+
+Route::resource('admin/account','AdminAccountController');
+Route::resource('admin/form/account','AdminFormAccountController');
+
+Route::resource('admin/article','AdminArticleController');
+Route::resource('admin/form/article','AdminFormArticleController');

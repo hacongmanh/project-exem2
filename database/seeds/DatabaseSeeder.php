@@ -19,6 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AccountSeeder::class);
         $this->call(TimelineSeeder::class);
         $this->call(CommentsSeeder::class);
-        $this->call(ArticleCategorySeeder2::class);
+        $this->call(ArticleCategorySeeder::class);
     }
 }

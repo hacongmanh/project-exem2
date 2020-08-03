@@ -23,68 +23,144 @@
                         <th>
                             ID
                         </th>
+
                         <th>
-                            Title
+                            Name
                         </th>
+
                         <th>
-                            Description
+                            Price
                         </th>
+
+                        <th>
+                            Birthday
+                        </th>
+
+                        <th>
+                            Gender
+                        </th>
+
+                        <th>
+                            Category_id
+                        </th>
+
+                        <th>
+                            BreedType
+                        </th>
+
+                        <th>
+                            Color
+                        </th>
+
                         <th>
                             Thumbnail
                         </th>
+
                         <th>
-                            Status
+                            Description
                         </th>
+
+                        <th>
+                            Detail
+                        </th>
+
+                        <th>
+                            Mother_id
+                        </th>
+
+                        <th>
+                            Father_id
+                        </th>
+
                         <th>
                             Create_at
                         </th>
+
                         <th>
                             Update_at
                         </th>
-                        <th>
-                            Details
-                        </th>
-                        <th>
 
-                        </th>
                         </thead>
                         <tbody>
-                        @foreach($list as $articles)
+                        @foreach($list as $dogs)
                             <tr>
                                 <td>
                                     <p class="card-text">
-                                        {{$articles->id}} &nbsp;
+                                        {{$dogs->id}} &nbsp;
                                     </p>
                                 </td>
-                                <td><p class="card-title" style="height:75px;overflow: hidden">{{$articles->title}}
-                                        &nbsp;</p></td>
-                                <td><p class="card-title"
-                                       style="height:75px;overflow: hidden">{{$articles->description}} &nbsp;</p></td>
                                 <td>
-                                    @foreach($articles->large_photos as $photo )
+                                    <p class="card-text">
+                                        {{$dogs->name}} &nbsp;
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="card-text">
+                                        {{$dogs->price}} &nbsp;
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="card-text">
+                                        {{$dogs->birthday}} &nbsp;
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="card-text">
+                                        {{$dogs->gender}} &nbsp;
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="card-text">
+                                        {{$dogs->category_id}} &nbsp;
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="card-text">
+                                        {{$dogs->breedType}} &nbsp;
+                                    </p>
+                                </td>
+
+                                <td>
+                                    <p class="card-text">
+                                        {{$dogs->color}} &nbsp;
+                                    </p>
+                                </td>
+
+                                <td>
+                                    @foreach($dogs->large_photos as $photo )
                                         <p class="card-title" style="height:75px;overflow: hidden"><img style="border-radius: 100%;
     width: 40%;" src="{{$photo}}" class="card-img-top" alt="..."></p>
                                     @endforeach
                                 </td>
-                                <td>
-                                    <div>
-                                        @if($articles->status === 0 )
-                                            <div style="text-align: center;">
-                                                <i class="fas fa-times"></i>
-                                            </div>
-                                        @elseif($articles->status === 1 )
 
-                                            <div style="text-align: center;">
-                                                <i class="fas fa-check-circle"></i>
-                                            </div>
-                                        @else
-                                            null
-                                        @endif
-                                    </div>
+
+                                <td>
+                                    <p style="width: 50rem" class="card-text">
+                                        {{$dogs->description}} &nbsp;
+                                    </p>
                                 </td>
+
+
+                                <td>
+                                    <p style="width: 50rem" class="card-text">
+                                        {{$dogs->detail}} &nbsp;
+                                    </p>
+                                </td>
+
+                                <td>
+                                <p class="card-text">
+                                    {{$dogs->mother_id}} &nbsp;
+                                </p>
+                                </td>
+                                <td>
+                                    <p class="card-text">
+                                        {{$dogs->father_id}} &nbsp;
+                                    </p>
+                                </td>
+
                                 <td><p class="card-title"
-                                       style="height:75px;overflow: hidden ">{{$articles->created_at}} &nbsp;</p></td>
-                                <td><p class="card-title" style="height:75px;overflow: hidden">{{$articles->updated_at}}
+                                       style="height:75px;overflow: hidden ">{{$dogs->created_at}} &nbsp;</p></td>
+                                <td><p class="card-title" style="height:75px;overflow: hidden">{{$dogs->updated_at}}
                                         &nbsp;</p></td>
                                 <td><a href="/home">Edit</a></td>
                                 <td><a href="/home">Delete</a></td>

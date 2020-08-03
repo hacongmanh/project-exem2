@@ -215,7 +215,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="../forms/advanced.html" class="nav-link">
+                                <a href="/admin/form/dog" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Dogs</p>
                                 </a>
@@ -256,9 +256,9 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="../tables/jsgrid.html" class="nav-link">
+                                <a href="/admin/dog" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>jsGrid</p>
+                                    <p>Dogs</p>
                                 </a>
                             </li>
                         </ul>
@@ -286,7 +286,7 @@
         <div class="float-right d-none d-sm-block">
             <b>Version</b> 3.1.0-pre
         </div>
-        <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2014-2020 <a href="/home">home</a>.</strong> All rights reserved.
     </footer>
 
     <!-- Control Sidebar -->

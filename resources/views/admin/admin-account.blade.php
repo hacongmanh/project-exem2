@@ -100,7 +100,8 @@
                                 </td>
                                 <td>
                                     @foreach($accounts->large_photos as $photo )
-                                        <p class="card-title" style="height:75px;overflow: hidden"><img src="{{$photo}}" class="card-img-top" alt="..."></p>
+                                        <p class="card-title" style="height:75px;overflow: hidden"><img style="border-radius: 100%;
+    width: 40%;" src="{{$photo}}" class="card-img-top" alt="..."></p>
                                     @endforeach
                                 </td>
                                 <td>

@@ -1,7 +1,7 @@
 @extends('layout.layoutadmin')
 @section('main-content')
     <div class="card-body">
-        <form action="/admin/form/article" method="post" id="product_form">
+        <form action="/admin/form/account" method="post" id="product_form">
             @csrf
             <div class="row">
                 <div class="col-md-6">

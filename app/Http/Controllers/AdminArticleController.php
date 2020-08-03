@@ -72,7 +72,7 @@ class AdminArticleController extends Controller
         $obj = new Articles();
         $obj->title = $request->get('title');
         $obj->description = $request->get('description');
-        $obj->category_id = $request->get('category_id');
+        $obj->category_id = 1;
         $obj->create_by = $request->get('create_by');
         $thumbnails = $request->get('thumbnails');
         foreach ($thumbnails as $thumbnail) {

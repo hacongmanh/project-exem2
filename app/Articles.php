@@ -7,12 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Articles extends Model
 {
+
+
     private static $cloudinary_link = 'https://res.cloudinary.com/dzpmsbjzh/image/upload/';
 
     public function getSmallPhotoAttribute()
     {
         if ($this->thumbnail == null || strlen($this->thumbnail) == 0) {
-            return 'https://thanhtra.com.vn/image/images/noimages.png';
+            return 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcScdHD-KQQkMQdJcXTSALcRVFp7chjRbA0e-w&usqp=CAU';
         }
         $photos = explode(',', $this->thumbnail);
         return self::$cloudinary_link . 'w_100,c_scale/' . $photos[0] . '.jpg';
@@ -21,7 +23,7 @@ class Articles extends Model
     public function getLargePhotoAttribute()
     {
         if ($this->thumbnail == null || strlen($this->thumbnail) == 0) {
-            return 'https://thanhtra.com.vn/image/images/noimages.png';
+            return 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcScdHD-KQQkMQdJcXTSALcRVFp7chjRbA0e-w&usqp=CAU';
         }
         $photos = explode(',', $this->thumbnail);
         return self::$cloudinary_link . $photos[0] . '.jpg';
@@ -30,7 +32,7 @@ class Articles extends Model
     public function getSmallPhotosAttribute()
     {
         if ($this->thumbnail == null || strlen($this->thumbnail) == 0) {
-            return array('https://thanhtra.com.vn/image/images/noimages.png');
+            return array('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcScdHD-KQQkMQdJcXTSALcRVFp7chjRbA0e-w&usqp=CAU');
         }
         $list_photos = array();
         $photos = explode(',', $this->thumbnail);
@@ -45,7 +47,7 @@ class Articles extends Model
     public function getLargePhotosAttribute()
     {
         if ($this->thumbnail == null || strlen($this->thumbnail) == 0) {
-            return array('https://thanhtra.com.vn/image/images/noimages.png');
+            return array('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcScdHD-KQQkMQdJcXTSALcRVFp7chjRbA0e-w&usqp=CAU');
         }
         $list_photos = array();
         $photos = explode(',', $this->thumbnail);
@@ -60,7 +62,7 @@ class Articles extends Model
     public function getPreviewPhotosAttribute()
     {
         if ($this->thumbnail == null || strlen($this->thumbnail) == 0) {
-            return array('https://thanhtra.com.vn/image/images/noimages.png');
+            return array('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcScdHD-KQQkMQdJcXTSALcRVFp7chjRbA0e-w&usqp=CAU');
         }
         $list_photos = array();
         $photos = explode(',', $this->thumbnail);
@@ -86,4 +88,6 @@ class Articles extends Model
         }
         return $list_ids;
     }
+
+
 }

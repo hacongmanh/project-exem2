@@ -22,3 +22,7 @@ Route::resource('admin/form/account','AdminFormAccountController');
 
 Route::resource('admin/article','AdminArticleController');
 Route::resource('admin/form/article','AdminFormArticleController');
+
+Route::resource('admin/dog','AdminDogController');
+Route::resource('admin/form/dog','AdminFormDogController');
+

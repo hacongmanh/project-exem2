@@ -1,30 +1,42 @@
-@extends('layout.layoutadmin')
+@extends('layout.layout-admin', ['current_page' => 'category-form'])
+@section('style')
+    <style>
+        .note-editable{
+            height: 200px!important;
+        }
+    </style>
+    @endsection
 @section('main-content')
+    <div class="container-fluid">
 <div class="col-md-12">
-    <form action="/admin/form/article" method="post" id="product_form" >
+    <form action="/admin/articles" method="post" id="product_form" >
         @csrf
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="bmd-label-floating"></label>
-                    <input type="text" class="form-control" name="title" placeholder="title">
+                    <input style="height: 3rem" type="text" class="form-control" name="title" placeholder="title">
                 </div>
             </div>
-
+            <div class="col-md-3">
                 <div class="form-group">
                     <label class="bmd-label-floating"></label>
-                    <input type="text" class="form-control" name="create_by" placeholder="create_by">
+                    <input style="height: 3rem" type="text" class="form-control" name="create_by" placeholder="create_by">
                 </div>
             </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <input type="text" name="description" class="form-control"
-                               placeholder="Description">
-                    </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="bmd-label-floating"></label>
+                    <input style="height: 3rem" type="text" class="form-control" name="category_id" placeholder="create_by">
                 </div>
             </div>
+        <div class="col-md-9">
+            <div class="mb-3">
+                <textarea class="textarea" name="description" placeholder="Place some text here" style="height: 200px;width: 100%; font-size: 14px; line-height: 18px; border: 1px solid rgb(221, 221, 221); padding: 10px; display: none;">
+
+                </textarea>
+            </div>
+        </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <button type="button" id="upload_widget" class="btn btn-primary">Upload
@@ -34,16 +46,17 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="form-actions">
+        <div class="col-md-9">
             <div class="text-right">
                 <button type="submit" name="submit" class="btn btn-info">Submit</button>
                 <button type="reset" class="btn btn-dark">Reset</button>
                 <div class="clearfix"></div>
             </div>
         </div>
+        </div>
     </form>
 </div>
+    </div>
 @endsection
 @section('script')
     <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>

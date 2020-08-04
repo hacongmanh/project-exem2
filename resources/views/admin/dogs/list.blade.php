@@ -1,4 +1,4 @@
-@extends('layout.layoutadmin')
+@extends('layout.layout-admin')
 @section('main-content')
 
 
@@ -128,15 +128,14 @@
 
                                 <td>
                                     @foreach($dogs->large_photos as $photo )
-                                        <p class="card-title" style="height:75px;overflow: hidden"><img style="border-radius: 100%;
-    width: 40%;" src="{{$photo}}" class="card-img-top" alt="..."></p>
+                                        <p class="card-title" style="height:75px;overflow: hidden"><img style="border-radius: 100%;width: 40%;" src="{{$photo}}" class="card-img-top" alt="..."></p>
                                     @endforeach
                                 </td>
 
 
                                 <td>
-                                    <p style="width: 50rem" class="card-text">
-                                        {{$dogs->description}} &nbsp;
+                                    <p style="  width: 50rem" class="card-text">
+                                        {!!$dogs->description!!} &nbsp;
                                     </p>
                                 </td>
 
@@ -159,7 +158,7 @@
                                 </td>
 
                                 <td><p class="card-title"
-                                       style="height:75px;overflow: hidden ">{{$dogs->created_at}} &nbsp;</p></td>
+                                       style=" height:75px;overflow: hidden ">{{$dogs->created_at}} &nbsp;</p></td>
                                 <td><p class="card-title" style="height:75px;overflow: hidden">{{$dogs->updated_at}}
                                         &nbsp;</p></td>
                                 <td><a href="/home">Edit</a></td>

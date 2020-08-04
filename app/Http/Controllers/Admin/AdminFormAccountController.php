@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Accounts;
+use App\Account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
@@ -38,7 +38,7 @@ class AdminFormAccountController extends Controller
     public function store(Request $request)
     {
 
-        $obj = new Accounts();
+        $obj = new Account();
         $obj->user_name = $request->get('user_name');
         $obj->password_hash = $request->get('password');
         $obj->email = $request->get('email');

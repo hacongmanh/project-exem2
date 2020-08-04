@@ -4,10 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
-class Articles extends Model
+class Dog extends Model
 {
-
 
     private static $cloudinary_link = 'https://res.cloudinary.com/dzpmsbjzh/image/upload/';
 
@@ -88,6 +86,5 @@ class Articles extends Model
         }
         return $list_ids;
     }
-
 
 }

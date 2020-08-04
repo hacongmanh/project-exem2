@@ -17,12 +17,9 @@ use Illuminate\Support\Facades\Route;
 //    return view('admin.admin-form');
 //});
 
-Route::resource('admin/account','AdminAccountController');
-Route::resource('admin/form/account','AdminFormAccountController');
+Route::resource('admin/accounts','AccountController');
 
-Route::resource('admin/article','AdminArticleController');
-Route::resource('admin/form/article','AdminFormArticleController');
+Route::resource('admin/articles','Admin\ArticleController');
 
-Route::resource('admin/dog','AdminDogController');
-Route::resource('admin/form/dog','AdminFormDogController');
+Route::resource('admin/dogs','DogController');
 

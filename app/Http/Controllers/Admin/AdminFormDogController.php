@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Articles;
+use App\Article;
+use App\Dog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
-class AdminFormArticleController extends Controller
+class AdminFormDogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,7 @@ class AdminFormArticleController extends Controller
      */
     public function index()
     {
-        return view('admin/admin-form-article');
+        return view('admin/admin-form-dog');
     }
 
     /**
@@ -36,20 +37,27 @@ class AdminFormArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $obj = new Articles();
-        $obj->title = $request->get('title');
+        $obj = new Dog();
+        $obj->name = $request->get('name');
+        $obj->price = $request->get('price');
+        $obj->birthday = $request->get('birthday');
+        $obj->color = $request->get('color');
+        $obj->gender = $request->get('gender');
+        $obj->breedType = $request->get('breedType');
+        $obj->mother_id = $request->get('mother_id');
+        $obj->father_id = $request->get('father_id');
         $obj->description = $request->get('description');
+        $obj->detail = $request->get('detail');
         $obj->category_id = $request->get('category_id');
-        $obj->create_by = $request->get('create_by');
-        $thumbnails = $request->get('thumbnails');
-        foreach ($thumbnails as $thumbnail) {
+        $thumbnail = $request->get('thumbnail');
+        foreach ($thumbnail as $thumbnail) {
             $obj->thumbnail .= $thumbnail . ',';
         }
-        $obj->status = 1;
+
         $obj->updated_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->created_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->save();
-        return redirect('/admin/article');
+        return redirect('/admin/dog');
     }
 
     /**

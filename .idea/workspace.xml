@@ -20,38 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4c7edf2-0187-4b9b-9148-47e50c098774" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dog-book.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project-exem2.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Accounts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Account.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Article_Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ArticleCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Articles.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Breeds.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Breed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DogCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Dogs.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Dog.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminAccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AccountController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ArticleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminDogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DogController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminFormAccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminFormAccountController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminFormArticleController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminFormDogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminFormDogController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Order_Detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/OrderDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_25_035657_create_dogs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_25_035657_create_dogs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DogsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DogsSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/PetWarningsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PetWarningsSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/TimelineSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/TimelineSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/TraningTipsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/TraningTipsSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/admin-account.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/accounts/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/admin-article.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/articles/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/admin-dog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dogs/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/admin-form-account.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/accounts/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/admin-form-article.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/articles/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/admin-form-dog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dogs/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/layoutadmin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/layout-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/articles/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/articles/list.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,7 +182,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1596512179716</updated>
-      <workItem from="1596512184219" duration="19706000" />
+      <workItem from="1596512184219" duration="20271000" />
     </task>
     <servers />
   </component>

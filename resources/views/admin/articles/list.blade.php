@@ -144,11 +144,9 @@
                 imgName = imgName.replace('.jpg', '');
                 $('input[data-cloudinary-public-id="' + imgName + '"]').remove();
             });
-
             $('select[name="category_id"]').change(function () {
                 $('#search-form').submit();
             })
-
             // lấy tham số start và end date từ đường dẫn trên trình duyệt
             var url = new URL(location.href);
             var startTime = url.searchParams.get("start");
@@ -159,10 +157,12 @@
             if(endTime === null || endTime.length == 0){
                 endTime = new Date();
             }
+            $('input[name="start"]').val(moment(startTime).format('YYYY-MM-DD'));
+            $('input[name="end"]').val(moment(endTime).format('YYYY-MM-DD'));
             $('input[name="dates"]').daterangepicker(
                 {
-                    startDate: new Date(moment(startTime).format('DD/MM/YYYY')),
-                    endDate: new Date(moment(endTime).format('DD/MM/YYYY')),
+                    startDate: moment(startTime).format('DD/MM/YYYY'),
+                    endDate: moment(endTime).format('DD/MM/YYYY'),
                     locale: {
                         format: 'DD/MM/YYYY'
                     },

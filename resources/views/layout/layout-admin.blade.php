@@ -10,9 +10,12 @@
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
+    <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    @yield('style')
     @yield('content-header')
 </head>
-<body class="hold-transition sidebar-mini sidebar-collapse">
+<body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
     <!-- Navbar -->
@@ -171,94 +174,117 @@
                             </p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="../widgets.html" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Widgets
-                                <span class="right badge badge-danger">New</span>
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item has-treeview menu-open">
-                        <a href="#" class="nav-link active">
-                            <i class="nav-icon fas fa-copy"></i>
-                            <p>
-                                Layout Options
-                                <i class="fas fa-angle-left right"></i>
-                                <span class="badge badge-info right">6</span>
-                            </p>
-                        </a>
-                    </li>
                     <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-chart-pie"></i>
+                        <a href="/admin/dogs" class="nav-link">
+                            <i class="nav-icon fas fa-dog"></i>
                             <p>
-                                Charts
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-edit"></i>
-                            <p>
-                                Forms
+                                Quản lý chó
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="/admin/form/account" class="nav-link">
+                                <a href="/admin/dogs" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Account</p>
+                                    <p>Danh sách chó</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/form/dog" class="nav-link">
+                                <a href="/admin/dogs/create" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Dogs</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/admin/form/article" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Article</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../forms/validation.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Comment</p>
+                                    <p>Thêm mới chó</p>
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-table"></i>
+                        <a href="/admin/dogs" class="nav-link">
+                            <i class="nav-icon fas fa-stream"></i>
                             <p>
-                                Tables
+                                Quản lý danh mục chó
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="/admin/account" class="nav-link">
+                                <a href="/admin/dogs" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Account</p>
+                                    <p>Danh sách danh mục chó</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/article" class="nav-link">
+                                <a href="/admin/dogs/create" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Article</p>
+                                    <p>Thêm mới danh mục chó</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-treeview">
+                        <a href="/admin/accounts" class="nav-link">
+                            <i class="nav-icon fas fa-user-circle"></i>
+                            <p>
+                                Quản lý account
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/accounts" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Danh sách account</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/dog" class="nav-link">
+                                <a href="/admin/accounts/create" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Dogs</p>
+                                    <p>Thêm mới account</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-treeview {{($current_page == 'category-list' || $current_page == 'category-form') ? 'menu-open' : ''}}">
+                        <a href="/admin/articles" class="nav-link">
+                            <i class="nav-icon fas fa-newspaper"></i>
+                            <p>
+                                Quản lý bài viết
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview {{($current_page == 'category-list' || $current_page == 'category-form') ? 'menu-open' : ''}}">
+                            <li class="nav-item">
+                                <a href="/admin/articles" class="nav-link {{$current_page == 'category-list' ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Danh sách bài viết</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/articles/create" class="nav-link {{$current_page == 'category-form' ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Thêm mới bài viết</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-treeview">
+                        <a href="/admin/article-categories" class="nav-link">
+                            <i class="nav-icon fas fa-list"></i>
+                            <p>
+                                Quản lý danh mục bài viết
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/article-categories" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Danh sách danh mục bài viết</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/article-categories/create" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Thêm mới danh mục bài viết</p>
                                 </a>
                             </li>
                         </ul>
@@ -305,6 +331,20 @@
 <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('dist/js/demo.js')}}"></script>
+<script src="{{asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+<script>
+    $(function () {
+        // Summernote
+        $('.textarea').summernote()
+    })
+</script>
+
 @yield('script')
+
 </body>
 </html>

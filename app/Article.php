@@ -4,8 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Accounts extends Model
+
+class Article extends Model
 {
+
+
     private static $cloudinary_link = 'https://res.cloudinary.com/dzpmsbjzh/image/upload/';
 
     public function getSmallPhotoAttribute()
@@ -85,4 +88,6 @@ class Accounts extends Model
         }
         return $list_ids;
     }
+
+
 }

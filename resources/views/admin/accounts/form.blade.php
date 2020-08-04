@@ -1,4 +1,4 @@
-@extends('layout.layoutadmin')
+@extends('layout.layout-admin')
 @section('main-content')
     <div class="card-body">
         <form action="/admin/form/account" method="post" id="product_form">
@@ -44,7 +44,7 @@
                     <div class="form-group">
                         <button type="button" id="upload_widget" class="btn btn-primary">Upload files
                         </button>
-                        <div class="thumbnails">
+                        <div class="thumbnail">
 
                         </div>
                     </div>

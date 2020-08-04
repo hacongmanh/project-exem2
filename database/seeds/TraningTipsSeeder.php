@@ -17,7 +17,7 @@ class TraningTipsSeeder extends Seeder
             [
                 'id' => 1,
                 'thumbnail' => 'https://livedemo00.template-help.com/wt_55156/images/page-5_img01.jpg',
-                'description' => 'Hunting Dog Training 101: Basic Tips for Training Hunting Dogs',
+                'description' => 'Hunting Dog Training 101: Basic Tips for Training Hunting Dog',
                 'detail' => 'Nunc vestibulum massa risus, eu vulputate enim lobortis et. In semper, dui sed eleife.'
             ],
             [
@@ -35,7 +35,7 @@ class TraningTipsSeeder extends Seeder
             [
                 'id' => 4,
                 'thumbnail' => 'https://mossyoak-cezjaqp1wr.netdna-ssl.com/sites/default/files/inline-images/dog-with-duck.jpg',
-                'description' => 'Hunting Dog Training 101: Basic Tips for Training Hunting Dogs',
+                'description' => 'Hunting Dog Training 101: Basic Tips for Training Hunting Dog',
                 'detail' => 'Nunc vestibulum massa risus, eu vulputate enim lobortis et. In semper, dui sed eleife.'
             ],
             [

@@ -58,6 +58,7 @@ class ArticleController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
+     * @param $article_form
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
@@ -66,10 +67,11 @@ class ArticleController extends Controller
         $obj->title = $request->get('title');
         $obj->description = $request->get('description');
         $obj->category_id = $request->get('category_id');
-        $obj->create_by = $request->get('create_by');
-        $thumbnails = $request->get('thumbnails');
-        foreach ($thumbnails as $thumbnail) {
-            $obj->thumbnail .= $thumbnail . ',';
+        $obj->create_by = 2;
+        $obj->status = 0;
+        $thumbnail = $request->get('thumbnails');
+        foreach ($thumbnail as $thumbnails) {
+            $obj->thumbnail .= $thumbnails . ',';
         }
         $obj->status = 1;
         $obj->updated_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
@@ -91,7 +93,7 @@ class ArticleController extends Controller
         if ($article == null) {
             return view('error')->with('msg', 'Category không tồn tại!');
         }
-        return view('article.detail')->with('article', $article)->with('list_artucle', $list_article);
+        return view('article.detail')->with('article', $article)->with('list_article', $list_article);
     }
 
     /**

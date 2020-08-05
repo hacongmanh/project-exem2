@@ -2,30 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Articles;
+use App\Account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
-class AdminFormArticleController extends Controller
+class AdminFormAccountController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        return view('admin/admin-form-article');
+        return view('admin/admin-form-account');
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
-        //
+
+
     }
 
     /**
@@ -36,21 +37,24 @@ class AdminFormArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $obj = new Articles();
-        $obj->title = $request->get('title');
-        $obj->description = $request->get('description');
-        $obj->category_id = $request->get('category_id');
-        $obj->create_by = $request->get('create_by');
+
+        $obj = new Account();
+        $obj->user_name = $request->get('user_name');
+        $obj->password_hash = $request->get('password');
+        $obj->email = $request->get('email');
+        $obj->full_name = $request->get('full_name');
+        $obj->phone = $request->get('phone');
+        $obj->address = $request->get('address');
         $thumbnails = $request->get('thumbnails');
         foreach ($thumbnails as $thumbnail) {
             $obj->thumbnail .= $thumbnail . ',';
         }
-        $obj->status = 1;
+        $obj->role = 1;
         $obj->updated_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->created_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->save();
-        return redirect('/admin/article');
-    }
+        return redirect('/admin/account');
+            }
 
     /**
      * Display the specified resource.

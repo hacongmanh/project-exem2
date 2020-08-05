@@ -26,7 +26,7 @@ class CreateDogsTable extends Migration
             $table->foreign('breedType')->references('id')->on('breeds');
 //            $table->string('	breedType');
             $table->string('color');
-            $table->string('thumbnails');
+            $table->string('thumbnail');
             $table->text('description');
             $table->text('detail');
 

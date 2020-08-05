@@ -1,4 +1,4 @@
-@extends('layout.layoutadmin')
+@extends('layout.layout-admin')
 @section('main-content')
     <div class="content">
         <div class="container-fluid">
@@ -12,12 +12,37 @@
                     </div>
                 </div>
     </div>
-    <div class="col-md-12">
-        <div class="card card-plain">
-            <div class="card-header card-header-primary">
-                <h4 class="card-title mt-0">User information</h4>
 
+{{--            <div class="col-md-12">--}}
+{{--                <div class="card card-plain">--}}
+{{--                    <div class="card-header card-header-primary">--}}
+{{--                        <h4 class="card-title mt-0">User information</h4>--}}
+{{--                        <div class="form-group ">--}}
+{{--                            <label>Account</label>--}}
+{{--                            <select name="status">--}}
+{{--                                @foreach($listAccount ?? '' as $cate)--}}
+{{--                                    <option type="button" value="{{$cate->id}}">{{$cate->status}}</option>--}}
+{{--                                @endforeach--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
+                <div class="">
+                    <form action="">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1"></label>
+                                <input value="" type="text" name="keyword" class="form-control" placeholder="Search by keyword">
+                                <input type="submit" style="visibility: hidden;"/>
+                            </div>
+                        </div>
+                    </form>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Search by time</label>
+                    <input type="text" name="dates" class="form-control">
+                    <input type="hidden" name="start">
+                    <input type="hidden" name="end">
+                </div>
             </div>
+
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-hover">
@@ -100,7 +125,8 @@
                                 </td>
                                 <td>
                                     @foreach($accounts->large_photos as $photo )
-                                        <p class="card-title" style="height:75px;overflow: hidden"><img src="{{$photo}}" class="card-img-top" alt="..."></p>
+                                        <p class="card-title" style="height:75px;overflow: hidden"><img style="border-radius: 100%;
+    width: 40%;" src="{{$photo}}" class="card-img-top" alt="..."></p>
                                     @endforeach
                                 </td>
                                 <td>

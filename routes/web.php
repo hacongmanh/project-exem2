@@ -17,8 +17,12 @@ use Illuminate\Support\Facades\Route;
 //    return view('admin.admin-form');
 //});
 
-Route::resource('admin/account','AdminAccountController');
-Route::resource('admin/form/account','AdminFormAccountController');
+Route::resource('admin/accounts','AccountController');
+
+Route::resource('admin/articles','Admin\ArticleController');
+
+Route::resource('admin/dogs','DogController');
+
 
 Route::resource('admin/article','AdminArticleController');
 Route::resource('admin/form/article','AdminFormArticleController');
@@ -43,3 +47,5 @@ Route::get('/timeline', function () {
 Route::get('/flow', function () {
     return view('home.pagination.flow');
 });
+=======
+

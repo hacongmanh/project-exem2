@@ -23,3 +23,29 @@ Route::resource('admin/articles','Admin\ArticleController');
 
 Route::resource('admin/dogs','DogController');
 
+
+Route::resource('admin/article','AdminArticleController');
+Route::resource('admin/form/article','AdminFormArticleController');
+Route::get('/', function () {
+    return view('home.pagination.home');
+});
+Route::get('/about', function () {
+    return view('home.pagination.about');
+});
+Route::get('/contact', function () {
+    return view('home.pagination.contact');
+});
+Route::get('/blog', function () {
+    return view('home.pagination.blog');
+});
+Route::get('/transfer', function () {
+    return view('home.pagination.transfer');
+});
+Route::get('/timeline', function () {
+    return view('home.pagination.timeline');
+});
+Route::get('/flow', function () {
+    return view('home.pagination.flow');
+});
+=======
+

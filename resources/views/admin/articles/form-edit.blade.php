@@ -20,7 +20,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Tiêu đề bài viết</label>
-                                <input name="title" type="text" class="form-control" id="title">
+                                <input name="title" type="text" class="form-control" id="title" value="{{$obj->title}}">
                                 @if($errors->has('title'))
                                     <span class="text-danger">* {{$errors->first('title')}}</span>
                                 @endif
@@ -29,7 +29,8 @@
                                 <select name="category_id" class="custom-select">
                                     <option value="0">Loại Chó</option>
                                     @foreach( $article_categories  as $cate)
-                                        <option value="{{$cate->id}}">{{$cate->name}}</option>
+                                        <option
+                                            value="{{$cate->id}}" {{$cate->id == $obj->category_id ? 'selected' : ''}}>{{$cate->name}}</option>
                                     @endforeach
                                     @if($errors->has('category_id'))
                                         <span class="text-danger">* {{$errors->first('category_id')}}</span>
@@ -40,7 +41,8 @@
                                 <label>Mô tả bài viết</label>
                                 <textarea class="textarea" name="description"
                                           style="width: 100%; height: 200px; font-size: 14px; line-height: 18px;
-                                           border: 1px solid rgb(221, 221, 221); padding: 10px; display: none;"></textarea>
+                                           border: 1px solid rgb(221, 221, 221); padding: 10px; display: none;">
+                                   </textarea>
                                 @if($errors->has('description'))
                                     <span class="text-danger">* {{$errors->first('description')}}</span>
                                 @endif
@@ -61,6 +63,7 @@
                         <div class="col-1"></div>
                     </form>
                 </div>
+
                 @endsection
                 @section('script')
                     <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
@@ -105,7 +108,10 @@
                                 console.error(error);
                             });
                     </script>
+
+                  
 @endsection
+
 
 
 

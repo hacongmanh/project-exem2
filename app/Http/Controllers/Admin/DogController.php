@@ -20,6 +20,7 @@ class DogController extends Controller
         $data = array();
         $data['category_id'] = 0;
         $data['keyword'] = '';
+        $article_categories = Dog::all();
         $dogs = Dog::all();
         $dogs_list = Dog::query();
         if ($request->has('name') && $request->get('name') != 0) {
@@ -41,25 +42,26 @@ class DogController extends Controller
             ->orderBy('created_at', 'DESC')
             ->paginate(5);
         $data['categories'] = $dogs;
-        return view('admin.admin-dog')
+        $data['article_categories'] = $article_categories;
+        return view('admin.dogs.list')
             ->with($data);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
-        return view('admin/admin-form-dog');
+        return view('admin.dogs.form');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
@@ -84,7 +86,7 @@ class DogController extends Controller
         $obj->updated_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->created_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->save();
-        return redirect('/admin/dog');
+        return redirect('/admin/dogs/list');
     }
 
     /**

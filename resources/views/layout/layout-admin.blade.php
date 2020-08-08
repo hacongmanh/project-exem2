@@ -243,29 +243,29 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item has-treeview {{($current_page == 'category-list' || $current_page == 'category-form') ? 'menu-open' : ''}}">
-                        <a href="/admin/articles" class="nav-link">
-                            <i class="nav-icon fas fa-newspaper"></i>
-                            <p>
-                                Quản lý bài viết
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview {{($current_page == 'category-list' || $current_page == 'category-form') ? 'menu-open' : ''}}">
-                            <li class="nav-item">
-                                <a href="/admin/articles" class="nav-link {{$current_page == 'category-list' ? 'active' : ''}}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Danh sách bài viết</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/admin/articles/create" class="nav-link {{$current_page == 'category-form' ? 'active' : ''}}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Thêm mới bài viết</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+{{--                    <li class="nav-item has-treeview {{($current_page == 'category-list' || $current_page == 'category-form') ? 'menu-open' : ''}}">--}}
+{{--                        <a href="/admin/articles" class="nav-link">--}}
+{{--                            <i class="nav-icon fas fa-newspaper"></i>--}}
+{{--                            <p>--}}
+{{--                                Quản lý bài viết--}}
+{{--                                <i class="fas fa-angle-left right"></i>--}}
+{{--                            </p>--}}
+{{--                        </a>--}}
+{{--                        <ul class="nav nav-treeview {{($current_page == 'category-list' || $current_page == 'category-form') ? 'menu-open' : ''}}">--}}
+{{--                            <li class="nav-item">--}}
+{{--                                <a href="/admin/articles" class="nav-link {{$current_page == 'category-list' ? 'active' : ''}}">--}}
+{{--                                    <i class="far fa-circle nav-icon"></i>--}}
+{{--                                    <p>Danh sách bài viết</p>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item">--}}
+{{--                                <a href="/admin/articles/create" class="nav-link {{$current_page == 'category-form' ? 'active' : ''}}">--}}
+{{--                                    <i class="far fa-circle nav-icon"></i>--}}
+{{--                                    <p>Thêm mới bài viết</p>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </li>--}}
                     <li class="nav-item has-treeview">
                         <a href="/admin/article-categories" class="nav-link">
                             <i class="nav-icon fas fa-list"></i>

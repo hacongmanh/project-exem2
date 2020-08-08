@@ -21,5 +21,5 @@ Route::resource('admin/accounts','AccountController');
 
 Route::resource('admin/articles','Admin\ArticleController');
 
-Route::resource('admin/dogs','DogController');
+Route::resource('admin/dogs','Admin\DogController');
 

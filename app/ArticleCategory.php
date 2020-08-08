@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class ArticleCategory extends Model
 {
- update
     private static $cloudinary_link = 'https://res.cloudinary.com/phong/image/upload/';
 
     public function getSmallPhotoAttribute()
@@ -86,8 +85,4 @@ class ArticleCategory extends Model
         }
         return $list_ids;
     }
-
-
-    //
- master
 }

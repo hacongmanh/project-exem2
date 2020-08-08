@@ -1,8 +1,5 @@
- update
 @extends('layout.layout-admin', ['current_page' => 'article-category-list'])
 
-@extends('layout.layout-admin', ['current_page' => 'article-list'])
- master
 @section('main-content')
     <div class="row">
         <div class="col-12">
@@ -69,7 +66,6 @@
                                     <th>Thao tác</th>
                                     </thead>
                                     <tbody>
- update
                                     @foreach($list as $articles)
                                         <tr>
                                             <td>{{$articles->id}}</td>

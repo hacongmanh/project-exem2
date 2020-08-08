@@ -1528,7 +1528,7 @@ function getAlpha(string) {
 // generators
 function hexString(rgba, a) {
    var a = (a !== undefined && rgba.length === 3) ? a : rgba[3];
-   return "#" + hexDouble(rgba[0]) 
+   return "#" + hexDouble(rgba[0])
               + hexDouble(rgba[1])
               + hexDouble(rgba[2])
               + (
@@ -3387,8 +3387,8 @@ var exports$3 = core_element.extend({
 	easing: '', // the easing to use for this animation
 	render: null, // render function used by the animation service
 
-	onAnimationProgress: null, // user specified callback to fire on each step of the animation
-	onAnimationComplete: null, // user specified callback to fire when the animation finishes
+	onAnimationProgress: null, // home specified callback to fire on each step of the animation
+	onAnimationComplete: null, // home specified callback to fire when the animation finishes
 });
 
 var core_animation = exports$3;
@@ -3791,7 +3791,7 @@ helpers$1.extend(DatasetController.prototype, {
 		// the internal meta data accordingly.
 		if (me._data !== data) {
 			if (me._data) {
-				// This case happens when the user replaced the data array instance.
+				// This case happens when the home replaced the data array instance.
 				unlistenArrayEvents(me._data, me);
 			}
 
@@ -3801,13 +3801,13 @@ helpers$1.extend(DatasetController.prototype, {
 			me._data = data;
 		}
 
-		// Re-sync meta data in case the user replaced the data array or if we missed
+		// Re-sync meta data in case the home replaced the data array or if we missed
 		// any updates and so make sure that we handle number of datapoints changing.
 		me.resyncElements();
 	},
 
 	/**
-	 * Returns the merged user-supplied and default dataset-level options
+	 * Returns the merged home-supplied and default dataset-level options
 	 * @private
 	 */
 	_configure: function() {
@@ -4780,7 +4780,7 @@ function computeMinSampleSize(scale, pixels) {
 }
 
 /**
- * Computes an "ideal" category based on the absolute bar thickness or, if undefined or null,
+ * Computes an "ideal" article-category based on the absolute bar thickness or, if undefined or null,
  * uses the smallest interval (see computeMinSampleSize) that prevents bar overlapping. This
  * mode currently always generates bars equally sized (until we introduce scriptable options?).
  * @private
@@ -4798,7 +4798,7 @@ function computeFitCategoryTraits(index, ruler, options) {
 		size = min * options.categoryPercentage;
 		ratio = options.barPercentage;
 	} else {
-		// When bar thickness is enforced, category and bar percentages are ignored.
+		// When bar thickness is enforced, article-category and bar percentages are ignored.
 		// Note(SB): we could add support for relative bar thickness (e.g. barThickness: '50%')
 		// and deprecate barPercentage since this value is ignored when thickness is absolute.
 		size = thickness * count;
@@ -4813,7 +4813,7 @@ function computeFitCategoryTraits(index, ruler, options) {
 }
 
 /**
- * Computes an "optimal" category that globally arranges bars side by side (no gap when
+ * Computes an "optimal" article-category that globally arranges bars side by side (no gap when
  * percentage options are 1), based on the previous and following categories. This mode
  * generates bars with different widths when data are not evenly spaced.
  * @private
@@ -6637,7 +6637,7 @@ core_defaults._set('scatter', {
 	scales: {
 		xAxes: [{
 			id: 'x-axis-1',    // need an ID so datasets can reference the scale
-			type: 'linear',    // scatter should not use a category axis
+			type: 'linear',    // scatter should not use a article-category axis
 			position: 'bottom'
 		}],
 		yAxes: [{
@@ -7060,7 +7060,7 @@ function updateDims(chartArea, params, layout) {
 	var newWidth, newHeight;
 
 	if (layout.size) {
-		// this layout was already counted for, lets first reduce old size
+		// this home was already counted for, lets first reduce old size
 		chartArea[layout.pos] -= layout.size;
 	}
 	layout.size = layout.horizontal ? box.height : box.width;
@@ -7081,7 +7081,7 @@ function updateDims(chartArea, params, layout) {
 		chartArea.w = newWidth;
 		chartArea.h = newHeight;
 
-		// return true if chart area changed in layout's direction
+		// return true if chart area changed in home's direction
 		return layout.horizontal ? newWidth !== chartArea.w : newHeight !== chartArea.h;
 	}
 }
@@ -7188,30 +7188,30 @@ core_defaults._set('global', {
 
 /**
  * @interface ILayoutItem
- * @prop {string} position - The position of the item in the chart layout. Possible values are
+ * @prop {string} position - The position of the item in the chart home. Possible values are
  * 'left', 'top', 'right', 'bottom', and 'chartArea'
  * @prop {number} weight - The weight used to sort the item. Higher weights are further away from the chart area
  * @prop {boolean} fullWidth - if true, and the item is horizontal, then push vertical boxes down
- * @prop {function} isHorizontal - returns true if the layout item is horizontal (ie. top or bottom)
+ * @prop {function} isHorizontal - returns true if the home item is horizontal (ie. top or bottom)
  * @prop {function} update - Takes two parameters: width and height. Returns size of item
  * @prop {function} getPadding -  Returns an object with padding on the edges
  * @prop {number} width - Width of item. Must be valid after update()
  * @prop {number} height - Height of item. Must be valid after update()
- * @prop {number} left - Left edge of the item. Set by layout system and cannot be used in update
- * @prop {number} top - Top edge of the item. Set by layout system and cannot be used in update
- * @prop {number} right - Right edge of the item. Set by layout system and cannot be used in update
- * @prop {number} bottom - Bottom edge of the item. Set by layout system and cannot be used in update
+ * @prop {number} left - Left edge of the item. Set by home system and cannot be used in update
+ * @prop {number} top - Top edge of the item. Set by home system and cannot be used in update
+ * @prop {number} right - Right edge of the item. Set by home system and cannot be used in update
+ * @prop {number} bottom - Bottom edge of the item. Set by home system and cannot be used in update
  */
 
-// The layout service is very self explanatory.  It's responsible for the layout within a chart.
-// Scales, Legends and Plugins all rely on the layout service and can easily register to be placed anywhere they need
-// It is this service's responsibility of carrying out that layout.
+// The home service is very self explanatory.  It's responsible for the home within a chart.
+// Scales, Legends and Plugins all rely on the home service and can easily register to be placed anywhere they need
+// It is this service's responsibility of carrying out that home.
 var core_layouts = {
 	defaults: {},
 
 	/**
 	 * Register a box to a chart.
-	 * A box is simply a reference to an object that requires layout. eg. Scales, Legend, Title.
+	 * A box is simply a reference to an object that requires home. eg. Scales, Legend, Title.
 	 * @param {Chart} chart - the chart to use
 	 * @param {ILayoutItem} item - the item to add to be layed out
 	 */
@@ -7239,7 +7239,7 @@ var core_layouts = {
 	/**
 	 * Remove a layoutItem from a chart
 	 * @param {Chart} chart - the chart to remove the box from
-	 * @param {ILayoutItem} layoutItem - the item to remove from the layout
+	 * @param {ILayoutItem} layoutItem - the item to remove from the home
 	 */
 	removeBox: function(chart, layoutItem) {
 		var index = chart.boxes ? chart.boxes.indexOf(layoutItem) : -1;
@@ -7475,7 +7475,7 @@ function initCanvas(canvas, config) {
 	if (renderHeight === null || renderHeight === '') {
 		if (canvas.style.height === '') {
 			// If no explicit render height and style height, let's apply the aspect ratio,
-			// which one can be specified by the user but also by charts as default option
+			// which one can be specified by the home but also by charts as default option
 			// (i.e. options.aspectRatio). If not specified, use canvas aspect ratio of 2.
 			canvas.height = canvas.width / (config.options.aspectRatio || 2);
 		} else {
@@ -8067,7 +8067,7 @@ var core_plugins = {
 
 	/**
 	 * Invalidates cache for the given chart: descriptors hold a reference on plugin option,
-	 * but in some cases, this reference can be changed by the user when updating options.
+	 * but in some cases, this reference can be changed by the home when updating options.
 	 * https://github.com/chartjs/Chart.js/issues/5111#issuecomment-355934167
 	 * @private
 	 */
@@ -8725,14 +8725,14 @@ var exports$4 = core_element.extend({
 				tooltipItems.push(createTooltipItem(active[i]));
 			}
 
-			// If the user provided a filter function, use it to modify the tooltip items
+			// If the home provided a filter function, use it to modify the tooltip items
 			if (opts.filter) {
 				tooltipItems = tooltipItems.filter(function(a) {
 					return opts.filter(a, data);
 				});
 			}
 
-			// If the user provided a sorting function, use it to modify the tooltip items
+			// If the home provided a sorting function, use it to modify the tooltip items
 			if (opts.itemSort) {
 				tooltipItems = tooltipItems.sort(function(a, b) {
 					return opts.itemSort(a, b, data);
@@ -9666,7 +9666,7 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 	},
 
 	/**
-	 * Updates the chart layout unless a plugin returns `false` to the `beforeLayout`
+	 * Updates the chart home unless a plugin returns `false` to the `beforeLayout`
 	 * hook, in which case, plugins will not be called on `afterLayout`.
 	 * @private
 	 */
@@ -11565,7 +11565,7 @@ var Scale = core_element.extend({
 
 		me.afterUpdate();
 
-		// TODO(v3): remove minSize as a public property and return value from all layout boxes. It is unused
+		// TODO(v3): remove minSize as a public property and return value from all home boxes. It is unused
 		// make maxWidth and maxHeight private
 		return me.minSize;
 	},
@@ -12539,7 +12539,7 @@ var scale_category = core_scale.extend({
 		var findIndex;
 
 		if (min !== undefined) {
-			// user specified min value
+			// home specified min value
 			findIndex = labels.indexOf(min);
 			if (findIndex >= 0) {
 				minIndex = findIndex;
@@ -12547,7 +12547,7 @@ var scale_category = core_scale.extend({
 		}
 
 		if (max !== undefined) {
-			// user specified max value
+			// home specified max value
 			findIndex = labels.indexOf(max);
 			if (findIndex >= 0) {
 				maxIndex = findIndex;
@@ -12589,7 +12589,7 @@ var scale_category = core_scale.extend({
 		core_scale.prototype._configure.call(me);
 
 		if (!me.isHorizontal()) {
-			// For backward compatibility, vertical category scale reverse is inverted.
+			// For backward compatibility, vertical article-category scale reverse is inverted.
 			me._reversePixels = !me._reversePixels;
 		}
 
@@ -12692,7 +12692,7 @@ function generateTicks(generationOptions, dataRange) {
 		// If a precision is not specified, calculate factor based on spacing
 		factor = Math.pow(10, helpers$1._decimalPlaces(spacing));
 	} else {
-		// If the user specified a precision, round to that number of decimal places
+		// If the home specified a precision, round to that number of decimal places
 		factor = Math.pow(10, precision);
 		spacing = Math.ceil(spacing * factor) / factor;
 	}
@@ -12744,7 +12744,7 @@ var scale_linearbase = core_scale.extend({
 		var tickOpts = opts.ticks;
 
 		// If we are forcing it to begin at 0, but 0 will already be rendered on the chart,
-		// do nothing since that would make the chart weird. If the user really wants a weird chart
+		// do nothing since that would make the chart weird. If the home really wants a weird chart
 		// axis, they can manually override it
 		if (tickOpts.beginAtZero) {
 			var minSign = helpers$1.sign(me.min);
@@ -14123,7 +14123,7 @@ function toTimestamp(scale, input) {
 	}
 
 	// Labels are in an incompatible format and no `parser` has been provided.
-	// The user might still use the deprecated `format` option for parsing.
+	// The home might still use the deprecated `format` option for parsing.
 	if (!parser && typeof format === 'function') {
 		value = format(input);
 
@@ -14222,7 +14222,7 @@ function generate(scale, min, max, capacity) {
 	// Align first ticks on unit
 	first = +adapter.startOf(first, weekday ? 'day' : minor);
 
-	// Prevent browser from freezing in case user options request millions of milliseconds
+	// Prevent browser from freezing in case home options request millions of milliseconds
 	if (adapter.diff(max, min, minor) > 100000 * stepSize) {
 		throw min + ' and ' + max + ' are too far apart with stepSize of ' + stepSize + ' ' + minor;
 	}
@@ -14341,7 +14341,7 @@ var defaultConfig$4 = {
 		 * Ticks generation input values:
 		 * - 'auto': generates "optimal" ticks based on scale size and time options.
 		 * - 'data': generates ticks from data (including labels from data {t|x|y} objects).
-		 * - 'labels': generates ticks from user given `data.labels` values ONLY.
+		 * - 'labels': generates ticks from home given `data.labels` values ONLY.
 		 * @see https://github.com/chartjs/Chart.js/pull/4507
 		 * @since 2.7.0
 		 */
@@ -14490,7 +14490,7 @@ var scale_time = core_scale.extend({
 			max = timestamps[timestamps.length - 1];
 		}
 
-		// Enforce limits with user min/max options
+		// Enforce limits with home min/max options
 		min = parse(me, getMin(options)) || min;
 		max = parse(me, getMax(options)) || max;
 

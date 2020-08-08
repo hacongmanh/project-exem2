@@ -151,13 +151,23 @@
 
         <!-- Sidebar -->
         <div class="sidebar">
-            <!-- Sidebar user (optional) -->
+ update
+            <!-- Sidebar home (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
                     <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
                     <a href="#" class="d-block">Alexander Pierce</a>
+
+            <!-- Sidebar user (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="https://gudlogo.com/wp-content/uploads/2019/05/logo-cho-husky-36.png" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">Dog Management</a>
+ master
                 </div>
             </div>
 
@@ -243,6 +253,7 @@
                             </li>
                         </ul>
                     </li>
+ quan-assment-8/8
 {{--                    <li class="nav-item has-treeview {{($current_page == 'category-list' || $current_page == 'category-form') ? 'menu-open' : ''}}">--}}
 {{--                        <a href="/admin/articles" class="nav-link">--}}
 {{--                            <i class="nav-icon fas fa-newspaper"></i>--}}
@@ -266,14 +277,81 @@
 {{--                            </li>--}}
 {{--                        </ul>--}}
 {{--                    </li>--}}
+
+ update
+                    <li class="nav-item has-treeview {{($current_page == 'article-category-list' || $current_page == 'article-category-form') ? 'menu-open' : ''}}">
+
+                   <li class="nav-item has-treeview {{($current_page == 'article-list' || $current_page == 'article-form' || $current_page == 'article-edit') ? 'menu-open' : ''}}">
+ master
+                        <a href="/admin/articles" class="nav-link">
+                            <i class="nav-icon fas fa-newspaper"></i>
+                            <p>
+                                Quản lý bài viết
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+ update
+                        <ul class="nav nav-treeview {{($current_page == 'article-category-list' || $current_page == 'article-category-form') ? 'menu-open' : ''}}">
+                            <li class="nav-item">
+                                <a href="/admin/articles" class="nav-link {{$current_page == 'article-category-list' ? 'active' : ''}}">
+
+                        <ul class="nav nav-treeview {{($current_page == 'article-edit' || $current_page == 'article-form') ? 'menu-open' : ''}}">
+                            <li class="nav-item">
+                                <a href="/admin/articles" class="nav-link {{($current_page == 'article-list') ? 'active' : ''}}">
+ master
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Danh sách bài viết</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+ update
+                                <a href="/admin/articles/create" class="nav-link {{$current_page == 'article-category-form' ? 'active' : ''}}">
+
+                                <a href="/admin/articles/create" class="nav-link {{($current_page == 'article-form') ? 'active' : ''}}">
+ master
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Thêm mới bài viết</p>
+                                </a>
+                            </li>
+ update
+                        </ul>
+                    </li>
+                    <li class="nav-item has-treeview {{($current_page == 'categories-list' || $current_page == 'categories-form') ? 'menu-open' : ''}}">
+                        <a href="/admin/article-categories" class="nav-link ">
+
+                          @if($current_page == 'article-edit')
+                            <li class="nav-item">
+                                <a href="{{Request::url()}}" class="nav-link {{($current_page == 'article-edit') ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Sửa bài viết</p>
+                                </a>
+                            </li>
+                            @endif
+                        </ul>
+                    </li>
+ master
                     <li class="nav-item has-treeview">
                         <a href="/admin/article-categories" class="nav-link">
+ master
                             <i class="nav-icon fas fa-list"></i>
                             <p>
                                 Quản lý danh mục bài viết
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
+ update
+                        <ul class="nav nav-treeview {{($current_page == 'categories-list' || $current_page == 'categories-form') ? 'menu-open' : ''}}">
+                            <li class="nav-item">
+                                <a href="/admin/article-categories" class="nav-link {{$current_page == 'categories-list' ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Ds danh mục bài viết</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/article-categories/create" class="nav-link {{$current_page == 'categories-form' ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Thêm danh mục bài viết</p>
+
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="/admin/article-categories" class="nav-link">
@@ -285,6 +363,7 @@
                                 <a href="/admin/article-categories/create" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Thêm mới danh mục bài viết</p>
+master
                                 </a>
                             </li>
                         </ul>
@@ -312,7 +391,11 @@
         <div class="float-right d-none d-sm-block">
             <b>Version</b> 3.1.0-pre
         </div>
+ update
         <strong>Copyright &copy; 2014-2020 <a href="/home">home</a>.</strong> All rights reserved.
+
+        <strong>Copyright © 2020-2021,Nhóm 1- TT1908M <a href="https://aptech.fpt.edu.vn/">Trường FPT APTECH</a>.</strong>  Tôn Thất Thuyết -Mỹ Đình- Hà Nội.
+ master
     </footer>
 
     <!-- Control Sidebar -->

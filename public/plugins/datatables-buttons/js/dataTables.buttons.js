@@ -65,7 +65,7 @@ function _fadeOut(el, duration, fn) {
 	}
 	else {
 		el.css('display', 'none');
-		
+
 		if (fn) {
 			fn.call(el);
 		}
@@ -81,7 +81,7 @@ var Buttons = function( dt, config )
 {
 	// If not created with a `new` keyword then we return a wrapper function that
 	// will take the settings object for a DT. This allows easy use of new instances
-	// with the `layout` option - e.g. `topLeft: $.fn.dataTable.Buttons( ... )`.
+	// with the `home` option - e.g. `topLeft: $.fn.dataTable.Buttons( ... )`.
 	if ( !(this instanceof Buttons) ) {
 		return function (settings) {
 			return new Buttons( settings, dt ).container();
@@ -90,9 +90,9 @@ var Buttons = function( dt, config )
 
 	// If there is no config set it to an empty object
 	if ( typeof( config ) === 'undefined' ) {
-		config = {};	
+		config = {};
 	}
-	
+
 	// Allow a boolean true for defaults
 	if ( config === true ) {
 		config = {};
@@ -241,7 +241,7 @@ $.extend( Buttons.prototype, {
 		// needed). Take a copy as the array is modified by `remove`
 		var buttons = this.s.buttons.slice();
 		var i, ien;
-		
+
 		for ( i=0, ien=buttons.length ; i<ien ; i++ ) {
 			this.remove( buttons[i].node );
 		}
@@ -594,7 +594,7 @@ $.extend( Buttons.prototype, {
 			config.action.call( dt.button( button ), e, dt, button, config );
 
 			$(dt.table().node()).triggerHandler( 'buttons-action.dt', [
-				dt.button( button ), dt, button, config 
+				dt.button( button ), dt, button, config
 			] );
 		};
 
@@ -1080,7 +1080,7 @@ $.extend( Buttons.prototype, {
 			var buttonsLeft = hostNode.offset().left;
 			var buttonsWidth = hostNode.outerWidth()
 			var buttonsRight = buttonsLeft + buttonsWidth;
-			
+
 			// You've then got all the numbers you need to do some calculations and if statements,
 			//  so we can do some quick JS maths and apply it only once
 			// If it has the right align class OR the buttons are right aligned,
@@ -1093,9 +1093,9 @@ $.extend( Buttons.prototype, {
 				if(tableLeft > (popoverLeft + popoverShuffle)){
 					var leftGap = tableLeft - (popoverLeft + popoverShuffle);
 					var rightGap = tableRight - (popoverRight + popoverShuffle);
-	
+
 					if(leftGap > rightGap){
-						popoverShuffle += rightGap; 
+						popoverShuffle += rightGap;
 					}
 					else {
 						popoverShuffle += leftGap;
@@ -1122,7 +1122,7 @@ $.extend( Buttons.prototype, {
 			}
 
 			display.css('left', display.position().left + popoverShuffle);
-			
+
 		}
 		else {
 			// Fix position - centre on screen
@@ -1183,7 +1183,7 @@ $.extend( Buttons.prototype, {
 /**
  * Show / hide a background layer behind a collection
  * @param  {boolean} Flag to indicate if the background should be shown or
- *   hidden 
+ *   hidden
  * @param  {string} Class to assign to the background
  * @static
  */
@@ -1269,7 +1269,7 @@ Buttons.instanceSelector = function ( group, buttons )
 			ret.push( buttons[ input ].inst );
 		}
 	};
-	
+
 	process( group );
 
 	return ret;
@@ -2002,7 +2002,7 @@ var _exportData = function ( dt, inOpts )
 			return config.format.footer( el ? el.innerHTML : '', idx, el );
 		} ).toArray() :
 		null;
-	
+
 	// If Select is available on this table, and any rows are selected, limit the export
 	// to the selected rows. If no rows are selected, all rows will be exported. Specify
 	// a `selected` modifier to control directly.
@@ -2094,7 +2094,7 @@ DataTable.ext.feature.push( {
 	cFeature: "B"
 } );
 
-// DataTables 2 layout feature
+// DataTables 2 home feature
 if ( DataTable.ext.features ) {
 	DataTable.ext.features.register( 'buttons', _init );
 }

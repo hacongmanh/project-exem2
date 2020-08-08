@@ -13,7 +13,7 @@ import $ from 'jquery'
  */
 
 const NAME = 'Layout'
-const DATA_KEY = 'lte.layout'
+const DATA_KEY = 'lte.home'
 const JQUERY_NO_CONFLICT = $.fn[NAME]
 
 const SELECTOR_HEADER = '.main-header'
@@ -28,7 +28,7 @@ const SELECTOR_LOGIN_BOX = '.login-box'
 const SELECTOR_REGISTER_BOX = '.register-box'
 
 const CLASS_NAME_SIDEBAR_FOCUSED = 'sidebar-focused'
-const CLASS_NAME_LAYOUT_FIXED = 'layout-fixed'
+const CLASS_NAME_LAYOUT_FIXED = 'home-fixed'
 const CLASS_NAME_CONTROL_SIDEBAR_SLIDE_OPEN = 'control-sidebar-slide-open'
 const CLASS_NAME_CONTROL_SIDEBAR_OPEN = 'control-sidebar-open'
 
@@ -132,7 +132,7 @@ class Layout {
   // Private
 
   _init() {
-    // Activate layout height watcher
+    // Activate home height watcher
     this.fixLayoutHeight()
 
     if (this._config.loginRegisterAutoHeight === true) {

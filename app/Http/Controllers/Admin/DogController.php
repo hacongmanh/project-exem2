@@ -42,19 +42,43 @@ class DogController extends Controller
             ->orderBy('created_at', 'DESC')
             ->paginate(5);
         $data['categories'] = $dogs;
+ quan-assment-8/8
         $data['article_categories'] = $article_categories;
         return view('admin.dogs.list')
+
+ update
+        return view('admin.dogs.list')
+
+        return view('admin.admin-dog')
+ master
+ master
             ->with($data);
     }
 
     /**
      * Show the form for creating a new resource.
      *
+ quan-assment-8/8
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
         return view('admin.dogs.form');
+
+ update
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function create()
+    {
+        return view('admin.dogs.form');
+
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('admin/admin-form-dog');
+ master
+ master
     }
 
     /**
@@ -78,15 +102,29 @@ class DogController extends Controller
         $obj->description = $request->get('description');
         $obj->detail = $request->get('detail');
         $obj->category_id = $request->get('category_id');
+ update
         $thumbnail = $request->get('thumbnail');
         foreach ($thumbnail as $thumbnail) {
             $obj->thumbnail .= $thumbnail . ',';
+
+        $thumbnail = $request->get('thumbnails');
+        foreach ($thumbnail as $thumbnails) {
+            $obj->thumbnail .= $thumbnails . ',';
+ master
         }
 
         $obj->updated_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->created_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->save();
+ quan-assment-8/8
         return redirect('/admin/dogs/list');
+
+ update
+        return redirect('/admin/dogs');
+
+        return redirect('/admin/dog');
+ master
+ master
     }
 
     /**

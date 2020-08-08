@@ -7,11 +7,69 @@
     </style>
 @endsection
 @section('main-content')
+ quan-assment-8/8
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Thêm mới chó</h3>
+
+    <div class="container-fluid">
+        <div class="col-md-12">
+ update
+        <form action="/admin/dogs" method="post" id="product_form">
+
+        <form action="/admin/dog" method="post" id="product_form">
+ master
+            @csrf
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="form-group">
+                        <label class="bmd-label-floating"></label>
+                        <input style="height: 3rem" type="text" class="form-control" name="name" placeholder="title">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <label class="bmd-label-floating"></label>
+                    <input style="height: 3rem" type="text" class="form-control" name="price" placeholder="price">
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <label class="bmd-label-floating"></label>
+                    <input style="height: 3rem" type="text" class="form-control" name="birthday" placeholder="birthday">
+                </div>
+            </div>       <div class="col-md-9">
+                <div class="form-group">
+                    <label class="bmd-label-floating"></label>
+                    <input style="height: 3rem" type="text" class="form-control" name="mother_id" placeholder="mother">
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <label class="bmd-label-floating"></label>
+                    <input style="height: 3rem" type="text" class="form-control" name="father_id" placeholder="birthday">
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <label class="bmd-label-floating"></label>
+                    <input style="height: 3rem" type="text" class="form-control" name="breedType" placeholder="birthday">
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <label class="bmd-label-floating"></label>
+                    <input style="height: 3rem" type="text" class="form-control" name="gender" placeholder="gender">
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <label class="bmd-label-floating"></label>
+                    <input style="height: 3rem" type="text" class="form-control" name="category_id" placeholder="gender">
+ master
                 </div>
                 <div class="card-body">
                     <div class="dataTables_wrapper dt-bootstrap4">

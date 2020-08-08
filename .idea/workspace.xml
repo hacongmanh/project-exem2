@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
+
+
+
+
     <list default="true" id="403f3d4b-80af-4f4d-9bcf-b00165d477ef" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/exem2.iml" afterDir="false" />
@@ -201,18 +204,31 @@
       <change beforePath="$PROJECT_DIR$/.idea/project-exem2.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-=======
+ update
     <list default="true" id="a4c7edf2-0187-4b9b-9148-47e50c098774" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/articles/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/articles/list.blade.php" afterDir="false" />
->>>>>>> 1385bbb949c4f40ff5527846a8d83a4507690c6a
+ 1385bbb949c4f40ff5527846a8d83a4507690c6a
+
+
+    <list default="true" id="a4c7edf2-0187-4b9b-9148-47e50c098774" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ArticleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/DogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/articles/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/articles/form.blade.php" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/articles/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/articles/list.blade.php" afterDir="false" />
+
+
+ master
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -221,7 +237,11 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
-<<<<<<< HEAD
+ update
+ HEAD
+
+
+ master
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
       <path value="$PROJECT_DIR$/vendor/symfony/process" />
@@ -325,7 +345,11 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1ffq2WdAdCP0yIepJb5S2T6knLd" />
-=======
+ update
+
+
+
+ master
       <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/vendor/composer" />
@@ -429,7 +453,11 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1fcKwUW2AaRE4gQ72UHOYydibvO" />
->>>>>>> 1385bbb949c4f40ff5527846a8d83a4507690c6a
+ update
+ 1385bbb949c4f40ff5527846a8d83a4507690c6a
+
+
+ master
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -439,11 +467,23 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-<<<<<<< HEAD
+ update
+ HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-=======
+
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../t1908e-project-demo 2/t1908e-project-demo" />
->>>>>>> 1385bbb949c4f40ff5527846a8d83a4507690c6a
+ 1385bbb949c4f40ff5527846a8d83a4507690c6a
+
+
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+
+
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../t1908e-project-demo 2/t1908e-project-demo" />
+
+
+ master
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -452,8 +492,13 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
-<<<<<<< HEAD
-=======
+ update
+ HEAD
+
+
+
+
+ master
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Manh\Desktop\dog-book\dog-book\app\Http\Controllers\Admin" />
@@ -462,7 +507,11 @@
       <recent name="C:\Users\Manh\Desktop\dog-book\dog-book\resources\views\admin\dogs" />
     </key>
   </component>
->>>>>>> 1385bbb949c4f40ff5527846a8d83a4507690c6a
+update
+ 1385bbb949c4f40ff5527846a8d83a4507690c6a
+
+
+ master
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
@@ -474,21 +523,37 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-<<<<<<< HEAD
+ update
+ HEAD
+
+ master
       <changelist id="403f3d4b-80af-4f4d-9bcf-b00165d477ef" name="Default Changelist" comment="" />
       <created>1596619287735</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1596619287735</updated>
       <workItem from="1596619289944" duration="5877000" />
-=======
+ update
+
+
+
+ master
       <changelist id="a4c7edf2-0187-4b9b-9148-47e50c098774" name="Default Changelist" comment="" />
       <created>1596512179716</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1596512179716</updated>
       <workItem from="1596512184219" duration="20271000" />
->>>>>>> 1385bbb949c4f40ff5527846a8d83a4507690c6a
+update
+ 1385bbb949c4f40ff5527846a8d83a4507690c6a
+
+
+      <workItem from="1596620998555" duration="5687000" />
+      <workItem from="1596628383491" duration="17000" />
+
+
+
+ master
     </task>
     <servers />
   </component>
@@ -505,9 +570,42 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
-<<<<<<< HEAD
-=======
+
+  <component name="WindowStateProjectService">
+    <state x="186" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1596527632231">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="186" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1596527632231" />
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1596525983784">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1596525983784" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1596622446374">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1596622446374" />
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1596622042476">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1596622042476" />
+    <state x="369" y="23" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1596532812681">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="369" y="23" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1596532812681" />
+    <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596519527436">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1596519527436" />
+    <state x="425" y="66" width="672" height="676" key="search.everywhere.popup" timestamp="1596528633324">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="66" width="672" height="676" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1596528633324" />
+  </component>
+ update
+ HEAD
+
   <component name="WindowStateProjectService">
     <state x="186" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1596527632231">
       <screen x="0" y="0" width="1536" height="824" />
@@ -534,5 +632,8 @@
     </state>
     <state x="425" y="66" width="672" height="676" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1596528633324" />
   </component>
->>>>>>> 1385bbb949c4f40ff5527846a8d83a4507690c6a
+ 1385bbb949c4f40ff5527846a8d83a4507690c6a
+
+
+ master
 </project>

@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 //    return view('admin.admin-form');
 //});
 
+ update
 Route::resource('admin/accounts','AccountController');
 
 Route::resource('admin/articles','Admin\ArticleController');
@@ -26,6 +27,16 @@ Route::resource('admin/dogs','DogController');
 Route::resource('admin/article-categories','Admin\ArticleCategoryController');
 
 
+
+Route::resource('admin/accounts','Admin\AccountController');
+
+Route::resource('admin/articles','Admin\ArticleController');
+
+Route::resource('admin/dogs','Admin\DogController');
+
+//Route::resource('admin/article','AdminArticleController');
+//Route::resource('admin/form/article','AdminFormArticleController');
+master
 Route::get('/', function () {
     return view('home.pagination.home');
 });
@@ -48,3 +59,7 @@ Route::get('/flow', function () {
     return view('home.pagination.flow');
 });
 
+ update
+
+
+ master

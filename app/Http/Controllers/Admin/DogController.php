@@ -41,18 +41,30 @@ class DogController extends Controller
             ->orderBy('created_at', 'DESC')
             ->paginate(5);
         $data['categories'] = $dogs;
+ update
         return view('admin.dogs.list')
+
+        return view('admin.admin-dog')
+ master
             ->with($data);
     }
 
     /**
      * Show the form for creating a new resource.
      *
+ update
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
         return view('admin.dogs.form');
+
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('admin/admin-form-dog');
+ master
     }
 
     /**
@@ -76,15 +88,25 @@ class DogController extends Controller
         $obj->description = $request->get('description');
         $obj->detail = $request->get('detail');
         $obj->category_id = $request->get('category_id');
+ update
         $thumbnail = $request->get('thumbnail');
         foreach ($thumbnail as $thumbnail) {
             $obj->thumbnail .= $thumbnail . ',';
+
+        $thumbnail = $request->get('thumbnails');
+        foreach ($thumbnail as $thumbnails) {
+            $obj->thumbnail .= $thumbnails . ',';
+ master
         }
 
         $obj->updated_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->created_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->save();
+ update
         return redirect('/admin/dogs');
+
+        return redirect('/admin/dog');
+ master
     }
 
     /**

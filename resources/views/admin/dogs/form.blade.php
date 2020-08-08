@@ -9,7 +9,11 @@
 @section('main-content')
     <div class="container-fluid">
         <div class="col-md-12">
+ update
         <form action="/admin/dogs" method="post" id="product_form">
+
+        <form action="/admin/dog" method="post" id="product_form">
+ master
             @csrf
             <div class="row">
                 <div class="col-md-9">

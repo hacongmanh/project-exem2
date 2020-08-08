@@ -1,230 +1,185 @@
 @extends('layout.layout-admin')
 @section('main-content')
-
-
-    <div class="card card-plain">
-        <div class="card-header card-header-primary">
-            <h4 class="card-title mt-0"> Featured posts</h4>
-        </div>
-        <div class="">
-            <form action="">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1"></label>
-                        <input value="" type="text" name="keyword" class="form-control" placeholder="Search by keyword">
-                        <input type="submit" style="visibility: hidden;"/>
-                    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Danh sách Dog</h3>
                 </div>
-            </form>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead class="">
-                        <th>
-                            ID
-                        </th>
-
-                        <th>
-                            Name
-                        </th>
-
-                        <th>
-                            Price
-                        </th>
-
-                        <th>
-                            Birthday
-                        </th>
-
-                        <th>
-                            Gender
-                        </th>
-
-                        <th>
-                            Category_id
-                        </th>
-
-                        <th>
-                            BreedType
-                        </th>
-
-                        <th>
-                            Color
-                        </th>
-
-                        <th>
-                            Thumbnail
-                        </th>
-
-                        <th>
-                            Description
-                        </th>
-
-                        <th>
-                            Detail
-                        </th>
-
-                        <th>
-                            Mother_id
-                        </th>
-
-                        <th>
-                            Father_id
-                        </th>
-
-                        <th>
-                            Create_at
-                        </th>
-
-                        <th>
-                            Update_at
-                        </th>
-
-                        </thead>
-                        <tbody>
-                        @foreach($list as $dogs)
-                            <tr>
-                                <td>
-                                    <p class="card-text">
-                                        {{$dogs->id}} &nbsp;
-                                    </p>
-                                </td>
-                                <td>
-                                    <p class="card-text">
-                                        {{$dogs->name}} &nbsp;
-                                    </p>
-                                </td>
-                                <td>
-                                    <p class="card-text">
-                                        {{$dogs->price}} &nbsp;
-                                    </p>
-                                </td>
-                                <td>
-                                    <p class="card-text">
-                                        {{$dogs->birthday}} &nbsp;
-                                    </p>
-                                </td>
-                                <td>
-                                    <p class="card-text">
-                                        {{$dogs->gender}} &nbsp;
-                                    </p>
-                                </td>
-                                <td>
-                                    <p class="card-text">
-                                        {{$dogs->category_id}} &nbsp;
-                                    </p>
-                                </td>
-                                <td>
-                                    <p class="card-text">
-                                        {{$dogs->breedType}} &nbsp;
-                                    </p>
-                                </td>
-
-                                <td>
-                                    <p class="card-text">
-                                        {{$dogs->color}} &nbsp;
-                                    </p>
-                                </td>
-
-                                <td>
-                                    @foreach($dogs->large_photos as $photo )
-                                        <p class="card-title" style="height:75px;overflow: hidden"><img style="border-radius: 100%;width: 40%;" src="{{$photo}}" class="card-img-top" alt="..."></p>
+                <div class="card-body">
+                    <div class="dataTables_wrapper dt-bootstrap4">
+                        <form action="/admin/dog" method="get" id="search-form">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label>Tìm theo tên chó</label>
+                                                <input name="keyword" value="{{$keyword}}" type="text"
+                                                       class="form-control" placeholder="Enter keyword to search">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Tìm theo thời gian tạo</label>
+                                                <input type="text" class="form-control" name="dates">
+                                                <input type="hidden" name="start">
+                                                <input type="hidden" name="end">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <button class="invisible">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="table table-bordered table-hover dataTable dtr-inline">
+                                    <thead>
+                                    <th>ID</th>
+                                    <th>Ảnh đại diện</th>
+                                    <th>Tên chó</th>
+                                    <th>Ngày tạo</th>
+                                    <th>Ngày sửa</th>
+                                    <th>Trạng thái</th>
+                                    <th>Thao tác</th>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($list as $articles)
+                                        <tr>
+                                            <td>{{$articles->id}}</td>
+                                            <td>
+                                                @foreach($articles->large_photos as $photo )
+                                                    <img style="border-radius: 100%; width: 40%;" src="{{$photo}}"
+                                                         class="card-img-top" alt="...">
+                                                @endforeach
+                                            </td>
+                                            <td>{{$articles->name}}</td>
+                                            <td>{{$articles->created_at}}</td>
+                                            <td>{{$articles->updated_at}}</td>
+                                            <td>
+                                                @if($articles->status === 0 )
+                                                    <div style="text-align: center;">
+                                                        <i class="fas fa-times"></i>
+                                                    </div>
+                                                @elseif($articles->status === 1 )
+                                                    <div style="text-align: center;">
+                                                        <i class="fas fa-check-circle"></i>
+                                                    </div>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn btn-success">Detail</a>
+                                                <a href="#" class="btn btn-primary">Edit</a>
+                                                <a href="#" class="btn btn-danger">Delete</a>
+                                            </td>
+                                      </tr>
                                     @endforeach
-                                </td>
-
-
-                                <td>
-                                    <p style="  width: 50rem" class="card-text">
-                                        {!!$dogs->description!!} &nbsp;
-                                    </p>
-                                </td>
-
-
-                                <td>
-                                    <p style="width: 50rem" class="card-text">
-                                        {{$dogs->detail}} &nbsp;
-                                    </p>
-                                </td>
-
-                                <td>
-                                <p class="card-text">
-                                    {{$dogs->mother_id}} &nbsp;
-                                </p>
-                                </td>
-                                <td>
-                                    <p class="card-text">
-                                        {{$dogs->father_id}} &nbsp;
-                                    </p>
-                                </td>
-
-                                <td><p class="card-title"
-                                       style=" height:75px;overflow: hidden ">{{$dogs->created_at}} &nbsp;</p></td>
-                                <td><p class="card-title" style="height:75px;overflow: hidden">{{$dogs->updated_at}}
-                                        &nbsp;</p></td>
-                                <td><a href="/home">Edit</a></td>
-                                <td><a href="/home">Delete</a></td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                    <div class="row m-3">
-                        <div class="col-2">
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        <div class="col-10">
-                            <nav aria-label="Page navigation example">
-                                {{$list->links()}}
-                            </nav>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-5"></div>
+                            <div class="col-sm-12 col-md-7">
+                                <div class="dataTables_paginate paging_simple_numbers">
+                                    {{$list->links()}}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
-    </div>
 
 @endsection
 @section('script')
-    <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
     <script type="text/javascript">
-        var myWidget = cloudinary.createUploadWidget(
-            {
-                cloudName: 'dzpmsbjzh',
-                uploadPreset: 'atlr6nn5',
-                multiple: true,
-                form: '#product_form',
-                fieldName: 'thumbnails[]',
-                thumbnails: '.thumbnails'
-            }, function (error, result) {
-                if (!error && result && result.event === "success") {
-                    console.log('Done! Here is the image info: ', result.info.url);
-                    var arrayThumnailInputs = document.querySelectorAll('input[name="thumbnails[]"]');
-                    for (let i = 0; i < arrayThumnailInputs.length; i++) {
-                        arrayThumnailInputs[i].value = arrayThumnailInputs[i].getAttribute('data-cloudinary-public-id');
+        $(document).ready(function () {
+            var myWidget = cloudinary.createUploadWidget(
+                {
+                    cloudName: 'dzpmsbjzh',
+                    uploadPreset: 'atlr6nn5',
+                    multiple: true,
+                    form: '#product_form',
+                    fieldName: 'thumbnails[]',
+                    thumbnails: '.thumbnails'
+                }, function (error, result) {
+                    if (!error && result && result.event === "success") {
+                        console.log('Done! Here is the image info: ', result.info.url);
+                        var arrayThumnailInputs = document.querySelectorAll('input[name="thumbnails[]"]');
+                        for (let i = 0; i < arrayThumnailInputs.length; i++) {
+                            arrayThumnailInputs[i].value = arrayThumnailInputs[i].getAttribute('data-cloudinary-public-id');
+                        }
                     }
                 }
-            }
-        );
-        $('#upload_widget').click(function () {
-            myWidget.open();
-        })
-        // xử lý js trên dynamic content.
-        $('body').on('click', '.cloudinary-delete', function () {
-            var splittedImg = $(this).parent().find('img').attr('src').split('/');
-            var imgName = splittedImg[splittedImg.length - 1];
-            imgName = imgName.replace('.jpg', '');
-            $('input[data-cloudinary-public-id="' + imgName + '"]').remove();
-        });
-    </script>
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .then(editor => {
-                console.log(editor);
+            );
+            $('#upload_widget').click(function () {
+                myWidget.open();
             })
-            .catch(error => {
-                console.error(error);
+            // xử lý js trên dynamic content.
+            $('body').on('click', '.cloudinary-delete', function () {
+                var splittedImg = $(this).parent().find('img').attr('src').split('/');
+                var imgName = splittedImg[splittedImg.length - 1];
+                imgName = imgName.replace('.jpg', '');
+                $('input[data-cloudinary-public-id="' + imgName + '"]').remove();
             });
+            $('select[name="category_id"]').change(function () {
+                $('#search-form').submit();
+            })
+            // lấy tham số start và end date từ đường dẫn trên trình duyệt
+            var url = new URL(location.href);
+            var startTime = url.searchParams.get("start");
+            var endTime = url.searchParams.get("end");
+            if (startTime === null || startTime.length == 0) {
+                startTime = new Date();
+            }
+            if (endTime === null || endTime.length == 0) {
+                endTime = new Date();
+            }
+            $('input[name="start"]').val(moment(startTime).format('YYYY-MM-DD'));
+            $('input[name="end"]').val(moment(endTime).format('YYYY-MM-DD'));
+            $('input[name="dates"]').daterangepicker(
+                {
+                    startDate: moment(startTime).format('DD/MM/YYYY'),
+                    endDate: moment(endTime).format('DD/MM/YYYY'),
+                    locale: {
+                        format: 'DD/MM/YYYY'
+                    },
+                    ranges: {
+                        'Today': [moment(), moment()],
+                        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                        'This Month': [moment().startOf('month'), moment().endOf('month')],
+                        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                    }
+                }
+            );
+            $('input[name="dates"]').on('apply.daterangepicker', function (ev, picker) {
+                $('input[name="start"]').val(picker.startDate.format('YYYY-MM-DD'));
+                $('input[name="end"]').val(picker.endDate.format('YYYY-MM-DD'));
+                $('#search-form').submit();
+            });
+
+            ClassicEditor
+                .create(document.querySelector('#editor'))
+                .then(editor => {
+                    console.log(editor);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        });
+
     </script>
 @endsection

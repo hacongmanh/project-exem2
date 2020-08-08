@@ -207,6 +207,12 @@
  update
     <list default="true" id="a4c7edf2-0187-4b9b-9148-47e50c098774" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+ quan-assment-8/8
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/DogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/dogs/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dogs/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/dogs/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dogs/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout/layout-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/layout-admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/articles/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/articles/list.blade.php" afterDir="false" />
  1385bbb949c4f40ff5527846a8d83a4507690c6a
 
@@ -221,6 +227,7 @@
       <change beforePath="$PROJECT_DIR$/resources/views/admin/articles/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/articles/list.blade.php" afterDir="false" />
 
 
+ master
  master
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -467,6 +474,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+ quan-assment-8/8
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../t1908e-project-demo" />
+
  update
  HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -484,6 +494,7 @@
 
 
  master
+ master
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -500,6 +511,10 @@
 
  master
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\FPT\Desktop\php\dog-book-ass5" />
+      <recent name="C:\Users\FPT\Desktop\php\dog-book-ass5\vendor" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Manh\Desktop\dog-book\dog-book\app\Http\Controllers\Admin" />
       <recent name="C:\Users\Manh\Desktop\dog-book\dog-book\resources\views\admin\articles" />
@@ -544,6 +559,11 @@ update
       <option name="presentableId" value="Default" />
       <updated>1596512179716</updated>
       <workItem from="1596512184219" duration="20271000" />
+ quan-assment-8/8
+      <workItem from="1596619866287" duration="9270000" />
+      <workItem from="1596693188659" duration="5967000" />
+      <workItem from="1596789732192" duration="15922000" />
+
 update
  1385bbb949c4f40ff5527846a8d83a4507690c6a
 
@@ -553,6 +573,7 @@ update
 
 
 
+ master
  master
     </task>
     <servers />
@@ -571,6 +592,8 @@ update
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+ quan-assment-8/8
+
   </component>
 
   <component name="WindowStateProjectService">
@@ -602,6 +625,7 @@ update
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="66" width="672" height="676" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1596528633324" />
+ master
   </component>
  update
  HEAD
@@ -615,10 +639,14 @@ update
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1596525983784" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1596524462125">
+    <state x="452" y="43" key="#phpunit.xml" timestamp="1596620241096">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1596524462125" />
+    <state x="452" y="43" key="#phpunit.xml/0.0.1536.824@0.0.1536.824" timestamp="1596620241096" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1596701185380">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1596701185380" />
     <state x="369" y="23" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1596532812681">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -627,10 +655,10 @@ update
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1596519527436" />
-    <state x="425" y="66" width="672" height="676" key="search.everywhere.popup" timestamp="1596528633324">
+    <state x="425" y="66" width="672" height="676" key="search.everywhere.popup" timestamp="1596792666488">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="66" width="672" height="676" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1596528633324" />
+    <state x="425" y="66" width="672" height="676" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1596792666488" />
   </component>
  1385bbb949c4f40ff5527846a8d83a4507690c6a
 

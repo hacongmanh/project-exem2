@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Article;
 use App\ArticleCategory;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValidateArticle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
@@ -38,20 +39,26 @@ class ArticleController extends Controller
             $to = date($request->get('end') . ' 23:59:00');
             $articles_list = $articles_list->whereBetween('created_at', [$from, $to]);
         }
-        $data['list'] = $articles_list->orderBy('created_at', 'DESC')->paginate(2)
-            ->appends(['keyword' => $request->get('keyword'), 'category_id' => $request->get('category_id'), 'start' => $request->get('start'), 'end' => $request->get('end')]);
+        $data['list'] = $articles_list
+            ->where('status', '=', 1)
+            ->orderBy('created_at', 'DESC')
+            ->paginate(5)
+            ->appends(['keyword' => $request->get('keyword'), 'category_id' => $request
+                ->get('category_id'), 'start' => $request->get('start'), 'end' => $request->get('end')]);
         $data['article_categories'] = $article_categories;
         return view('admin.articles.list')->with($data);
+
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
-        return view('admin.articles.form');
+        $article_categories = ArticleCategory::all();
+        return view('admin.articles.form')->with('article_categories', $article_categories);
     }
 
     /**
@@ -61,8 +68,9 @@ class ArticleController extends Controller
      * @param $article_form
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(ValidateArticle $request)
     {
+        $request->validated();
         $obj = new Article();
         $obj->title = $request->get('title');
         $obj->description = $request->get('description');
@@ -73,7 +81,6 @@ class ArticleController extends Controller
         foreach ($thumbnail as $thumbnails) {
             $obj->thumbnail .= $thumbnails . ',';
         }
-        $obj->status = 1;
         $obj->updated_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->created_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->save();
@@ -100,11 +107,16 @@ class ArticleController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit($id)
     {
-        //
+        $obj = Article::find($id);
+        if ($obj == null) {
+            return 'not found';
+        }
+        $article_categories = ArticleCategory::all();
+        return view('admin.articles.form-edit')->with('obj', $obj)->with('article_categories', $article_categories);
     }
 
     /**

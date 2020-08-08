@@ -207,24 +207,7 @@
  update
     <list default="true" id="a4c7edf2-0187-4b9b-9148-47e50c098774" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
- quan-assment-8/8
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/DogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DogController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/dogs/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dogs/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/dogs/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dogs/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/layout-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/layout-admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/articles/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/articles/list.blade.php" afterDir="false" />
- 1385bbb949c4f40ff5527846a8d83a4507690c6a
-
-
-    <list default="true" id="a4c7edf2-0187-4b9b-9148-47e50c098774" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ArticleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/DogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DogController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/articles/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/articles/form.blade.php" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/articles/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/articles/list.blade.php" afterDir="false" />
+ 
 
 
  master

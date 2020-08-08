@@ -1,21 +1,23 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Articles;
+use App\ArticleCategory;
+use App\Dog;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 
-class AdminFormArticleController extends Controller
+class ArticleCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return string
      */
     public function index()
     {
-        return view('admin/admin-form-article');
+        $obj = ArticleCategory::all();
+        return view('admin.article-category.list')->with('obj',$obj);
     }
 
     /**
@@ -25,43 +27,38 @@ class AdminFormArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.article-category.form');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $obj = new Articles();
-        $obj->title = $request->get('title');
-        $obj->description = $request->get('description');
-        $obj->category_id = $request->get('category_id');
-        $obj->create_by = $request->get('create_by');
-        $thumbnails = $request->get('thumbnails');
-        foreach ($thumbnails as $thumbnail) {
-            $obj->thumbnail .= $thumbnail . ',';
-        }
-        $obj->status = 1;
-        $obj->updated_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
-        $obj->created_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
-        $obj->save();
-        return redirect('/admin/article');
+
+
+
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show($id)
     {
-        //
+        $category = Category::find($id);
+        $list_category = Category::all();
+        if ($category == null) {
+            return view('error')->with('msg', 'Category không tồn tại!');
+        }
+        return view('article-category.detail')->with('article-category', $category)->with('list_category', $list_category);
     }
+
 
     /**
      * Show the form for editing the specified resource.

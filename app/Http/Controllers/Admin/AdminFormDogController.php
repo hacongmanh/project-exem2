@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Accounts;
+use App\Article;
+use App\Dog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
-class AdminFormAccountController extends Controller
+class AdminFormDogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,18 +16,17 @@ class AdminFormAccountController extends Controller
      */
     public function index()
     {
-        return view('admin/admin-form-account');
+        return view('admin/admin-form-dog');
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-
-
+        //
     }
 
     /**
@@ -37,24 +37,28 @@ class AdminFormAccountController extends Controller
      */
     public function store(Request $request)
     {
-
-        $obj = new Accounts();
-        $obj->user_name = $request->get('user_name');
-        $obj->password_hash = $request->get('password');
-        $obj->email = $request->get('email');
-        $obj->full_name = $request->get('full_name');
-        $obj->phone = $request->get('phone');
-        $obj->address = $request->get('address');
-        $thumbnails = $request->get('thumbnails');
-        foreach ($thumbnails as $thumbnail) {
+        $obj = new Dog();
+        $obj->name = $request->get('name');
+        $obj->price = $request->get('price');
+        $obj->birthday = $request->get('birthday');
+        $obj->color = $request->get('color');
+        $obj->gender = $request->get('gender');
+        $obj->breedType = $request->get('breedType');
+        $obj->mother_id = $request->get('mother_id');
+        $obj->father_id = $request->get('father_id');
+        $obj->description = $request->get('description');
+        $obj->detail = $request->get('detail');
+        $obj->category_id = $request->get('category_id');
+        $thumbnail = $request->get('thumbnail');
+        foreach ($thumbnail as $thumbnail) {
             $obj->thumbnail .= $thumbnail . ',';
         }
-        $obj->role = 1;
+
         $obj->updated_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->created_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->save();
-        return redirect('/admin/account');
-            }
+        return redirect('/admin/dog');
+    }
 
     /**
      * Display the specified resource.

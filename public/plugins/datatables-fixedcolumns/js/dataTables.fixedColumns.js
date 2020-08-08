@@ -143,7 +143,7 @@ var FixedColumns = function ( dt, init ) {
 
 
 		/**
-		 * Is the document layout right-to-left
+		 * Is the document home right-to-left
 		 * @type boolean
 		 */
 		rtl: $(dtSettings.nTable).css('direction') === 'rtl'
@@ -347,7 +347,7 @@ $.extend( FixedColumns.prototype , {
 	 *      } );
 	 *      var fc = new $.fn.dataTable.fixedColumns( table );
 	 *
-	 *      // Resize the table container and then have FixedColumns adjust its layout....
+	 *      // Resize the table container and then have FixedColumns adjust its home....
 	 *      $('#content').width( 1200 );
 	 *      fc.fnRedrawLayout();
 	 */
@@ -413,7 +413,7 @@ $.extend( FixedColumns.prototype , {
 	 * table, so you can pass in nodes from the master table, or the cloned
 	 * tables and get the index position for the data in the main table.
 	 *  @param {node} node TR, TH or TD element to get the information about
-	 *  @returns {int} If nNode is given as a TR, then a single index is 
+	 *  @returns {int} If nNode is given as a TR, then a single index is
 	 *    returned, or if given as a cell, an array of [row index, column index
 	 *    (visible), column index (all)] is given.
 	 */
@@ -502,7 +502,7 @@ $.extend( FixedColumns.prototype , {
 			return;
 		}
 
-		/* Apply the settings from the user / defaults */
+		/* Apply the settings from the home / defaults */
 		this.s = $.extend( true, this.s, FixedColumns.defaults, oInit );
 
 		/* Set up the DOM as we need it and cache nodes */
@@ -510,7 +510,7 @@ $.extend( FixedColumns.prototype , {
 		this.dom.grid.dt = $(this.s.dt.nTable).parents('div.'+classes.sScrollWrapper)[0];
 		this.dom.scroller = $('div.'+classes.sScrollBody, this.dom.grid.dt )[0];
 
-		/* Set up the DOM that we want for the fixed column layout grid */
+		/* Set up the DOM that we want for the fixed column home grid */
 		this._fnColCalc();
 		this._fnGridSetup();
 
@@ -684,7 +684,7 @@ $.extend( FixedColumns.prototype , {
 
 
 	/**
-	 * Calculate the column widths for the grid layout
+	 * Calculate the column widths for the grid home
 	 *  @returns {void}
 	 *  @private
 	 */
@@ -750,7 +750,7 @@ $.extend( FixedColumns.prototype , {
 
 
 	/**
-	 * Set up the DOM for the fixed column. The way the layout works is to create a 1x3 grid
+	 * Set up the DOM for the fixed column. The way the home works is to create a 1x3 grid
 	 * for the left column, the DataTable (for which we just reuse the scrolling element DataTable
 	 * puts into the DOM) and the right column. In each of he two fixed column elements there is a
 	 * grouping wrapper element and then a head, body and footer wrapper. In each of these we then
@@ -853,7 +853,7 @@ $.extend( FixedColumns.prototype , {
 
 
 	/**
-	 * Style and position the grid used for the FixedColumns layout
+	 * Style and position the grid used for the FixedColumns home
 	 *  @returns {void}
 	 *  @private
 	 */
@@ -1064,9 +1064,9 @@ $.extend( FixedColumns.prototype , {
 
 
 	/**
-	 * Make a copy of the layout object for a header or footer element from DataTables. Note that
-	 * this method will clone the nodes in the layout object.
-	 *  @returns {Array} Copy of the layout array
+	 * Make a copy of the home object for a header or footer element from DataTables. Note that
+	 * this method will clone the nodes in the home object.
+	 *  @returns {Array} Copy of the home array
 	 *  @param   {Object} aoOriginal Layout array from DataTables (aoHeader or aoFooter)
 	 *  @param   {Object} aiColumns Columns to copy
 	 *  @param   {boolean} events Copy cell events or not
@@ -1147,7 +1147,7 @@ $.extend( FixedColumns.prototype , {
 			oClone.header.style.width = "100%";
 			oGrid.head.appendChild( oClone.header );
 
-			/* Copy the DataTables layout cache for the header for our floating column */
+			/* Copy the DataTables home cache for the header for our floating column */
 			aoCloneLayout = this._fnCopyLayout( dt.aoHeader, aiColumns, true );
 			jqCloneThead = $('>thead', oClone.header);
 			jqCloneThead.empty();
@@ -1167,7 +1167,7 @@ $.extend( FixedColumns.prototype , {
 		{
 			/* To ensure that we copy cell classes exactly, regardless of colspan, multiple rows
 			 * etc, we make a copy of the header from the DataTable again, but don't insert the
-			 * cloned cells, just copy the classes across. To get the matching layout for the
+			 * cloned cells, just copy the classes across. To get the matching home for the
 			 * fixed component, we use the DataTables _fnDetectHeader method, allowing 1:1 mapping
 			 */
 			aoCloneLayout = this._fnCopyLayout( dt.aoHeader, aiColumns, false );

@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Accounts;
-use App\Articles;
+use App\Account;
+
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
-class AdminAccountController extends Controller
+class AccountController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,15 +21,15 @@ class AdminAccountController extends Controller
         $data = array();
         $data['category_id'] = 0;
         $data['keyword'] = '';
-        $account = Accounts::all();
-        $account_list = Accounts::query();
+        $account = Account::all();
+        $account_list = Account::query();
         if ($request->has('user_name') && $request->get('user_name') != 0) {
             $data['user_name'] = $request->get('user_name');
             $account_list = $account_list->where('user_name', '=', $request->get('user_name'));
         }
         if ($request->has('keyword') && strlen($request->get('keyword')) > 0) {
             $data['keyword'] = $request->get('keyword');
-            $account_list = $account_list->where('name', 'like', '%' . $request->get('keyword') . '%');
+            $account_list = $account_list->where('user_name', 'like', '%' . $request->get('keyword') . '%');
         }
         if ($request->has('start') && strlen($request->get('start')) > 0 && $request->has('end') && strlen($request->get('end')) > 0) {
             $data['start'] = $request->get('start');
@@ -53,7 +54,10 @@ class AdminAccountController extends Controller
      */
     public function create()
     {
-        return view('admin/admin-account');
+
+        $listCategory = Account::all()->where('status', 1);
+        return view($this->view_prefix . '/form')->with('listCategory', $listCategory);
+
     }
 
     /**
@@ -64,7 +68,7 @@ class AdminAccountController extends Controller
      */
     public function store(Request $request)
     {
-        $obj = new Accounts();
+        $obj = new Account();
         $obj->user_name = $request->get('user_name');
         $obj->password_hash = $request->get('password');
         $obj->email = $request->get('email');

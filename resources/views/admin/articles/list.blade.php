@@ -1,4 +1,8 @@
+ update
+@extends('layout.layout-admin', ['current_page' => 'article-category-list'])
+
 @extends('layout.layout-admin', ['current_page' => 'article-list'])
+ master
 @section('main-content')
     <div class="row">
         <div class="col-12">
@@ -65,6 +69,25 @@
                                     <th>Thao tác</th>
                                     </thead>
                                     <tbody>
+ update
+                                    @foreach($list as $articles)
+                                        <tr>
+                                            <td>{{$articles->id}}</td>
+                                            <td>{{$articles->title}}</td>
+                                            <td>
+                                                @foreach($articles->large_photos as $photo )
+                                                    <img style="border-radius: 100%; width: 40%;" src="{{$photo}}" class="card-img-top" alt="...">
+                                                @endforeach
+                                            </td>
+                                            <td>{{$articles->created_at}}</td>
+                                            <td>{{$articles->updated_at}}</td>
+                                            <td>
+                                                @if($articles->status === 0 )
+                                                    <div style="text-align: center;">
+                                                        <i class="fas fa-times"></i>
+                                                    </div>
+                                                @elseif($articles->status === 1 )
+
                                     @foreach($list as $article)
                                         <tr>
                                             <td>{{$article->id}}</td>
@@ -82,15 +105,21 @@
                                                         <i class="fas fa-times"></i>
                                                     </div>
                                                 @elseif($article->status === 1 )
+ master
                                                     <div style="text-align: center;">
                                                         <i class="fas fa-check-circle"></i>
                                                     </div>
                                                 @endif
                                             </td>
                                             <td>
+ update
+                                                <a href="#" class="btn btn-success">Detail</a>
+                                                <a href="#" class="btn btn-primary">Edit</a>
+
                                                 <a href="#" class="btn btn-success">Detail
                                                 </a>
                                                 <a href="/admin/articles/{{$article->id}}/edit" class="btn btn-primary">Edit</a>
+ master
                                                 <a href="#" class="btn btn-danger">Delete</a>
                                             </td>
                                         </tr>

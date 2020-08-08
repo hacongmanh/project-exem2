@@ -40,17 +40,17 @@
       CONTROL_SIDEBAR_ANIMATE: 'control-sidebar-animate',
       CONTROL_SIDEBAR_OPEN: 'control-sidebar-open',
       CONTROL_SIDEBAR_SLIDE: 'control-sidebar-slide-open',
-      LAYOUT_FIXED: 'layout-fixed',
-      NAVBAR_FIXED: 'layout-navbar-fixed',
-      NAVBAR_SM_FIXED: 'layout-sm-navbar-fixed',
-      NAVBAR_MD_FIXED: 'layout-md-navbar-fixed',
-      NAVBAR_LG_FIXED: 'layout-lg-navbar-fixed',
-      NAVBAR_XL_FIXED: 'layout-xl-navbar-fixed',
-      FOOTER_FIXED: 'layout-footer-fixed',
-      FOOTER_SM_FIXED: 'layout-sm-footer-fixed',
-      FOOTER_MD_FIXED: 'layout-md-footer-fixed',
-      FOOTER_LG_FIXED: 'layout-lg-footer-fixed',
-      FOOTER_XL_FIXED: 'layout-xl-footer-fixed'
+      LAYOUT_FIXED: 'home-fixed',
+      NAVBAR_FIXED: 'home-navbar-fixed',
+      NAVBAR_SM_FIXED: 'home-sm-navbar-fixed',
+      NAVBAR_MD_FIXED: 'home-md-navbar-fixed',
+      NAVBAR_LG_FIXED: 'home-lg-navbar-fixed',
+      NAVBAR_XL_FIXED: 'home-xl-navbar-fixed',
+      FOOTER_FIXED: 'home-footer-fixed',
+      FOOTER_SM_FIXED: 'home-sm-footer-fixed',
+      FOOTER_MD_FIXED: 'home-md-footer-fixed',
+      FOOTER_LG_FIXED: 'home-lg-footer-fixed',
+      FOOTER_XL_FIXED: 'home-xl-footer-fixed'
     };
     var Default = {
       controlsidebarSlide: true,
@@ -290,7 +290,7 @@
      * ====================================================
      */
     var NAME = 'Layout';
-    var DATA_KEY = 'lte.layout';
+    var DATA_KEY = 'lte.home';
     var JQUERY_NO_CONFLICT = $.fn[NAME];
     var Selector = {
       HEADER: '.main-header',
@@ -303,7 +303,7 @@
       CONTROL_SIDEBAR: '.control-sidebar',
       CONTROL_SIDEBAR_CONTENT: '.control-sidebar-content',
       CONTROL_SIDEBAR_BTN: '[data-widget="control-sidebar"]',
-      LAYOUT_FIXED: '.layout-fixed',
+      LAYOUT_FIXED: '.home-fixed',
       FOOTER: '.main-footer',
       PUSHMENU_BTN: '[data-widget="pushmenu"]',
       LOGIN_BOX: '.login-box',
@@ -314,9 +314,9 @@
       SIDEBAR: 'main-sidebar',
       CONTENT_FIXED: 'content-fixed',
       SIDEBAR_FOCUSED: 'sidebar-focused',
-      LAYOUT_FIXED: 'layout-fixed',
-      NAVBAR_FIXED: 'layout-navbar-fixed',
-      FOOTER_FIXED: 'layout-footer-fixed',
+      LAYOUT_FIXED: 'home-fixed',
+      NAVBAR_FIXED: 'home-navbar-fixed',
+      FOOTER_FIXED: 'home-footer-fixed',
       LOGIN_PAGE: 'login-page',
       REGISTER_PAGE: 'register-page',
       CONTROL_SIDEBAR_SLIDE_OPEN: 'control-sidebar-slide-open',
@@ -419,7 +419,7 @@
       _proto._init = function _init() {
         var _this = this;
 
-        // Activate layout height watcher
+        // Activate home height watcher
         this.fixLayoutHeight();
 
         if (this._config.loginRegisterAutoHeight === true) {

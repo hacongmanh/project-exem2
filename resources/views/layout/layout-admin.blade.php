@@ -191,23 +191,23 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item has-treeview">
-                        <a href="/admin/dogs" class="nav-link">
+                    <li class="nav-item has-treeview {{($current_page  == 'dogs-categories-list' || $current_page  == 'dogs-categories-form' || $current_page  == 'dogs-categories-edit') ? 'menu-open' : ''}}">
+                        <a href="/admin/dogs-categories" class="nav-link">
                             <i class="nav-icon fas fa-stream"></i>
                             <p>
                                 Quản lý danh mục chó
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
+                        <ul class="nav nav-treeview {{($current_page  == 'dogs-categories-edit' || $current_page == 'dogs-categories-form') ? 'menu-open' : ''}}">
                             <li class="nav-item">
-                                <a href="/admin/dogs" class="nav-link">
+                                <a href="/admin/dogs-categories" class="nav-link {{($current_page  == 'dogs-categories-list') ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Danh sách danh mục chó</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/dogs/create" class="nav-link">
+                                <a href="/admin/dogs-categories/create" class="nav-link  {{($current_page  == 'dogs-categories-form') ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Thêm mới danh mục chó</p>
                                 </a>

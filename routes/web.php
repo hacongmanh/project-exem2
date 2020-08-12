@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 //});
 
 
-Route::resource('admin/articles','Admin\ArticleController');
+Route::resource('admin/dogs-categories','Admin\DogCategoryController');
 
 Route::resource('admin/dogs','Admin\DogController');
 
@@ -57,3 +57,4 @@ Route::get('/flow', function () {
 // delete mem
 Route::put('delete/article/{id}','Admin\ArticleController@DeleteArticle');
 Route::put('delete/account/{id}','Admin\AccountController@DeleteArticle');
+Route::put('delete/dog-category/{id}','Admin\DogCategoryController@DeleteDogCategory');

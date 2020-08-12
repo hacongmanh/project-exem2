@@ -1,40 +1,27 @@
-@extends('layout.layout-admin', ['current_page' => 'dogs-categories-list'])
+@extends('layout.layout-admin')
 @section('main-content')
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Danh sách danh mục chó</h3>
+                    <h3 class="card-title">Danh sách Dog</h3>
                 </div>
                 <div class="card-body">
                     <div class="dataTables_wrapper dt-bootstrap4">
-                        <form action="/admin/dogs-categories" method="get" id="search-form">
+                        <form action="/admin/dog" method="get" id="search-form">
                             <div class="row">
-                                <div class="col-5">
+                                <div class="col-6">
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label>Tìm theo danh mục</label>
-                                                <select name="category_id" class="custom-select">
-                                                    <option value="0">All</option>
-                                                    @foreach($dogs_categories as $cate)
-                                                        <option value="{{$cate->id}}" >{{$cate->name}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <label>Tìm theo từ khóa</label>
+                                                <label>Tìm theo tên chó</label>
                                                 <input name="keyword" value="{{$keyword}}" type="text"
                                                        class="form-control" placeholder="Enter keyword to search">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-7">
+                                <div class="col-6">
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
@@ -58,34 +45,45 @@
                                 <table class="table table-bordered table-hover dataTable dtr-inline">
                                     <thead>
                                     <th>ID</th>
-                                    <th>Tên loại chó</th>
                                     <th>Ảnh đại diện</th>
-                                    <th>Ngày cập nhật</th>
-                                    <th>Loại Chó</th>
+                                    <th>Tên chó</th>
+                                    <th>Giống chó</th>
+                                    <th>Ngày tạo</th>
+                                    <th>Ngày sửa</th>
+                                    <th>Trạng thái</th>
                                     <th>Thao tác</th>
                                     </thead>
                                     <tbody>
-                                    @foreach($list as $dogs_categories)
+                                    @foreach($list as $dog)
                                         <tr>
-                                            <td>{{$dogs_categories->id}}</td>
-                                            <td>{{$dogs_categories->name}}</td>
-                                            <td style=" width: 160px;">
-                                                @foreach($dogs_categories->large_photos as $photo )
-                                                    <img style="border-radius: 100%;width: 50px;height: 50px;"
-                                                         src="{{$photo}}" class="card-img-top" alt="...">
+                                            <td>{{$dog->id}}</td>
+                                            <td>
+                                                @foreach($dog->large_photos as $photo )
+                                                    <img style="border-radius: 100%; width: 40%;" src="{{$photo}}"
+                                                         class="card-img-top" alt="...">
                                                 @endforeach
                                             </td>
-                                            <td>{{$dogs_categories->updated_at}}</td>
+                                            <td>{{$dog->name}}</td>
+                                            <th>{{$dog->breedType}}</th>
+                                            <td>{{$dog->created_at}}</td>
+                                            <td>{{$dog->updated_at}}</td>
                                             <td>
-                                                {{ $dogs_categories->dogCategoryString}}
+                                                @if($dog->status === 0 )
+                                                    <div style="text-align: center;">
+                                                        <i class="fas fa-times"></i>
+                                                    </div>
+                                                @elseif($dog->status === 1 )
+                                                    <div style="text-align: center;">
+                                                        <i class="fas fa-check-circle"></i>
+                                                    </div>
+                                                @endif
                                             </td>
                                             <td>
-                                                <a href="#" class="btn btn-success">Detail
-                                                </a>
-                                                <a href="/admin/dogs-categories/{{$dogs_categories->id}}/edit" class="btn btn-primary">Edit</a>
-                                                <a href="#" class=" btn-delete text-danger mr-1" id="delete-{{$dogs_categories->id}}">Delete</a>
+                                                <a href="#" class="btn btn-success">Detail</a>
+                                                <a href="#" class="btn btn-primary">Edit</a>
+                                                <a href="#" class="btn btn-danger">Delete</a>
                                             </td>
-                                        </tr>
+                                      </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
@@ -104,6 +102,7 @@
             </div>
         </div>
     </div>
+
 @endsection
 @section('script')
     <script type="text/javascript">
@@ -174,37 +173,15 @@
                 $('#search-form').submit();
             });
 
-            // ClassicEditor
-            //     .create(document.querySelector('#editor'))
-            //     .then(editor => {
-            //         console.log(editor);
-            //     })
-            //     .catch(error => {
-            //         console.error(error);
-            //     });
+            ClassicEditor
+                .create(document.querySelector('#editor'))
+                .then(editor => {
+                    console.log(editor);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
         });
-        var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-        var btnDeletes =document.getElementsByClassName('btn-delete');
-        for (let i = 0; i < btnDeletes.length; i++) {
-            btnDeletes[i].onclick = function (){
-                if (confirm('Are you sure')){
-                    var id = this.getAttribute('id').replace('delete-', '');
-                    var xmlHttpRequest = new XMLHttpRequest();
-                    xmlHttpRequest.open('PUT','/delete/dog-category/'+id);
-                    xmlHttpRequest.setRequestHeader('X-CSRF-TOKEN', token);
-                    xmlHttpRequest.onreadystatechange = function (){
-                        if (this.readyState == 4){
-                            if(this.status == 200){
-                                alert('Confirm success')
-                                location.reload();
-                            }else {
-                                alert('Action fails!!')
-                            }
-                        }
-                    }
-                    xmlHttpRequest.send();
-                }
-            }
-        }
+
     </script>
 @endsection

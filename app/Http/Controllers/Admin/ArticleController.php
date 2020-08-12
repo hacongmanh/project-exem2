@@ -19,14 +19,15 @@ class ArticleController extends Controller
      */
     public function index(Request $request)
     {
+
         $data = array();
         $data['category_id'] = 0;
         $data['keyword'] = '';
         $article_categories = ArticleCategory::all();
         $articles_list = Article::query();
-        if ($request->has('category_id') && $request->get('category_id') != 0) {
-            $data['category_id'] = $request->get('category_id');
-            $articles_list = $articles_list->where('category_id', '=', $request->get('category_id'));
+        if ($request->has('title') && $request->get('title') != 0) {
+            $data['title'] = $request->get('title');
+            $articles_list = $articles_list->where('title', '=', $request->get('title'));
         }
         if ($request->has('keyword') && strlen($request->get('keyword')) > 0) {
             $data['keyword'] = $request->get('keyword');
@@ -68,7 +69,7 @@ class ArticleController extends Controller
         foreach ($thumbnails as $thumbnail) {
             $obj->thumbnail .= $thumbnail . ',';
         }
-        $obj->status = 0;
+        $obj->status = $request->get('status');
         $obj->updated_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->created_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->save();

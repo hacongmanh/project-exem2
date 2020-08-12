@@ -36,19 +36,6 @@
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <div class="col-3">
-                                        <select name="status" class="custom-select">
-                                            <option value="0">----Trạng thái bài viết----</option>
-                                            <option value="1">Duyệt Bài</option>
-                                            <option value="0">Không Duyệt</option>
-                                        </select>
-                                        @if($errors->has('status'))
-                                            <span class="text-danger">* {{$errors->first('status')}}</span>
-                                        @endif
-                                    </div>
-                                </div>
-
-                                <div class="row form-group">
                                     <div class="col-12">
                                         <label>Mô tả bài viết</label>
                                         <textarea class="form-control" id="text-editor" rows="8"
@@ -73,6 +60,18 @@
                                                 @endforeach
                                             </ul>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-3">
+                                        <select name="status" class="custom-select">
+                                            <option value="{{$obj->status}}">----Trạng thái bài viết----</option>
+                                            <option value="1">Duyệt Bài</option>
+                                            <option value="0">Không Duyệt</option>
+                                        </select>
+                                        @if($errors->has('status'))
+                                            <span class="text-danger">* {{$errors->first('status')}}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="row form-actions">

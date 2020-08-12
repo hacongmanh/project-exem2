@@ -25,7 +25,7 @@
                                         <select name="category_id" class="custom-select">
                                             <option value="0">---- Chọn giống chó ----</option>
                                             @foreach( $article_categories  as $cate)
-                                                <option value="{{$cate->id}}" >{{$cate->name}}</option>
+                                                <option value="{{$cate->category_id}}" >{{$cate->name}}</option>
                                             @endforeach
                                         </select>
                                         @if($errors->has('category_id'))

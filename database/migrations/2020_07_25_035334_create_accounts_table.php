@@ -23,6 +23,7 @@ class CreateAccountsTable extends Migration
             $table->string('address');
             $table->text('thumbnail');
             $table->integer('role');
+            $table->integer('status');
             $table->timestamps();
         });
     }

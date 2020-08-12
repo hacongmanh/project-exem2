@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AdminLTE 3 | Collapsed Sidebar</title>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
@@ -14,6 +14,11 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     @yield('style')
     @yield('content-header')
+    <style>
+        .ck-editor__editable {
+            min-height: 200px;
+        }
+    </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -145,32 +150,11 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="../../index3.html" class="brand-link">
-            <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-            <span class="brand-text font-weight-light">AdminLTE 3</span>
+            <img src="https://w7.pngwing.com/pngs/548/122/png-transparent-dog-paw-cat-logo-dog-animals-poster-paw-thumbnail.png" alt="Dog lover" class="brand-image img-circle elevation-3">
+            <span class="brand-text font-weight-light">Dog lover Admin</span>
         </a>
-
         <!-- Sidebar -->
         <div class="sidebar">
- update
-            <!-- Sidebar home (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                </div>
-                <div class="info">
-                    <a href="#" class="d-block">Alexander Pierce</a>
-
-            <!-- Sidebar user (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <img src="https://gudlogo.com/wp-content/uploads/2019/05/logo-cho-husky-36.png" class="img-circle elevation-2" alt="User Image">
-                </div>
-                <div class="info">
-                    <a href="#" class="d-block">Dog Management</a>
- master
-                </div>
-            </div>
-
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -230,7 +214,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item has-treeview">
+                    <li class="nav-item has-treeview {{($current_page  == 'account-list' || $current_page  == 'account-form' || $current_page  == 'account-edit') ? 'menu-open' : ''}}">
                         <a href="/admin/accounts" class="nav-link">
                             <i class="nav-icon fas fa-user-circle"></i>
                             <p>
@@ -238,51 +222,22 @@
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
+                        <ul class="nav nav-treeview  {{($current_page  == 'account-edit' || $current_page == 'account-form') ? 'menu-open' : ''}}">
                             <li class="nav-item">
-                                <a href="/admin/accounts" class="nav-link">
+                                <a href="/admin/accounts" class="nav-link {{($current_page  == 'account-list') ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Danh sách account</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/accounts/create" class="nav-link">
+                                <a href="/admin/accounts/create" class="nav-link {{($current_page  == 'account-form') ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Thêm mới account</p>
                                 </a>
                             </li>
                         </ul>
                     </li>
- quan-assment-8/8
-{{--                    <li class="nav-item has-treeview {{($current_page == 'category-list' || $current_page == 'category-form') ? 'menu-open' : ''}}">--}}
-{{--                        <a href="/admin/articles" class="nav-link">--}}
-{{--                            <i class="nav-icon fas fa-newspaper"></i>--}}
-{{--                            <p>--}}
-{{--                                Quản lý bài viết--}}
-{{--                                <i class="fas fa-angle-left right"></i>--}}
-{{--                            </p>--}}
-{{--                        </a>--}}
-{{--                        <ul class="nav nav-treeview {{($current_page == 'category-list' || $current_page == 'category-form') ? 'menu-open' : ''}}">--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a href="/admin/articles" class="nav-link {{$current_page == 'category-list' ? 'active' : ''}}">--}}
-{{--                                    <i class="far fa-circle nav-icon"></i>--}}
-{{--                                    <p>Danh sách bài viết</p>--}}
-{{--                                </a>--}}
-{{--                            </li>--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a href="/admin/articles/create" class="nav-link {{$current_page == 'category-form' ? 'active' : ''}}">--}}
-{{--                                    <i class="far fa-circle nav-icon"></i>--}}
-{{--                                    <p>Thêm mới bài viết</p>--}}
-{{--                                </a>--}}
-{{--                            </li>--}}
-{{--                        </ul>--}}
-{{--                    </li>--}}
-
- update
-                    <li class="nav-item has-treeview {{($current_page == 'article-category-list' || $current_page == 'article-category-form') ? 'menu-open' : ''}}">
-
-                   <li class="nav-item has-treeview {{($current_page == 'article-list' || $current_page == 'article-form' || $current_page == 'article-edit') ? 'menu-open' : ''}}">
- master
+                    <li class="nav-item has-treeview {{($current_page  == 'article-list' || $current_page  == 'article-form' || $current_page == 'article-edit') ? 'menu-open' : ''}}">
                         <a href="/admin/articles" class="nav-link">
                             <i class="nav-icon fas fa-newspaper"></i>
                             <p>
@@ -290,80 +245,48 @@
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
- update
-                        <ul class="nav nav-treeview {{($current_page == 'article-category-list' || $current_page == 'article-category-form') ? 'menu-open' : ''}}">
+                        <ul class="nav nav-treeview {{($current_page  == 'article-edit' || $current_page  == 'article-form') ? 'menu-open' : ''}}">
                             <li class="nav-item">
-                                <a href="/admin/articles" class="nav-link {{$current_page == 'article-category-list' ? 'active' : ''}}">
-
-                        <ul class="nav nav-treeview {{($current_page == 'article-edit' || $current_page == 'article-form') ? 'menu-open' : ''}}">
-                            <li class="nav-item">
-                                <a href="/admin/articles" class="nav-link {{($current_page == 'article-list') ? 'active' : ''}}">
- master
+                                <a href="/admin/articles" class="nav-link {{($current_page  == 'article-list') ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Danh sách bài viết</p>
                                 </a>
                             </li>
                             <li class="nav-item">
- update
-                                <a href="/admin/articles/create" class="nav-link {{$current_page == 'article-category-form' ? 'active' : ''}}">
-
-                                <a href="/admin/articles/create" class="nav-link {{($current_page == 'article-form') ? 'active' : ''}}">
- master
+                                <a href="/admin/articles/create" class="nav-link {{($current_page  == 'article-form') ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Thêm mới bài viết</p>
                                 </a>
                             </li>
- update
-                        </ul>
-                    </li>
-                    <li class="nav-item has-treeview {{($current_page == 'categories-list' || $current_page == 'categories-form') ? 'menu-open' : ''}}">
-                        <a href="/admin/article-categories" class="nav-link ">
-
-                          @if($current_page == 'article-edit')
-                            <li class="nav-item">
-                                <a href="{{Request::url()}}" class="nav-link {{($current_page == 'article-edit') ? 'active' : ''}}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Sửa bài viết</p>
-                                </a>
-                            </li>
+                            @if($current_page == 'article-edit')
+                                <li class="nav-item">
+                                    <a href="{{Request::url()}}" class="nav-link {{($current_page  == 'article-edit') ? 'active' : ''}}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Sửa bài viết</p>
+                                    </a>
+                                </li>
                             @endif
                         </ul>
                     </li>
- master
-                    <li class="nav-item has-treeview">
+                    <li class="nav-item has-treeview  {{($current_page  == 'categories-list' || $current_page  == 'categories-form' || $current_page  == 'categories-edit') ? 'menu-open' : ''}}">
                         <a href="/admin/article-categories" class="nav-link">
- master
                             <i class="nav-icon fas fa-list"></i>
                             <p>
                                 Quản lý danh mục bài viết
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
- update
-                        <ul class="nav nav-treeview {{($current_page == 'categories-list' || $current_page == 'categories-form') ? 'menu-open' : ''}}">
+                        <ul class="nav nav-treeview {{($current_page  == 'categories-list' || $current_page  == 'categories-form') ? 'menu-open' : ''}}">
                             <li class="nav-item">
-                                <a href="/admin/article-categories" class="nav-link {{$current_page == 'categories-list' ? 'active' : ''}}">
+                                <a href="/admin/article-categories" class="nav-link {{($current_page  == 'categories-list') ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Ds danh mục bài viết</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/article-categories/create" class="nav-link {{$current_page == 'categories-form' ? 'active' : ''}}">
+                                <a href="/admin/article-categories/create" class="nav-link  {{($current_page  == 'categories-form') ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Thêm danh mục bài viết</p>
-
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/admin/article-categories" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Danh sách danh mục bài viết</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/admin/article-categories/create" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Thêm mới danh mục bài viết</p>
-master
                                 </a>
                             </li>
                         </ul>
@@ -380,7 +303,7 @@ master
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <div class="container-fluid">
-            @yield('main-content')
+                @yield('main-content')
             </div><!-- /.container-fluid -->
         </section>
 
@@ -391,11 +314,7 @@ master
         <div class="float-right d-none d-sm-block">
             <b>Version</b> 3.1.0-pre
         </div>
- update
-        <strong>Copyright &copy; 2014-2020 <a href="/home">home</a>.</strong> All rights reserved.
-
         <strong>Copyright © 2020-2021,Nhóm 1- TT1908M <a href="https://aptech.fpt.edu.vn/">Trường FPT APTECH</a>.</strong>  Tôn Thất Thuyết -Mỹ Đình- Hà Nội.
- master
     </footer>
 
     <!-- Control Sidebar -->
@@ -420,13 +339,6 @@ master
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
-<script>
-    $(function () {
-        // Summernote
-        $('.textarea').summernote()
-    })
-</script>
-
 @yield('script')
 
 </body>

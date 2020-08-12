@@ -25,7 +25,6 @@ class ValidateArticle extends FormRequest
     {
         return [
             'title' => 'required|min:3|max:1000',
-            'category_id'=>'required',
             'description'=>'required|min:10|max:5000',
             'thumbnail[]'=>'required',
             'thumbnail' => 'file|size:512',
@@ -41,9 +40,16 @@ class ValidateArticle extends FormRequest
             'description.required.min'=> 'Tối thiểu 10 kí tự',
             'description.required.max'=> 'Tối thiểu 5000 kí tự',
             'description.required'=> 'Bạn chưa nhập nội dung ',
-            'category_id.required' => 'Hãy chọn loại chó trong bài viết ',
             'thumbnail[].required' => 'Hãy chọn ít nhất 1 bức ảnh  ',
-
         ];
+    }
+
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator){
+            if(!$this->get('category_id' === 0)){
+                $validator->errors()->add('category_id', 'Vui lòng chọn giống chó!');
+            }
+        });
     }
 }

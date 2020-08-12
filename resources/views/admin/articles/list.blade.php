@@ -1,5 +1,4 @@
-@extends('layout.layout-admin', ['current_page' => 'article-category-list'])
-
+@extends('layout.layout-admin', ['current_page' => 'article-list'])
 @section('main-content')
     <div class="row">
         <div class="col-12">
@@ -11,46 +10,48 @@
                     <div class="dataTables_wrapper dt-bootstrap4">
                         <form action="/admin/articles" method="get" id="search-form">
                             <div class="row">
-                                    <div class="col-5">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label>Tìm theo danh mục</label>
-                                                    <select name="category_id" class="custom-select">
-                                                        <option value="0">All</option>
-                                                        @foreach($article_categories as $cate)
-                                                            <option value="{{$cate->id}}" {{$cate->id == $category_id ? 'selected':''}}>{{$cate->name}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label>Tìm theo từ khóa</label>
-                                                    <input name="keyword" value="{{$keyword}}" type="text" class="form-control" placeholder="Enter keyword to search">
-                                                </div>
+                                <div class="col-5">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label>Tìm theo danh mục</label>
+                                                <select name="category_id" class="custom-select">
+                                                    <option value="0">All</option>
+                                                    @foreach($article_categories as $cate)
+                                                        <option
+                                                            value="{{$cate->id}}" {{$cate->id == $category_id ? 'selected':''}}>{{$cate->name}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-7">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">Tìm theo thời gian tạo</label>
-                                                    <input type="text" class="form-control" name="dates">
-                                                    <input type="hidden" name="start">
-                                                    <input type="hidden" name="end">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <button class="invisible">Submit</button>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label>Tìm theo từ khóa</label>
+                                                <input name="keyword" value="{{$keyword}}" type="text"
+                                                       class="form-control" placeholder="Enter keyword to search">
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="col-7">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Tìm theo thời gian tạo</label>
+                                                <input type="text" class="form-control" name="dates">
+                                                <input type="hidden" name="start">
+                                                <input type="hidden" name="end">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <button class="invisible">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </form>
                         <div class="row">
@@ -60,63 +61,30 @@
                                     <th>ID</th>
                                     <th width="30%">Tiêu đề</th>
                                     <th>Ảnh đại diện</th>
-                                    <th>Ngày tạo</th>
-                                    <th>Ngày sửa</th>
+                                    <th>Ngày cập nhật</th>
                                     <th>Trạng thái</th>
                                     <th>Thao tác</th>
                                     </thead>
                                     <tbody>
-                                    @foreach($list as $articles)
-                                        <tr>
-                                            <td>{{$articles->id}}</td>
-                                            <td>{{$articles->title}}</td>
-                                            <td>
-                                                @foreach($articles->large_photos as $photo )
-                                                    <img style="border-radius: 100%; width: 40%;" src="{{$photo}}" class="card-img-top" alt="...">
-                                                @endforeach
-                                            </td>
-                                            <td>{{$articles->created_at}}</td>
-                                            <td>{{$articles->updated_at}}</td>
-                                            <td>
-                                                @if($articles->status === 0 )
-                                                    <div style="text-align: center;">
-                                                        <i class="fas fa-times"></i>
-                                                    </div>
-                                                @elseif($articles->status === 1 )
-
                                     @foreach($list as $article)
                                         <tr>
                                             <td>{{$article->id}}</td>
                                             <td>{{$article->title}}</td>
-                                            <td   style=" width: 160px;" >
+                                            <td style=" width: 160px;">
                                                 @foreach($article->large_photos as $photo )
-                                                    <img style="border-radius: 100%; width: 40%;" src="{{$photo}}" class="card-img-top" alt="...">
+                                                    <img style="border-radius: 100%;width: 50px;height: 50px;"
+                                                         src="{{$photo}}" class="card-img-top" alt="...">
                                                 @endforeach
                                             </td>
-                                            <td>{{$article->created_at}}</td>
                                             <td>{{$article->updated_at}}</td>
                                             <td>
-                                                @if($article->status === 0 )
-                                                    <div style="text-align: center;">
-                                                        <i class="fas fa-times"></i>
-                                                    </div>
-                                                @elseif($article->status === 1 )
- master
-                                                    <div style="text-align: center;">
-                                                        <i class="fas fa-check-circle"></i>
-                                                    </div>
-                                                @endif
+                                                {!! $article->statusString !!}
                                             </td>
                                             <td>
- update
-                                                <a href="#" class="btn btn-success">Detail</a>
-                                                <a href="#" class="btn btn-primary">Edit</a>
-
                                                 <a href="#" class="btn btn-success">Detail
                                                 </a>
                                                 <a href="/admin/articles/{{$article->id}}/edit" class="btn btn-primary">Edit</a>
- master
-                                                <a href="#" class="btn btn-danger">Delete</a>
+                                               <a href="#" class=" btn-delete text-danger mr-1" id="delete-{{$article->id}}">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -137,11 +105,10 @@
             </div>
         </div>
     </div>
-
 @endsection
 @section('script')
     <script type="text/javascript">
-        $( document ).ready(function() {
+        $(document).ready(function () {
             var myWidget = cloudinary.createUploadWidget(
                 {
                     cloudName: 'dzpmsbjzh',
@@ -177,10 +144,10 @@
             var url = new URL(location.href);
             var startTime = url.searchParams.get("start");
             var endTime = url.searchParams.get("end");
-            if(startTime === null || startTime.length == 0){
+            if (startTime === null || startTime.length === 0) {
                 startTime = new Date();
             }
-            if(endTime === null || endTime.length == 0){
+            if (endTime === null || endTime.length === 0) {
                 endTime = new Date();
             }
             $('input[name="start"]').val(moment(startTime).format('YYYY-MM-DD'));
@@ -202,7 +169,7 @@
                     }
                 }
             );
-            $('input[name="dates"]').on('apply.daterangepicker', function(ev, picker) {
+            $('input[name="dates"]').on('apply.daterangepicker', function (ev, picker) {
                 $('input[name="start"]').val(picker.startDate.format('YYYY-MM-DD'));
                 $('input[name="end"]').val(picker.endDate.format('YYYY-MM-DD'));
                 $('#search-form').submit();
@@ -217,6 +184,28 @@
                     console.error(error);
                 });
         });
-
+        var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        var btnDeletes =document.getElementsByClassName('btn-delete');
+        for (let i = 0; i < btnDeletes.length; i++) {
+            btnDeletes[i].onclick = function (){
+                if (confirm('Are you sure')){
+                    var id = this.getAttribute('id').replace('delete-', '');
+                    var xmlHttpRequest = new XMLHttpRequest();
+                    xmlHttpRequest.open('PUT','/delete/article/'+id);
+                    xmlHttpRequest.setRequestHeader('X-CSRF-TOKEN', token);
+                    xmlHttpRequest.onreadystatechange = function (){
+                        if (this.readyState == 4){
+                            if(this.status == 200){
+                                alert('Confirm success')
+                                location.reload();
+                            }else {
+                                alert('Action fails!!')
+                            }
+                        }
+                    }
+                    xmlHttpRequest.send();
+                }
+            }
+        }
     </script>
 @endsection

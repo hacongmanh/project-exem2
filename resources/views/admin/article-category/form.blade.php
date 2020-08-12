@@ -6,7 +6,6 @@
         }
     </style>
 @endsection
-
 @section('main-content')
     <div class="container-fluid">
         <div class="col-md-12">
@@ -36,7 +35,6 @@
                         </div>
                     </div>
                 </div>
-
                     <div class="col-md-12">
                         <p style="">Mô Tả:</p>
                         <textarea class="textarea" name="title" placeholder="Place some text here" style="height: 200px;width: 100%; font-size: 14px; line-height: 18px; border: 1px solid rgb(221, 221, 221); padding: 10px; display: none;">
@@ -44,7 +42,7 @@
                     </div>
                     </div>
                 </div>
-                    <div class="col-12">
+                    <div class="col-6">
                         <div class="form-group">
                             <button type="button" id="upload_widget" class="btn btn-primary">Upload
                                 files
@@ -53,7 +51,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="text-right">
                             <button type="submit" name="submit" class="btn btn-info">Submit</button>
                             <button type="reset" class="btn btn-dark">Reset</button>

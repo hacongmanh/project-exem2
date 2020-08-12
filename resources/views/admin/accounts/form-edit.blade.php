@@ -1,60 +1,77 @@
-@extends('layout.layout-admin', ['current_page' => 'article-edit'])
+@extends('layout.layout-admin', ['current_page' => 'account-edit'])
 @section('main-content')
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Sửa article</h3>
+                    <h3 class="card-title">Sửa Account</h3>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
-                            <form action="/admin/articles/{{$obj->id}}" method="post" id="product_form">
+                            <form action="/admin/accounts/{{$obj->id}}" method="post" id="product_form">
                                 @method('put')
                                 @csrf
                                 <div class="row form-group">
                                     <div class="col-6">
-                                        <label>Tiêu đề bài viết</label>
+                                        <label>Tài Khoản</label>
                                         <input type="text" class="form-control" id="exampleFormControlTextarea1"
-                                               name="title" value="{{$obj->title}}"/>
-                                        @if($errors->has('title'))
-                                            <span class="text-danger">* {{$errors->first('title')}}</span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col-4">
-                                        <select name="category_id" class="custom-select">
-                                            <option value="0">---- Chọn giống chó ----</option>
-                                            @foreach( $article_categories  as $cate)
-                                                <option value="{{$cate->id}}" {{$cate->id == $obj->category_id ? 'selected' : ''}}>{{$cate->name}}</option>
-                                            @endforeach
-                                        </select>
-                                        @if($errors->has('category_id'))
-                                            <span class="text-danger">* {{$errors->first('category_id')}}</span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col-3">
-                                        <select name="status" class="custom-select">
-                                            <option value="0">----Trạng thái bài viết----</option>
-                                            <option value="1">Duyệt Bài</option>
-                                            <option value="0">Không Duyệt</option>
-                                        </select>
-                                        @if($errors->has('status'))
-                                            <span class="text-danger">* {{$errors->first('status')}}</span>
+                                               name="user_name" value="{{$obj->user_name}}"/>
+                                        @if($errors->has('user_name'))
+                                            <span class="text-danger">* {{$errors->first('user_name')}}</span>
                                         @endif
                                     </div>
                                 </div>
 
                                 <div class="row form-group">
-                                    <div class="col-12">
-                                        <label>Mô tả bài viết</label>
-                                        <textarea class="form-control" id="text-editor" rows="8"
-                                                  name="description">{{$obj->description}}</textarea>
-                                        @if($errors->has('description'))
-                                            <span class="text-danger">* {{$errors->first('description')}}</span>
+                                    <div class="col-6">
+                                        <label>Email</label>
+                                        <input type="email" class="form-control" id="exampleFormControlTextarea1"
+                                               name="email" value="{{$obj->email}}"/>
+                                        @if($errors->has('email'))
+                                            <span class="text-danger">* {{$errors->first('email')}}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-6">
+                                        <label>Tên đầy đủ</label>
+                                        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+                                               name="full_name" value="{{$obj->full_name}}"/>
+                                        @if($errors->has('full_name'))
+                                            <span class="text-danger">* {{$errors->first('full_name')}}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-6">
+                                        <label>Số Điện Thoại</label>
+                                        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+                                               name="phone" value="{{$obj->phone}}"/>
+                                        @if($errors->has('phone'))
+                                            <span class="text-danger">* {{$errors->first('phone')}}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-6">
+                                        <label>Địa Chỉ</label>
+                                        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+                                               name="address" value="{{$obj->address}}"/>
+                                        @if($errors->has('address'))
+                                            <span class="text-danger">* {{$errors->first('address')}}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-3">
+                                        <select name="role" class="custom-select">
+                                            <option value="0">----Quyền Người Dùng----</option>
+                                            <option value="1">User </option>
+                                            <option value="2">Admin</option>
+                                        </select>
+                                        @if($errors->has('role'))
+                                            <span class="text-danger">* {{$errors->first('role')}}</span>
                                         @endif
                                     </div>
                                 </div>
@@ -120,8 +137,9 @@
         $('body').on('click', '.cloudinary-delete', function () {
             var splittedImg = $(this).parent().find('img').attr('src').split('/');
             var imgName = splittedImg[splittedImg.length - 1];
-            imgName = imgName.replace('.jpg', '');
-            $('input[data-cloudinary-public-id="' + imgName + '"]').remove();
+            var splittedImgName = imgName.split('.');
+            var imgCode = splittedImgName[0];
+            $('input[data-cloudinary-public-id="' + imgCode + '"]').remove();
             $(this).parent().remove();
         });
     </script>

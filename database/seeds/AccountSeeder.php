@@ -26,6 +26,7 @@ class AccountSeeder extends Seeder
                 'address' => 'Thanh xuân',
                 'thumbnail'=>'',
                 'role' => '1',
+                'status'=>2,
                 'created_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-1)->format('Y-m-d H:i:s')
             ],
@@ -39,6 +40,7 @@ class AccountSeeder extends Seeder
                 'thumbnail'=>'',
                 'address' => 'Thanh xuân',
                 'role' => '1',
+                'status'=>2,
                 'created_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-1)->format('Y-m-d H:i:s')
             ],
@@ -52,6 +54,7 @@ class AccountSeeder extends Seeder
                 'thumbnail'=>'',
                 'address' => 'Singgapo',
                 'role' => '2',
+                'status'=>2,
                 'created_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-1)->format('Y-m-d H:i:s')
             ],
@@ -65,6 +68,7 @@ class AccountSeeder extends Seeder
                 'thumbnail'=>'',
                 'address' => 'Long biên',
                 'role' => '1',
+                'status'=>2,
                 'created_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-1)->format('Y-m-d H:i:s')
             ],
@@ -78,6 +82,7 @@ class AccountSeeder extends Seeder
                 'thumbnail'=>'',
                 'address' => 'Nam từ liêm',
                 'role' => '1',
+                'status'=>2,
                 'created_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-1)->format('Y-m-d H:i:s')
             ],
@@ -91,6 +96,7 @@ class AccountSeeder extends Seeder
                 'thumbnail'=>'',
                 'address' => ' Hoàn kiếm',
                 'role' => '1',
+                'status'=>2,
                 'created_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-1)->format('Y-m-d H:i:s')
             ],
@@ -104,6 +110,7 @@ class AccountSeeder extends Seeder
                 'thumbnail'=>'',
                 'address' => ' Đống đa',
                 'role' => '1',
+                'status'=>2,
                 'created_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-1)->format('Y-m-d H:i:s')
             ],
@@ -117,6 +124,7 @@ class AccountSeeder extends Seeder
                 'thumbnail'=>'',
                 'address' => 'Long biên ',
                 'role' => '1',
+                'status'=>2,
                 'created_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-1)->format('Y-m-d H:i:s')
             ],
@@ -130,6 +138,7 @@ class AccountSeeder extends Seeder
                 'thumbnail'=>'',
                 'address' => 'Mỹ',
                 'role' => '1',
+                'status'=>2,
                 'created_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-1)->format('Y-m-d H:i:s')
             ],
@@ -143,6 +152,7 @@ class AccountSeeder extends Seeder
                 'thumbnail'=>'',
                 'address' => 'Vinh',
                 'role' => '1',
+                'status'=>2,
                 'created_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-1)->format('Y-m-d H:i:s')
             ],

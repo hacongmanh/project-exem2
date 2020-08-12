@@ -39,13 +39,9 @@ class ArticleController extends Controller
             $to = date($request->get('end') . ' 23:59:00');
             $articles_list = $articles_list->whereBetween('created_at', [$from, $to]);
         }
-        $data['list'] = $articles_list->orderBy('created_at', 'DESC')->paginate(2)
-            ->appends(['keyword' => $request->get('keyword'), 'category_id' => $request->get('category_id'), 'start' => $request->get('start'), 'end' => $request->get('end')]);
-        $data['article_categories'] = $article_categories;
-        return view('admin.articles.list')->with($data);
-
         $data['list'] = $articles_list
             ->where('status', '=', 1)
+            ->orWhere('status','=',0)
             ->orderBy('created_at', 'DESC')
             ->paginate(5)
             ->appends(['keyword' => $request->get('keyword'), 'category_id' => $request
@@ -67,23 +63,16 @@ class ArticleController extends Controller
         $obj->title = $request->get('title');
         $obj->description = $request->get('description');
         $obj->category_id = $request->get('category_id');
-        $obj->create_by = $request->get('create_by');
+        $obj->create_by = 2;
         $thumbnails = $request->get('thumbnails');
         foreach ($thumbnails as $thumbnail) {
             $obj->thumbnail .= $thumbnail . ',';
         }
-        $obj->status = 1;
-
-        $obj->create_by = 2;
         $obj->status = 0;
-        $thumbnail = $request->get('thumbnails');
-        foreach ($thumbnail as $thumbnails) {
-            $obj->thumbnail .= $thumbnails . ',';
-        }
         $obj->updated_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->created_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->save();
-        return redirect('/admin/articles');
+        return redirect('admin/articles');
     }
 
     /**
@@ -118,11 +107,25 @@ class ArticleController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, $id)
     {
-        //
+        $obj = Article::find($id);
+        if ($obj == null ) {
+            return view('error.404');
+        }
+        $obj->title = $request->get('title');
+        $obj->description = $request->get('description');
+        $obj->category_id = $request->get('category_id');
+        $obj->status = $request->get('status');
+        $thumbnails = $request->get('thumbnails');
+        $obj->thumbnail = '';
+        foreach ($thumbnails as $thumbnail) {
+            $obj->thumbnail .= $thumbnail . ',';
+        }
+        $obj->save();
+        return redirect('/admin/articles');
     }
 
     /**
@@ -134,5 +137,13 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function DeleteArticle($id){
+        $obj = Article::find($id);
+        if ($obj == null){
+            return view('error/error-404');
+        }
+        $obj->status = 2;
+        $obj->save();
     }
 }

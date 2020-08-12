@@ -17,14 +17,10 @@ use Illuminate\Support\Facades\Route;
 //    return view('admin.admin-form');
 //});
 
-Route::resource('admin/accounts','AccountController');
 
 Route::resource('admin/articles','Admin\ArticleController');
 
 Route::resource('admin/dogs','Admin\DogController');
-
-Route::resource('admin/article-categories','Admin\ArticleCategoryController');
-
 
 
 Route::resource('admin/accounts','Admin\AccountController');
@@ -57,3 +53,7 @@ Route::get('/timeline', function () {
 Route::get('/flow', function () {
     return view('home.pagination.flow');
 });
+
+// delete mem
+Route::put('delete/article/{id}','Admin\ArticleController@DeleteArticle');
+Route::put('delete/account/{id}','Admin\AccountController@DeleteArticle');

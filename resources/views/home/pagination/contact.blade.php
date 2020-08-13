@@ -2,12 +2,12 @@
 @section('title' , 'Chúng tôi | Pet sitting')
 @section('menu-navbar')
     <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a href="#" class="nav-link">Trang chủ</a></li>
-        <li class="nav-item "><a href="#" class="nav-link">Chúng tôi</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Dòng thời gian</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Đăng tin</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Theo dõi</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+        <li class="nav-item"><a href="/" class="nav-link">Trang chủ</a></li>
+        <li class="nav-item "><a href="/about" class="nav-link">Chúng tôi</a></li>
+        <li class="nav-item"><a href="/timeline" class="nav-link">Dòng thời gian</a></li>
+        <li class="nav-item"><a href="/transfer" class="nav-link">Đăng tin</a></li>
+        <li class="nav-item"><a href="/flow" class="nav-link">Theo dõi</a></li>
+        <li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
         <li class="nav-item active"><a href="#" class="nav-link">Liên hệ</a></li>
     </ul>
 @endsection

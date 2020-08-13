@@ -36,7 +36,9 @@ class ValidateAccount extends FormRequest
     public function messages()
     {
         return [
-            'user_name.required' => 'Bạn cần nhập tiêu đề ',
+            'user_name.required' => 'Bạn cần nhập tài khoản ',
+            'user_name.required.min'=>'Tối thiểu là 3 kí tự',
+            'user_name.required.max'=>'Tối đa là 100 kí tự',
             'password.required.min' => 'Tối thiểu 6 kí tự',
             'password.required.max' => 'Tối đa 30 kí tự',
             'password.required' => 'Vui lòng nhập mật khẩu',

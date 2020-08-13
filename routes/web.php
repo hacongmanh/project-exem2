@@ -34,27 +34,23 @@ Route::resource('admin/dogs','Admin\DogController');
 //Route::resource('admin/article','AdminArticleController');
 //Route::resource('admin/form/article','AdminFormArticleController');
 
+
 Route::get('/', function () {
     return view('home.pagination.home');
 });
-Route::get('/about', function () {
-    return view('home.pagination.about');
-});
-Route::get('/contact', function () {
-    return view('home.pagination.contact');
-});
-Route::get('/blog', function () {
-    return view('home.pagination.blog');
-});
-Route::get('/transfer', function () {
-    return view('home.pagination.transfer');
-});
-Route::get('/timeline', function () {
-    return view('home.pagination.timeline');
-});
-Route::get('/flow', function () {
-    return view('home.pagination.flow');
-});
+Route::resource('homes','Home\HomeController');
+
+Route::resource('about','Home\AboutController');
+
+Route::resource('contact','Home\ContactController');
+
+Route::resource('flow','Home\FlowController');
+
+Route::resource('timeline','Home\TimelineController');
+
+Route::resource('transfer','Home\TransferController');
+
+Route::resource('blog','Home\BlogController');
 
 // delete mem
 Route::put('delete/article/{id}','Admin\ArticleController@DeleteArticle');

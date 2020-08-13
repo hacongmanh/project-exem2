@@ -111,9 +111,10 @@ class ArticleController extends Controller
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(ValidateArticle $request, $id)
-    {   $request->validated();
+    {
+        $request->validated();
         $obj = Article::find($id);
-        if ($obj == null ) {
+        if ($obj == null) {
             return view('error.404');
         }
         $obj->title = $request->get('title');
@@ -139,9 +140,11 @@ class ArticleController extends Controller
     {
         //
     }
-    public function DeleteArticle($id){
+
+    public function DeleteArticle($id)
+    {
         $obj = Article::find($id);
-        if ($obj == null){
+        if ($obj == null) {
             return view('error/error-404');
         }
         $obj->status = 2;

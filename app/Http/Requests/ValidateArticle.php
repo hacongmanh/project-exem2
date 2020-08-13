@@ -47,7 +47,7 @@ class ValidateArticle extends FormRequest
     public function withValidator($validator)
     {
         $validator->after(function ($validator){
-            if($this->get('category_id' == 0)){
+            if($this->get('category_id') == 0){
                 $validator->errors()->add('category_id', 'Vui lòng chọn giống chó!');
             }
         });

@@ -32,10 +32,18 @@ class ValidateDogCategory extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'Bạn cần nhập tiêu đề ',
-            'title.required.min'=> 'Tối thiểu 3 kí tự',
-            'title.required.max'=> 'Tối thiểu 100 kí tự',
+            'name.required' => 'Bạn cần tên danh mục ',
+            'name.required.min'=> 'Tối thiểu 3 kí tự',
+            'name.required.max'=> 'Tối thiểu 100 kí tự',
             'thumbnail[].required' => 'Hãy chọn ít nhất 1 bức ảnh  ',
         ];
+    }
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator){
+            if($this->get('breedType') == 0){
+                $validator->errors()->add('breedType', 'Vui lòng chọn giống chó!');
+            }
+        });
     }
 }

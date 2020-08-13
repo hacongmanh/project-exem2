@@ -30,17 +30,17 @@
         <div class="row">
             <div class="col-md-6 d-flex align-items-center">
                 <p class="mb-0 phone pl-md-2">
-                    <a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span>+84 344865412</a>
+                    <a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span>+84 343895161</a>
                     <a href="#"><span class="fa fa-paper-plane mr-1"></span> petsitting@email.com</a>
                 </p>
             </div>
             <div class="col-md-6 d-flex justify-content-md-end">
                 <div class="social-media">
                     <p class="mb-0 d-flex">
-                        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
-                        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
-                        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
-                        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+                        <a href="https://www.facebook.com/scdogshop/?__tn__=%2Cd%2CP-R&eid=ARAdVYt5d24HCTrrqc1nrmlKXb4S02fApdbY9SrZywYFsGWGncMFUSZYG1nHLyITC4UlVcZsGgvF4MAW" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+                        <a href="https://www.twitch.tv/chefdogshow" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+                        <a href="https://www.instagram.com/chomeoshop/" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+                        <a href="https://www.youtube.com/user/meotinxinhtuoi" class="d-flex align-items-center justify-content-center"><span class="fa fa-youtube"><i class="sr-only">Youtobe</i></span></a>
                     </p>
                 </div>
             </div>
@@ -51,7 +51,7 @@
 {{--navbar--}}
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.html"><span class="flaticon-pawprint-1 mr-2"></span>Pet sitting</a>
+        <a class="navbar-brand" href="/"><span class="flaticon-pawprint-1 mr-2"></span>Pet sitting</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="fa fa-bars"></span> Menu
         </button>
@@ -76,9 +76,9 @@
                 <p>Petsitting! Trung tâm nuôi dưỡng và đào tạo pet uy tín, đạt chuẩn chất lượng quốc tế.</p>
                 <p>Petsitting © 2020  PRIVACY POLICY</p>
                 <ul class="ftco-footer-social p-0">
-                    <li class="ftco-animate fadeInUp ftco-animated"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
-                    <li class="ftco-animate fadeInUp ftco-animated"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a></li>
-                    <li class="ftco-animate fadeInUp ftco-animated"><a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fa fa-instagram"></span></a></li>
+                    <li class="ftco-animate fadeInUp ftco-animated"><a href="https://www.twitch.tv/chefdogshow" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
+                    <li class="ftco-animate fadeInUp ftco-animated"><a href="https://www.facebook.com/scdogshop/?__tn__=%2Cd%2CP-R&eid=ARAdVYt5d24HCTrrqc1nrmlKXb4S02fApdbY9SrZywYFsGWGncMFUSZYG1nHLyITC4UlVcZsGgvF4MAW" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a></li>
+                    <li class="ftco-animate fadeInUp ftco-animated"><a href="https://www.instagram.com/chomeoshop/" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fa fa-instagram"></span></a></li>
                 </ul>
             </div>
             <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
@@ -109,11 +109,11 @@
             <div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
                 <h2 class="footer-heading">Đường dẫn nhanh</h2>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="py-2 d-block">Trang chủ</a></li>
-                    <li><a href="#" class="py-2 d-block">Chúng tôi</a></li>
-                    <li><a href="#" class="py-2 d-block">Dịch vụ</a></li>
-                    <li><a href="#" class="py-2 d-block">Blog</a></li>
-                    <li><a href="#" class="py-2 d-block">Liên Hệ</a></li>
+                    <li><a href="/" class="py-2 d-block">Trang chủ</a></li>
+                    <li><a href="/about" class="py-2 d-block">Chúng tôi</a></li>
+                    <li><a href="/flow" class="py-2 d-block">Theo dõi</a></li>
+                    <li><a href="/blog" class="py-2 d-block">Blog</a></li>
+                    <li><a href="/contact" class="py-2 d-block">Liên Hệ</a></li>
                 </ul>
             </div>
             <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
@@ -121,7 +121,7 @@
                 <div class="block-23 mb-3">
                     <ul>
                         <li><span class="icon fa fa-map"></span><span class="text">08 Tôn Thất Thuyết, Mỹ Đình, Hà Nội</span></li>
-                        <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+84 344865412</span></a></li>
+                        <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+84 343895161</span></a></li>
                         <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">Petsitting@gmail.com</span></a></li>
                     </ul>
                 </div>

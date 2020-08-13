@@ -23,9 +23,9 @@ class DogCategoryController extends Controller
         $data['keyword'] = '';
         $breed_list = Breed::all();
         $dogs_categories = DogCategory::query();
-        if ($request->has('name') && $request->get('name') != 0) {
-            $data['name'] = $request->get('name');
-            $dogs_categories = $dogs_categories->where('name', '=', $request->get('name'));
+        if ($request->has('category_id') && $request->get('category_id') != 0) {
+            $data['category_id'] = $request->get('category_id');
+            $dogs_categories = $dogs_categories->where('breedType', '=', $request->get('category_id'));
         }
         if ($request->has('keyword') && strlen($request->get('keyword')) > 0) {
             $data['keyword'] = $request->get('keyword');
@@ -121,8 +121,8 @@ class DogCategoryController extends Controller
      * @param int $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function update(Request $request, $id)
-    {
+    public function update(ValidateDogCategory $request, $id)
+    {   $request->validated();
         $obj = DogCategory::find($id);
         if ($obj == null) {
             return view('error.404');

@@ -18,7 +18,7 @@
                                                 <select name="category_id" class="custom-select">
                                                     <option value="0">All</option>
                                                     @foreach($dogs_categories as $cate)
-                                                        <option value="{{$cate->id}}" >{{$cate->name}}</option>
+                                                        <option value="{{$cate->id}}"  {{$cate->id == $category_id ? 'selected':''}} >{{$cate->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>

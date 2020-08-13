@@ -38,7 +38,6 @@
                                         files
                                     </button>
                                     <div class="thumbnails">
-
                                     </div>
                                 </div>
                                 <div class="form-group">

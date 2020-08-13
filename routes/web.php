@@ -22,6 +22,8 @@ Route::resource('admin/dogs-categories','Admin\DogCategoryController');
 
 Route::resource('admin/dogs','Admin\DogController');
 
+Route::resource('admin/article-categories','Admin\ArticleCategoryController');
+
 
 Route::resource('admin/accounts','Admin\AccountController');
 
@@ -58,3 +60,5 @@ Route::get('/flow', function () {
 Route::put('delete/article/{id}','Admin\ArticleController@DeleteArticle');
 Route::put('delete/account/{id}','Admin\AccountController@DeleteArticle');
 Route::put('delete/dog-category/{id}','Admin\DogCategoryController@DeleteDogCategory');
+Route::put('delete/dogs/{id}','Admin\DogController@updateDog');
+Route::put('delete/article-categories/{id}','Admin\ArticleCategoryController@updateArticleCategory');

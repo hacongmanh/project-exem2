@@ -18,13 +18,13 @@ class CreateDogsTable extends Migration
             $table->string('name');
             $table->string('price');
             $table->string('birthday');
-            $table->string('gender');
+            $table->integer('gender');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
-//            $table->string('	category_id');
+// $table->string(' category_id');
             $table->unsignedBigInteger('breedType');
             $table->foreign('breedType')->references('id')->on('breeds');
-//            $table->string('	breedType');
+// $table->string(' breedType');
             $table->string('color');
             $table->string('thumbnail');
             $table->text('description');
@@ -35,9 +35,7 @@ class CreateDogsTable extends Migration
 
             $table->unsignedBigInteger('father_id');
             $table->foreign('father_id')->references('id')->on('dogs');
-
-//            $table->string('	mother_id');
-//            $table->string('	father_id');
+            $table->integer('status');
             $table->timestamps();
         });
     }

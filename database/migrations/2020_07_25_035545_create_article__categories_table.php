@@ -18,6 +18,7 @@ class CreateArticleCategoriesTable extends Migration
             $table->string('name');
             $table->string('thumbnail');
             $table->text('description');
+            $table->string('status');
             $table->timestamps();
         });
     }

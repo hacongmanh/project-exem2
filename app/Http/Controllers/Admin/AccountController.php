@@ -126,8 +126,8 @@ class AccountController extends Controller
      * @param int $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
-    {
+    public function update(ValidateAccount $request, $id)
+    {   $request->validated();
         $obj = Account::find($id);
         $obj->user_name = $request->get('user_name');
         $password = $request->get('password');

@@ -46,7 +46,6 @@ class ValidateAccount extends FormRequest
             'address.required' => 'Vui lòng nhập địa chỉ của bạn',
             'address.required.max' => 'Tối đa 300 kí tự',
             'phone.required' => 'Hãy nhập số điện thoại ',
-            'thumbnail[].required' => 'Hãy chọn ít nhất 1 bức ảnh  ',
         ];
     }
 }

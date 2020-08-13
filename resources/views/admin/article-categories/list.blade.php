@@ -1,26 +1,40 @@
-@extends('layout.layout-admin', ['current_page' => 'dog-list'])
+@extends('layout.layout-admin', ['current_page' => 'article-categories-list'])
 @section('main-content')
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Danh mục chó</h3>
+                    <h3 class="card-title">Danh mục bài viết</h3>
                 </div>
                 <div class="card-body">
                     <div class="dataTables_wrapper dt-bootstrap4">
-                        <form action="/admin/dogs" method="get" id="search-form">
-                            <div class="col-7">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label>Tìm theo từ khóa !</label>
-                                            <input name="keyword" value="{{$keyword}}" type="text" class="form-control" placeholder="Nhập từ khóa...">
+                        <form action="/admin/article-categories" method="get" id="search-form">
+                            <div class="row form-group">
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label>Tìm theo từ khóa !</label>
+                                                <input name="keyword" value="{{$keyword}}" type="text" class="form-control" placeholder="Nhập từ khóa...">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <button class="invisible">Submit</button>
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Tìm theo thời gian tạo</label>
+                                                    <input type="text" class="form-control" name="dates">
+                                                    <input type="hidden" name="start">
+                                                    <input type="hidden" name="end">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <button class="invisible">Submit</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -32,38 +46,30 @@
                                     <thead>
                                     <tr>
                                         <th width="5%">Id</th>
-                                        <th width="20%">Tên</th>
-                                        <th width="9%">Ảnh đại diện</th>
-                                        <th>gender</th>
-                                        <th>price</th>
-                                        <th>birthday</th>
-                                        <th>Ngày tạo</th>
+                                        <th width="35%">Tên</th>
+                                        <th width="25%">Ảnh đại diện</th>
                                         <th>Trạng thái</th>
                                         <th>Thao tác</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($list as $dogs)
+                                    @foreach($list as $categories)
                                         <tr>
-                                            <td>{{$dogs->id}}</td>
-                                            <td>{{$dogs->name}}</td>
+                                            <td>{{$categories->id}}</td>
+                                            <td>{{$categories->name}}</td>
                                             <td>
-                                                @foreach($dogs->large_photos as $photo)
+                                                @foreach($categories->large_photos as $photo)
                                                     <img src="{{$photo}}" alt="" width="60px" height="60px"; style="border-radius: 100%">
                                                 @endforeach
                                             </td>
-                                            <td>{{$dogs->GenderString}}</td>
-                                            <td>{{$dogs->price}}</td>
-                                            <td>{{$dogs->birthday}}</td>
-                                            <td>{{$dogs->created_at}}</td>
                                             <td>
-                                                {!! $dogs->StatusString !!}
+                                                {!! $categories->StatusString !!}
                                             </td>
                                             <td>
                                                 <a href="#" class="btn btn-success">Detail
                                                 </a>
-                                                <a href="/admin/dogs/{{$dogs->id}}/edit" class="btn btn-primary">Edit</a>
-                                                <a href="#" class="btn-delete btn btn-danger mr-1" id="delete-{{$dogs->id}}">Delete</a>
+                                                <a href="/admin/article-categories/{{$categories->id}}/edit" class="btn btn-primary">Edit</a>
+                                                <a href="#" class="btn-delete btn btn-danger mr-1" id="delete-{{$categories->id}}">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -172,7 +178,7 @@
                 if (confirm('Are you sure')){
                     var id = this.getAttribute('id').replace('delete-', '');
                     var xmlHttpRequest = new XMLHttpRequest();
-                    xmlHttpRequest.open('PUT','/delete/dogs/'+id);
+                    xmlHttpRequest.open('PUT','/delete/article-categories/'+id);
                     xmlHttpRequest.setRequestHeader('X-CSRF-TOKEN', token);
                     xmlHttpRequest.onreadystatechange = function (){
                         if (this.readyState == 4){

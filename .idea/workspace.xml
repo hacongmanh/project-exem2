@@ -20,20 +20,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a04251f-b233-4a9c-9bbd-97ff81626d00" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/dogs/form.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/dogs/list.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/article-categories/form-edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/article-categories/form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/article-categories/list.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/dogs/form-edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DogCategory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ArticleCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ArticleCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Dog.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Dog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AccountController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ArticleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/BreedsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/BreedsSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/articles/form-edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/articles/form-edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/DogCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DogCategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/DogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/ValidateAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/ValidateAccount.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/ValidateArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/ValidateArticle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_25_035545_create_article__categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_25_035545_create_article__categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_25_035657_create_dogs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_25_035657_create_dogs_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/ArticleCategorySeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ArticleCategorySeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DogsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DogsSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/TraningTipsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/TraningTipsSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/chart.js/Chart.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/chart.js/Chart.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/chart.js/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/chart.js/Chart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/filterizr/filterizr.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/filterizr/filterizr.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/filterizr/jquery.filterizr.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/filterizr/jquery.filterizr.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/filterizr/vanilla.filterizr.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/filterizr/vanilla.filterizr.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/plugins/flot-old/jquery.flot.categories.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/plugins/flot-old/jquery.flot.categories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/article-category/form.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/article-category/list.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/articles/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/articles/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/category/form.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/category/list.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/dog-category/form-edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dog-category/form-edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/dog-category/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dog-category/form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/dog-category/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dog-category/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/dogs/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dogs/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/dogs/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dogs/list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layout/layout-admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/layout-admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -180,13 +198,13 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Manh\Desktop\dog1\dog1\resources\views\admin\dogs" />
-      <recent name="C:\Users\Manh\Desktop\dog1\dog1\public" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Manh\Desktop\dog1\dog1\app\Http\Controllers\Admin" />
       <recent name="C:\Users\Manh\Desktop\dog1\dog1\public\js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Manh\Desktop\dog1\dog1\resources\views\admin\dogs" />
+      <recent name="C:\Users\Manh\Desktop\dog1\dog1\public" />
     </key>
   </component>
   <component name="RunManager">
@@ -206,7 +224,7 @@
       <option name="presentableId" value="Default" />
       <updated>1597061386284</updated>
       <workItem from="1597061389430" duration="57951000" />
-      <workItem from="1597232306836" duration="1799000" />
+      <workItem from="1597232306836" duration="18327000" />
     </task>
     <servers />
   </component>
@@ -226,10 +244,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="506" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1597216606060">
+    <state x="506" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1597302553243">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="506" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1597216606060" />
+    <state x="506" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1597302553243" />
     <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597228694661">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -238,14 +256,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1597110434710" />
-    <state x="534" y="135" key="NewPhpClassDialog" timestamp="1597149503436">
+    <state x="534" y="135" key="NewPhpClassDialog" timestamp="1597302488597">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="534" y="135" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1597149503436" />
-    <state x="605" y="336" key="NewPhpFileDialog" timestamp="1597208358556">
+    <state x="534" y="135" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1597302488597" />
+    <state x="605" y="336" key="NewPhpFileDialog" timestamp="1597302866505">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="605" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1597208358556" />
+    <state x="605" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1597302866505" />
     <state x="17" y="0" width="1138" height="810" maximized="true" key="dock-window-1" timestamp="1597150034694">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

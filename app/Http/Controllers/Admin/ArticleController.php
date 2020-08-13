@@ -25,9 +25,9 @@ class ArticleController extends Controller
         $data['keyword'] = '';
         $article_categories = ArticleCategory::all();
         $articles_list = Article::query();
-        if ($request->has('title') && $request->get('title') != 0) {
-            $data['title'] = $request->get('title');
-            $articles_list = $articles_list->where('title', '=', $request->get('title'));
+        if ($request->has('category_id') && $request->get('category_id') != 0) {
+            $data['category_id'] = $request->get('category_id');
+            $articles_list = $articles_list->where('category_id', '=', $request->get('category_id'));
         }
         if ($request->has('keyword') && strlen($request->get('keyword')) > 0) {
             $data['keyword'] = $request->get('keyword');
@@ -41,8 +41,8 @@ class ArticleController extends Controller
             $articles_list = $articles_list->whereBetween('created_at', [$from, $to]);
         }
         $data['list'] = $articles_list
-            ->where('status', '=', 1)
-            ->orWhere('status','=',0)
+//            ->where('status', '=', 0)
+//            ->orWhere('status','=',1)
             ->orderBy('created_at', 'DESC')
             ->paginate(5)
             ->appends(['keyword' => $request->get('keyword'), 'category_id' => $request
@@ -64,12 +64,12 @@ class ArticleController extends Controller
         $obj->title = $request->get('title');
         $obj->description = $request->get('description');
         $obj->category_id = $request->get('category_id');
-        $obj->create_by = 2;
-        $thumbnails = $request->get('thumbnails');
-        foreach ($thumbnails as $thumbnail) {
-            $obj->thumbnail .= $thumbnail . ',';
+        $thumbnail = $request->get('thumbnail');
+        foreach ($thumbnail as $thumbnails) {
+            $obj->thumbnail .= $thumbnails . ',';
         }
-        $obj->status = $request->get('status');
+        $obj->status = 1;
+        $obj->create_by = 2;
         $obj->updated_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->created_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->save();
@@ -110,8 +110,8 @@ class ArticleController extends Controller
      * @param int $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
-    {
+    public function update(ValidateArticle $request, $id)
+    {   $request->validated();
         $obj = Article::find($id);
         if ($obj == null ) {
             return view('error.404');

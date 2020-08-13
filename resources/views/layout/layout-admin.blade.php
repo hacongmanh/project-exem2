@@ -31,7 +31,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="/admin-account" class="nav-link">Home</a>
+                <a href="/" class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="#" class="nav-link">Contact</a>
@@ -168,7 +168,7 @@
                             </p>
                         </a>
                     </li>
-                    <li class="nav-item has-treeview">
+                    <li class="nav-item has-treeview {{($current_page == 'dog-list' || $current_page == 'dog-form' || $current_page == 'dog-edit') ? 'menu-open' : ''}}">
                         <a href="/admin/dogs" class="nav-link">
                             <i class="nav-icon fas fa-dog"></i>
                             <p>
@@ -176,19 +176,27 @@
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
+                        <ul class="nav nav-treeview {{($current_page == 'dog-list' || $current_page == 'dog-form') ? 'menu-open' : ''}}">
                             <li class="nav-item">
-                                <a href="/admin/dogs" class="nav-link">
+                                <a href="/admin/dogs" class="nav-link  {{($current_page == 'dog-list') ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Danh sách chó</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/dogs/create" class="nav-link">
+                                <a href="/admin/dogs/create" class="nav-link {{($current_page == 'dog-form') ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Thêm mới chó</p>
                                 </a>
                             </li>
+                            @if($current_page == 'dog-edit')
+                                <li class="nav-item">
+                                    <a href="{{Request::url()}}" class="nav-link {{($current_page == 'dog-edit') ? 'active' : ''}}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Sửa bài viết</p>
+                                    </a>
+                                </li>
+                            @endif
                         </ul>
                     </li>
                     <li class="nav-item has-treeview {{($current_page  == 'dogs-categories-list' || $current_page  == 'dogs-categories-form' || $current_page  == 'dogs-categories-edit') ? 'menu-open' : ''}}">
@@ -268,7 +276,7 @@
                             @endif
                         </ul>
                     </li>
-                    <li class="nav-item has-treeview  {{($current_page  == 'categories-list' || $current_page  == 'categories-form' || $current_page  == 'categories-edit') ? 'menu-open' : ''}}">
+                    <li class="nav-item has-treeview  {{($current_page == 'article-categories-list' || $current_page == 'article-categories-form' || $current_page == 'categories-edit') ? 'menu-open' : ''}}">
                         <a href="/admin/article-categories" class="nav-link">
                             <i class="nav-icon fas fa-list"></i>
                             <p>
@@ -276,19 +284,27 @@
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview {{($current_page  == 'categories-list' || $current_page  == 'categories-form') ? 'menu-open' : ''}}">
+                        <ul class="nav nav-treeview {{($current_page == 'article-categories-list' || $current_page == 'article-categories-form') ? 'menu-open' : ''}}">
                             <li class="nav-item">
-                                <a href="/admin/article-categories" class="nav-link {{($current_page  == 'categories-list') ? 'active' : ''}}">
+                                <a href="/admin/article-categories" class="nav-link {{($current_page == 'article-categories-list') ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Ds danh mục bài viết</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/article-categories/create" class="nav-link  {{($current_page  == 'categories-form') ? 'active' : ''}}">
+                                <a href="/admin/article-categories/create" class="nav-link  {{($current_page == 'article-categories-form') ? 'active' : ''}}">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Thêm danh mục bài viết</p>
                                 </a>
                             </li>
+                            @if($current_page == 'article-categories-edit')
+                                <li class="nav-item">
+                                    <a href="{{Request::url()}}" class="nav-link {{($current_page == 'article-categories-edit') ? 'active' : ''}}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Sửa bài viết</p>
+                                    </a>
+                                </li>
+                            @endif
                         </ul>
                     </li>
                 </ul>

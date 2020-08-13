@@ -1,69 +1,23 @@
-@extends('layout.layout-admin', ['current_page' => 'dog-form'])
+@extends('layout.layout-admin', ['current_page' => 'article-categories-form'])
 @section('main-content')
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Thêm mới chó</h3>
+                    <h3 class="card-title">Thêm mới danh mục</h3>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
-                            <form action="/admin/dogs" method="post" id="product_form">
+                            <form action="/admin/article-categories" method="post" id="product_form">
                                 @csrf
                                 <div class="row form-group">
                                     <div class="col-6">
-                                        <label>Tên chó</label>
+                                        <label>Tên danh mục bài viết</label>
                                         <input name="name" type="text" class="form-control input-sm" placeholder="Nhập tên...">
                                         @if($errors->has('name'))
                                             <span class="text-danger">* {{$errors->first('name')}}</span>
                                         @endif
-                                    </div>
-                                    <div class="col-6">
-                                        <label>Giá tiền</label>
-                                        <input name="price" type="text" class="form-control input-sm" placeholder="Nhập giá tiền...">
-                                        @if($errors->has('price'))
-                                            <span class="text-danger">* {{$errors->first('price')}}</span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col-6">
-                                        <label>Màu sắc</label>
-                                        <input name="color" type="text" class="form-control input-sm" placeholder="Nhập màu sắc...">
-                                        @if($errors->has('color'))
-                                            <span class="text-danger">* {{$errors->first('color')}}</span>
-                                        @endif
-                                    </div>
-                                    <div class="col-6">
-                                        <label>Giới tính</label>
-                                        <select name="gender" class="custom-select">
-                                            <option value="0">----Chọn giới tính----</option>
-                                            <option value="1" >Male</option>
-                                            <option value="2">Female</option>
-                                        </select>
-                                        @if($errors->has('gender'))
-                                            <span class="text-danger">* {{$errors->first('gender')}}</span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <div class="col-6">
-                                        <label>Ngày sinh</label>
-                                        <input name="birthday" type="text" class="form-control input-sm" placeholder="Nhập sinh nhật...">
-                                        @if($errors->has('birthday'))
-                                            <span class="text-danger">* {{$errors->first('birthday')}}</span>
-                                        @endif
-                                    </div>
-                                    <div class="col-6">
-                                        <label>Thể loại</label>
-                                        <select name="category_id" class="custom-select">
-                                            <option value="0">All</option>
-                                            @foreach($dogs as $cate)
-                                                <option
-                                                    value="{{$cate->id}}">{{$cate->name}}</option>
-                                            @endforeach
-                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -135,4 +89,3 @@
                         </script>
 
 @endsection
-

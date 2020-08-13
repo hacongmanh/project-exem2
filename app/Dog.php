@@ -6,7 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dog extends Model
 {
+    public function getGenderStringAttribute(){
+        if($this->gender == 1){
+            return 'male';
+        }else{
+            return 'female';
+        }
 
+    }
+    public function getStatusStringAttribute(){
+        if($this->status == 0){
+            return '<div class="text-danger">Chờ duyệt</div>';
+        }else if($this->status == 1){
+            return '<div class="text-success">Đã duyệt</div>';
+        }else{
+            return 'Chưa xác định';
+        }
+    }
     private static $cloudinary_link = 'https://res.cloudinary.com/dzpmsbjzh/image/upload/';
 
     public function getSmallPhotoAttribute()

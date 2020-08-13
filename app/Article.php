@@ -15,7 +15,7 @@ class Article extends Model
         }else if($this->status == 1){
             return '<div class="text-success">Đã duyệt</div>';
         }else{
-            return 'Chưa xác định';
+            return 'Không được duyệt';
         }
     }
 

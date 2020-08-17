@@ -14,6 +14,14 @@ class Dog extends Model
         }
 
     }
+    public function timeLine(){
+        return $this->hasOne('App\Timeline','dog_id','id');
+    }
+
+    public function getPriceFormatAttribute(){
+        return ConvertPrice::formatMoney($this->price);
+    }
+
     public function getStatusStringAttribute(){
         if($this->status == 0){
             return '<div class="text-danger">Chờ duyệt</div>';

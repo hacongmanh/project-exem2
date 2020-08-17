@@ -13,12 +13,13 @@ class TransferController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index(Request $request)
     {
         $data = array();
         $data['keyword'] = '';
+
         $transfer = Dog::paginate(6);
         $articles_list = Dog::query();
         if ($request->has('category_id') && $request->get('category_id') != 0) {
@@ -29,6 +30,8 @@ class TransferController extends Controller
             $data['keyword'] = $request->get('keyword');
             $articles_list = $articles_list->where('title', 'like', '%' . $request->get('keyword') . '%');
         }
+        $article_footer = Article::orderByRaw("RAND()")->take(2)->get();
+        $data['article_footer'] = $article_footer;
         $data['list'] = $articles_list
 //            ->where('status', '=', 1)
             ->orderBy('created_at', 'DESC')

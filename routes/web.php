@@ -33,18 +33,29 @@ Route::resource('admin/dogs','Admin\DogController');
 
 //Route::resource('admin/article','AdminArticleController');
 //Route::resource('admin/form/article','AdminFormArticleController');
-
-
-Route::get('/', function () {
-    return view('home.pagination.home');
+Route::get('/registers',function(){
+   return view('home/login/register');
 });
+Route::get('/logins',function(){
+   return view('home/login/signin');
+});
+
+
+
+Route::get('/blog-home1', function () {
+    return view('home.pagination.blog-home-1');
+});Route::get('/blog-home2', function () {
+    return view('home.pagination.blog-home-2');
+});Route::get('/blog-home3', function () {
+    return view('home.pagination.blog-home-3');
+});
+
+
 Route::resource('homes','Home\HomeController');
 
 Route::resource('about','Home\AboutController');
 
 Route::resource('contact','Home\ContactController');
-
-Route::resource('flow','Home\FlowController');
 
 Route::resource('timeline','Home\TimelineController');
 

@@ -40,13 +40,14 @@ class ArticleController extends Controller
             $to = date($request->get('end') . ' 23:59:00');
             $articles_list = $articles_list->whereBetween('created_at', [$from, $to]);
         }
+        // lọc theo trạng thái
+        $articles_list = $articles_list->where('status', '!=', 2);
         $data['list'] = $articles_list
-//            ->where('status', '=', 0)
-//            ->orWhere('status','=',1)
             ->orderBy('created_at', 'DESC')
             ->paginate(5)
             ->appends(['keyword' => $request->get('keyword'), 'category_id' => $request
                 ->get('category_id'), 'start' => $request->get('start'), 'end' => $request->get('end')]);
+
         $data['article_categories'] = $article_categories;
         return view('admin.articles.list')->with($data);
     }

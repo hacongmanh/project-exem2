@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Article;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -10,11 +11,13 @@ class ContactController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
-    {
-        return view('home.pagination.contact');
+    {   $data = array();
+        $article_footer = Article::orderByRaw("RAND()")->take(2)->get();
+        $data['article_footer'] = $article_footer;
+        return view('home.pagination.contact')->with($data);
     }
 
     /**

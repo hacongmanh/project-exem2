@@ -9,18 +9,32 @@
                 <div class="card-body">
                     <div class="dataTables_wrapper dt-bootstrap4">
                         <form action="/admin/dogs" method="get" id="search-form">
-                            <div class="col-7">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label>Tìm theo từ khóa !</label>
-                                            <input name="keyword" value="{{$keyword}}" type="text" class="form-control" placeholder="Nhập từ khóa...">
+                            <div class="row form-group">
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label>Tìm theo từ khóa !</label>
+                                                <input name="keyword" value="{{$keyword}}" type="text" class="form-control" placeholder="Nhập từ khóa...">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <button class="invisible">Submit</button>
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Tìm theo thời gian tạo</label>
+                                                    <input type="text" class="form-control" name="dates">
+                                                    <input type="hidden" name="start">
+                                                    <input type="hidden" name="end">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <button class="invisible">Submit</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -34,9 +48,9 @@
                                         <th width="5%">Id</th>
                                         <th width="20%">Tên</th>
                                         <th width="9%">Ảnh đại diện</th>
-                                        <th>gender</th>
-                                        <th>price</th>
-                                        <th>birthday</th>
+                                        <th>Giới tính</th>
+                                        <th>Giá</th>
+                                        <th>Sinh nhật</th>
                                         <th>Ngày tạo</th>
                                         <th>Trạng thái</th>
                                         <th>Thao tác</th>
@@ -57,7 +71,7 @@
                                             <td>{{$dogs->birthday}}</td>
                                             <td>{{$dogs->created_at}}</td>
                                             <td>
-                                                {!! $dogs->StatusString !!}
+                                                {!! $dogs->statusString !!}
                                             </td>
                                             <td>
                                                 <a href="#" class="btn btn-success">Detail
@@ -94,12 +108,12 @@
                     uploadPreset: 'atlr6nn5',
                     multiple: true,
                     form: '#product_form',
-                    fieldName: 'thumbnails[]',
+                    fieldName: 'thumbnail[]',
                     thumbnails: '.thumbnails'
                 }, function (error, result) {
                     if (!error && result && result.event === "success") {
                         console.log('Done! Here is the image info: ', result.info.url);
-                        var arrayThumnailInputs = document.querySelectorAll('input[name="thumbnails[]"]');
+                        var arrayThumnailInputs = document.querySelectorAll('input[name="thumbnail[]"]');
                         for (let i = 0; i < arrayThumnailInputs.length; i++) {
                             arrayThumnailInputs[i].value = arrayThumnailInputs[i].getAttribute('data-cloudinary-public-id');
                         }

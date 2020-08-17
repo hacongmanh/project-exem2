@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Article;
 use App\Http\Controllers\Controller;
+use App\Timeline;
 use Illuminate\Http\Request;
 
 class TimelineController extends Controller
@@ -14,7 +16,10 @@ class TimelineController extends Controller
      */
     public function index()
     {
-        return view('home.pagination.timeline');
+        $data = array();
+        $article_footer = Article::orderByRaw("RAND()")->take(2)->get();
+        $data['article_footer'] = $article_footer;
+        return view('home.pagination.timeline')->with($data);
     }
 
     /**

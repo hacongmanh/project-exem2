@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\ArticleCategory;
 use App\Breed;
 use App\Dog;
 use App\Http\Controllers\Controller;
@@ -19,13 +20,13 @@ class DogController extends Controller
     public function index(Request $request)
     {
         $data = array();
-        $data['category_id'] = 0;
+        $data['id'] = 0;
         $data['keyword'] = '';
-        $dogs = Breed::all();
+        $dogs = Dog::all();
         $dogs_list = Dog::query();
-        if ($request->has('category_id') && $request->get('category_id') != 0) {
-            $data['category_id'] = $request->get('category_id');
-            $dogs_list = $dogs_list->where('name', '=', $request->get('category_id'));
+        if ($request->has('id') && $request->get('id') != 0) {
+            $data['id'] = $request->get('id');
+            $dogs_list = $dogs_list->where('id', '=', $request->get('id'));
         }
         if ($request->has('keyword') && strlen($request->get('keyword')) > 0) {
             $data['keyword'] = $request->get('keyword');
@@ -38,12 +39,11 @@ class DogController extends Controller
             $to = date($request->get('end') . ' 23:59:00');
             $dogs_list = $dogs_list->whereBetween('created_at', [$from, $to]);
         }
+        $dogs_list = $dogs_list->where('status', '!=', 2);
         $data['list'] = $dogs_list
-            ->where('status', '=', 1)
-            ->orWhere('status','=',0)
             ->orderBy('created_at', 'DESC')
             ->paginate(5)
-            ->appends(['keyword' => $request->get('keyword'), 'id' => $request
+            ->appends(['keyword' => $request->get('keyword'), 'name' => $request
                 ->get('id'), 'start' => $request->get('start'), 'end' => $request->get('end')]);
         $data['dogs'] = $dogs;
         return view('admin.dogs.list')->with($data);
@@ -57,7 +57,7 @@ class DogController extends Controller
      */
     public function create()
     {
-        $dogs = Breed::all();
+        $dogs = ArticleCategory::all();
         return view('admin.dogs.form')->with('dogs',$dogs);
     }
 
@@ -69,26 +69,23 @@ class DogController extends Controller
      */
     public function store(ValidateDogs $request)
     {
-
         $obj = new Dog();
         $obj->name = $request->get('name');
         $obj->price = $request->get('price');
         $obj->birthday = $request->get('birthday');
         $obj->color = $request->get('color');
         $obj->gender = $request->get('gender');
-        $obj->breedType = '';
-        $obj->mother_id ='';
-        $obj->father_id = '';
-        $obj->thumbnail = $request->get('thumbnail');
+
         $obj->description = $request->get('description');
         $obj->category_id = $request->get('category_id');
-        $obj->detail = '';
+        $obj->detail = ' ';
         $obj->status = $request->get('status');
-
-        $thumbnails = $request->get('thumbnails');
+        $obj->breedType = 1;
+        $obj->mother_id = 1;
+        $obj->father_id = 1;
+        $thumbnails = $request->get('thumbnail');
         foreach ($thumbnails as $thumbnail) {
             $obj->thumbnail .= $thumbnail . ',';
-
         }
         $obj->status = 1;
         $obj->updated_at = Carbon::now()->addDays('0')->format('Y-m-d H:i:s');

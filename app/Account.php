@@ -8,6 +8,15 @@ class Account extends Model
 {
     private static $cloudinary_link = 'https://res.cloudinary.com/dzpmsbjzh/image/upload/';
 
+    public function timeLine()
+    {
+        return $this->hasOne('App\Timeline', 'created_by', 'id');
+
+    } public function accountComment()
+    {
+        return $this->hasOne('App\Comments', 'created_by', 'id');
+    }
+
     public function getSmallPhotoAttribute()
     {
         if ($this->thumbnail == null || strlen($this->thumbnail) == 0) {

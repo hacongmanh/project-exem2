@@ -11,12 +11,14 @@ class BlogController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {  $data = array();
+        $article = Article::query()->paginate(6);;
         $article_footer = Article::orderByRaw("RAND()")->take(2)->get();
         $data['article_footer'] = $article_footer;
+        $data['article'] = $article;
         return view('home.pagination.blog')->with($data);
     }
 

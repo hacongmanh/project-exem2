@@ -32,36 +32,40 @@
     <!--===============================================================================================-->
 </head>
 <style>
-    .container-login100 {
-
+    .back-home{
+        position: absolute;
+        top: 20px;
+        left: 20px;
     }
+
 </style>
 <body>
 <div class="limiter">
+
     <div class="container-login100">
-
+        <a href="/homes" class="back-home"> <img src="https://img.icons8.com/nolan/64/circled-left-2.png"/></a>
         <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
-            <form class="login100-form validate-form">
-                    <a href="/homes"> <img src="https://img.icons8.com/nolan/64/circled-left-2.png"/></a>
 
-					<span class="login100-form-title p-b-55">
-						Login
-					</span>
+            <form class="login100-form validate-form" action="/logins" method="POST" name="login" id="login-form">
+                @csrf
+                <span class="login100-form-title p-b-55">
+Login
+</span>
 
                 <div class="wrap-input100 validate-input m-b-16" data-validate="Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="text" name="email" placeholder="Email">
+                    <input class="input100" type="email" name="email" placeholder="Email">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
-							<span class="lnr lnr-envelope"></span>
-						</span>
+<span class="lnr lnr-envelope"></span>
+</span>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
                     <input class="input100" type="password" name="pass" placeholder="Password">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
-							<span class="lnr lnr-lock"></span>
-						</span>
+<span class="lnr lnr-lock"></span>
+</span>
                 </div>
 
                 <div class="contact100-form-checkbox m-l-4">
@@ -78,9 +82,9 @@
                 </div>
 
                 <div class="text-center w-full p-t-42 p-b-22">
-						<span class="txt1">
-							Or login with
-						</span>
+<span class="txt1">
+Or login with
+</span>
                 </div>
 
                 <a href="#" class="btn-face m-b-10">
@@ -95,9 +99,9 @@
                 </a>
 
                 <div class="text-center w-full p-t-115">
-						<span class="txt1">
-							Not a member?
-						</span>
+<span class="txt1">
+Not a member?
+</span>
 
                     <a class="txt1 bo1 hov1" href="/registers">
                         Sign up now

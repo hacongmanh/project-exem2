@@ -15,6 +15,7 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->text('comment');
             $table->unsignedBigInteger('timeline_id');
             $table->foreign('timeline_id')->references('id')->on('timelines');
             $table->unsignedBigInteger('create_by');

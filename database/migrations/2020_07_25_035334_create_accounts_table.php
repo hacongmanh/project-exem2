@@ -21,6 +21,7 @@ class CreateAccountsTable extends Migration
             $table->string('full_name');
             $table->string('phone');
             $table->string('address');
+            $table->string('salt');
             $table->text('thumbnail');
             $table->integer('role');
             $table->integer('status');

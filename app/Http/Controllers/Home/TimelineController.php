@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Article;
+use App\Comments;
 use App\Http\Controllers\Controller;
 use App\Timeline;
 use Illuminate\Http\Request;
@@ -12,17 +13,20 @@ class TimelineController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
-    {
-        $data = array();
+    {   $data = array();
+        $comment = Comments::orderByRaw("RAND()")->take(2)->get();
+        $timeline = Timeline::orderByRaw("RAND()")->take(2)->get();
         $article_footer = Article::orderByRaw("RAND()")->take(2)->get();
         $data['article_footer'] = $article_footer;
+        $data['timeline'] = $timeline;
+        $data['comment'] = $comment;
         return view('home.pagination.timeline')->with($data);
     }
 
-    /**
+    /**1
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

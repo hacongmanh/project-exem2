@@ -41,7 +41,7 @@
                             <p>Nắm rõ kinh nghiệm nuôi chó thì mới có thể giúp cho chú cún của bạn khỏe mạnh. Không phải
                                 bạn cứ ra cửa hàng chọn một em nhanh nhẹn về và cho ăn thật nhiều, tắm sạch sẽ là được.
                                 Vậy phải làm thế nào?</p>
-                            <a href="/blog-home1" class="btn-custom d-flex align-items-center justify-content-center"><span
+                            <a href="/blog-home-1" class="btn-custom d-flex align-items-center justify-content-center"><span
                                     class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                             <p>Bạn là người chăm sóc chó của mình và muốn điều tốt nhất cho cún cưng. Sức khỏe của chúng
                                 phần lớn do thức ăn quyết định. Tuy nhiên, có quá nhiều lựa chọn về thức ăn, làm thế nào
                                 bạn chọn được thứ tốt nhất cho chó của mình?</p>
-                            <a href="/blog-home2" class="btn-custom d-flex align-items-center justify-content-center"><span
+                            <a href="/blog-home-2" class="btn-custom d-flex align-items-center justify-content-center"><span
                                     class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                                 tế, chó không cần phải cạo lông, nếu có thì cũng nên do chuyên gia thực hiện. Tuy nhiên,
                                 nếu muốn đích thân cạo lông cho chúng, bạn cần hết sức cẩn trọng và bảo đảm an toàn cho
                                 người bạn của mình.</p>
-                            <a href="/blog-home3" class="btn-custom d-flex align-items-center justify-content-center"><span
+                            <a href="/blog-home-3" class="btn-custom d-flex align-items-center justify-content-center"><span
                                     class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
                         </div>
                     </div>
@@ -235,7 +235,7 @@
                             <div class="text p-4">
                                 <div class="meta mb-2">
                                     <div>{{$list->birthday}} &nbsp; &nbsp;Tên: {{$list->name}}</div>
-                                    <span style="font-size: 40px; !important;" class="price"> <span
+                                    <span style="font-size: 40px; !important;" class="price"> <span style="font-size: 20px;"
                                             class="number">{{$list->price_format}}</span></span>
                                     <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
                                     {{--                                        <li>{{$transfer_1->color}}</li>--}}

@@ -4,7 +4,7 @@
 @section('header')
     <style>
         .block-7 .price .number {
-            font-size: 40px;
+            font-size: 20px;
             ext-decoration: underline;
         }
     </style>
@@ -41,16 +41,16 @@
                                         <div>{{$transfer_1->birthday}} &nbsp;  &nbsp;Tên: {{$transfer_1->name}}</div>
                                         <span style="font-size: 50px; !important;" class="price"> <span class="number">{{$transfer_1->price_format}}</span></span>
                                         <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
-{{--                                        <li>{{$transfer_1->color}}</li>--}}
-{{--                                        <li>{{$transfer_1->birthday}}</li>--}}
-{{--                                        <li>{{$transfer_1->gender}}</li>--}}
+                                        <li>{{$transfer_1->color}}</li>
+                                        <li>{{$transfer_1->birthday}}</li>
+                                        <li>{{$transfer_1->gender}}</li>
                                     </div>
                                 </div>
                         </div>
                     </div>
                 @endforeach
             </div>
-        </div>
+
 
         <div class="row">
         <div class="col-sm-12 col-md-5"></div>

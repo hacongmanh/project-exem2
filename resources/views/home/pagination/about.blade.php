@@ -12,17 +12,6 @@
     </ul>
 @endsection
 @section('main-content')
-    <section class="hero-wrap hero-wrap-2" style=" background-position: 50% -69.2969px;" data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row no-gutters slider-text align-items-end">
-                <div class="col-md-9 ftco-animate pb-5 fadeInUp ftco-animated">
-                    <p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Trang chủ <i class="ion-ios-arrow-forward"></i></a></span> <span> About<i class="ion-ios-arrow-forward"></i></span></p>
-                    <h1 class="mb-0 bread">Các thành viên trong nhóm</h1>
-                </div>
-            </div>
-        </div>
-    </section>
 @endsection
 @section('section')
     <section class="ftco-section bg-light">

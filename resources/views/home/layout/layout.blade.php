@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="shortcut icon"  href="https://img.icons8.com/cotton/64/000000/dog-footprint.png">
     <title>@yield('title')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -72,7 +73,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                <h2 class="footer-heading">Petsitting</h2>
+                <h2 class="footer-heading">Pet Lovers</h2>
                 <p>Petsitting! Trung tâm nuôi dưỡng và đào tạo pet uy tín, đạt chuẩn chất lượng quốc tế.</p>
                 <p>Petsitting © 2020  PRIVACY POLICY</p>
                 <ul class="ftco-footer-social p-0">

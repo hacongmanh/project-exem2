@@ -15,16 +15,16 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $user_name = $request->getSession()->get('user_name');
+        $email = $request->getSession()->get('email');
         $role= $request->getSession()->get('role');
-        if($user_name == null){
+        if($email == null){
             $request->getSession()->flash('msg', 'Please login to continue!');
             return redirect('/logins');
         }
         if ($role != 2){
             $request->getSession();
-            return redirect('/logins');
-        }
+            return redirect('/homes');
+        };
         return $next($request);
     }
 }

@@ -4,13 +4,26 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Timeline extends Model
 {
     private static $cloudinary_link = 'https://res.cloudinary.com/dzpmsbjzh/image/upload/';
 
-    public function dog(){
-        return $this->belongsTo('App\Dog','dog_id','id');
+    public function dog()
+    {
+        return $this->belongsTo('App\Dog', 'dog_id', 'id');
     }
+
+    public function account()
+    {
+        return $this->belongsTo('App\Account', 'created_by', 'id');
+    }
+    public function comment()
+    {
+        return $this->belongsTo('App\Comments', 'timeline_id', 'id');
+    }
+
+
 
     public function getSmallPhotoAttribute()
     {

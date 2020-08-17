@@ -13,13 +13,23 @@ class AccountSeeder extends Seeder
      */
     public function run()
     {
+        $salt1 = substr(sha1(rand()), 0, 7);
+        $salt2 = substr(sha1(rand()), 0, 7);
+        $salt3 = substr(sha1(rand()), 0, 7);
+        $salt4 = substr(sha1(rand()), 0, 7);
+        $salt5 = substr(sha1(rand()), 0, 7);
+        $salt6 = substr(sha1(rand()), 0, 7);
+        if (env('DB_CONNECTION') == 'mysql') {
+            \Illuminate\Support\Facades\DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        }
+
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         DB::table('accounts')->truncate();
         DB::table('accounts')->insert([
             [
                 'id' => 1,
                 'user_name' => 'langioxanh1',
-                'password_hash' => 'langioxanh',
+                'password_hash' => md5('trangtran'. $salt1 ),
                 'email' => 'langioxanh@gmail.com',
                 'full_name' => 'làn gió xanh',
                 'phone' => '0314654747',
@@ -27,13 +37,14 @@ class AccountSeeder extends Seeder
                 'thumbnail'=>'',
                 'role' => '1',
                 'status'=>2,
+                'salt' => $salt1,
                 'created_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-1)->format('Y-m-d H:i:s')
             ],
             [
                 'id' => 2,
                 'user_name' => 'trinhhoanghieu',
-                'password_hash' => 'hieu123',
+                'password_hash' => md5('hoanghuy'. $salt2 ),
                 'email' => 'hieu@gmail.com',
                 'full_name' => 'trịnh hoàng hiếu',
                 'phone' => '031466565',
@@ -41,13 +52,14 @@ class AccountSeeder extends Seeder
                 'address' => 'Thanh xuân',
                 'role' => '1',
                 'status'=>2,
+                'salt' => $salt2,
                 'created_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-1)->format('Y-m-d H:i:s')
             ],
             [
                 'id' => 3,
                 'user_name' => 'admin',
-                'password_hash' => 'admin',
+                'password_hash' => md5('hathanh'. $salt3 ),
                 'email' => 'admin@gmail.com',
                 'full_name' => 'admin',
                 'phone' => '099999999',
@@ -55,13 +67,14 @@ class AccountSeeder extends Seeder
                 'address' => 'Singgapo',
                 'role' => '2',
                 'status'=>2,
+                'salt' => $salt3,
                 'created_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-1)->format('Y-m-d H:i:s')
             ],
             [
                 'id' => 4,
                 'user_name' => 'vuonghathanh',
-                'password_hash' => 'tranthutrang',
+                'password_hash' => md5('congmanh'. $salt4 ),
                 'email' => 'thanh@gmail.com',
                 'full_name' => 'Vương hà thanh',
                 'phone' => '0565147552',
@@ -69,13 +82,14 @@ class AccountSeeder extends Seeder
                 'address' => 'Long biên',
                 'role' => '1',
                 'status'=>2,
+                'salt' => $salt4,
                 'created_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-1)->format('Y-m-d H:i:s')
             ],
             [
                 'id' => 5,
                 'user_name' => 'langioxanh2',
-                'password_hash' => 'langioxanh2',
+                'password_hash' => md5('haituan'. $salt5 ),
                 'email' => 'langioxanh2@gmail.com',
                 'full_name' => 'làn gió xanh',
                 'phone' => '0369811474',
@@ -83,13 +97,14 @@ class AccountSeeder extends Seeder
                 'address' => 'Nam từ liêm',
                 'role' => '1',
                 'status'=>2,
+                'salt' => $salt5,
                 'created_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-1)->format('Y-m-d H:i:s')
             ],
             [
                 'id' => 6,
                 'user_name' => 'langioxanh3',
-                'password_hash' => 'langioxanh3',
+                'password_hash' => md5('adminvip'. $salt6 ),
                 'email' => 'langioxanh3@gmail.com',
                 'full_name' => 'làn gió xanh',
                 'phone' => '021489563',
@@ -97,62 +112,7 @@ class AccountSeeder extends Seeder
                 'address' => ' Hoàn kiếm',
                 'role' => '1',
                 'status'=>2,
-                'created_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->addDays(-1)->format('Y-m-d H:i:s')
-            ],
-            [
-                'id' => 7,
-                'user_name' => 'nguyeng123',
-                'password_hash' => 'abcsass',
-                'email' => 'nguyen@gmail.com',
-                'full_name' => 'Triệu thạnh nguyên',
-                'phone' => '035985625',
-                'thumbnail'=>'',
-                'address' => ' Đống đa',
-                'role' => '1',
-                'status'=>2,
-                'created_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->addDays(-1)->format('Y-m-d H:i:s')
-            ],
-            [
-                'id' => 8,
-                'user_name' => 'ninhto111',
-                'password_hash' => 'toninh123',
-                'email' => 'ninh@gmail.com',
-                'full_name' => 'tô tuấn ninh',
-                'phone' => '086899999',
-                'thumbnail'=>'',
-                'address' => 'Long biên ',
-                'role' => '1',
-                'status'=>2,
-                'created_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->addDays(-1)->format('Y-m-d H:i:s')
-            ],
-            [
-                'id' => 9,
-                'user_name' => 'Haituan123',
-                'password_hash' => 'tuuaancut',
-                'email' => 'tuan@gmail.com',
-                'full_name' => 'Đỗ hải tuân',
-                'phone' => '0236598541',
-                'thumbnail'=>'',
-                'address' => 'Mỹ',
-                'role' => '1',
-                'status'=>2,
-                'created_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->addDays(-1)->format('Y-m-d H:i:s')
-            ],
-            [
-                'id' => 10,
-                'user_name' => 'dung314241',
-                'password_hash' => 'dungkhoa',
-                'email' => 'dungyeukhoa@gmail.com',
-                'full_name' => 'Doãn văn dũng',
-                'phone' => '035414966',
-                'thumbnail'=>'',
-                'address' => 'Vinh',
-                'role' => '1',
-                'status'=>2,
+                'salt' => $salt6,
                 'created_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-1)->format('Y-m-d H:i:s')
             ],

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login V13</title>
+    <link rel="shortcut icon"  href="https://img.icons8.com/cotton/64/000000/dog-footprint.png">
+    <title>Register </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -33,8 +34,6 @@
 
 <div class="limiter">
     <div class="container-login100">
-        <div class="login100-more" style="background-image: url('images/bg-01.jpg');"></div>
-
         <div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
             <form class="login100-form validate-form">
 					<span class="login100-form-title p-b-59">

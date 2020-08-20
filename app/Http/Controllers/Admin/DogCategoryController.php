@@ -108,7 +108,7 @@ class DogCategoryController extends Controller
     {
         $obj = DogCategory::find($id);
         if ($obj == null) {
-            return 'not found';
+            return view('error/error-404');
         }
         $breed_categories = Breed::all();
         return view('admin.dog-category.form-edit')->with('obj', $obj)->with('breed_categories', $breed_categories);

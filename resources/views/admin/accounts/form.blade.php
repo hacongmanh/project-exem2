@@ -64,6 +64,14 @@
                                             <span class="text-danger">* {{$errors->first('address')}}</span>
                                         @endif
                                     </div>
+                                </div> <div class="row form-group">
+                                    <div class="col-6">
+                                        <label>Địa Chỉ</label>
+                                        <input name="address" type="text" class="form-control input-sm" id="address">
+                                        @if($errors->has('address'))
+                                            <span class="text-danger">* {{$errors->first('address')}}</span>
+                                        @endif
+                                    </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col-3">

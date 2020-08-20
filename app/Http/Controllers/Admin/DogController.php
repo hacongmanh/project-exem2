@@ -115,7 +115,7 @@ class DogController extends Controller
     {
         $obj = Dog::find($id);
         if ($obj == null) {
-            return 'not found';
+            return view('error/error-404');
         }
         return view('admin.dogs.form-edit')->with('obj', $obj);
     }

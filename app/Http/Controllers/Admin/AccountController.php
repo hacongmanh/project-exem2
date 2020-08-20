@@ -41,7 +41,7 @@ class AccountController extends Controller
             $account = $account->whereBetween('created_at', [$from, $to]);
         }
         $data['list'] = $account_categories->where('user_name', 'like', '%' .$request->get('keyword'). '%')
-            ->where('status', '=', 2)
+            ->where('status', '!=', 0)
             ->orderBy('created_at', 'DESC')
             ->paginate(5);
         $data['$account'] = $account;
@@ -113,7 +113,7 @@ class AccountController extends Controller
 
         $obj = Account::find($id);
         if ($obj == null) {
-            return 'not found';
+            return view('error/error-404');
         }
         $accounts_categories = Account::all();
         return view('admin.accounts.form-edit')->with('obj', $obj)->with('accounts_categories', $accounts_categories);
@@ -164,7 +164,7 @@ class AccountController extends Controller
         if ($obj == null){
             return view('error/error-404');
         }
-        $obj->status = 1;
+        $obj->status = 0;
         $obj->save();
     }
 

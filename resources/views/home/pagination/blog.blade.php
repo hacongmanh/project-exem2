@@ -1,5 +1,5 @@
 @extends('home.layout.layout')
-@section('title' , 'Chúng tôi | Pet sitting')
+@section('title' , 'Chúng tôi | Dog Lovers')
 @section('menu-navbar')
     <ul class="navbar-nav ml-auto">
         <li class="nav-item"><a href="/homes" class="nav-link">Trang chủ</a></li>
@@ -21,15 +21,14 @@
                 @foreach($article as $list)
                     <div class="col-md-4 d-flex ftco-animate fadeInUp ftco-animated">
                         <div class="blog-entry align-self-stretch">
-                            <a href="blog-single.html" class="block-20 rounded"
+                            <a href="/blog/{{$list->id}}" class="block-20 rounded"
                                style="background-image: url({{$list->large_photo}});">
                             </a>
                             <div class="text p-4">
                                 <div class="meta mb-2">
                                     <div><a href="#">{{$list->updated_at}}</a></div>
-                                    <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
                                 </div>
-                                <h3 class="heading"><a href="#">{{$list->title}}</a></h3>
+                                <h3 class="heading"><a href="/blog/{{$list->id}}">{{$list->title}}</a></h3>
                             </div>
                         </div>
                     </div>
@@ -46,4 +45,3 @@
     </div>
 
 @endsection
-

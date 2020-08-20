@@ -46,15 +46,39 @@ Route::resource('blog','Home\BlogController');
 
 Route::get('/logins', 'Admin\LoginController@login');
 Route::post('/logins', 'Admin\LoginController@processLogin');
+Route::get('/registers', 'Admin\UserController@create');
+Route::post('/registers', 'Admin\UserController@store');;
 
 Route::middleware(['admin.middleware'])->group(function (){
     Route::resource('/admin/dogs-categories','Admin\DogCategoryController');
     Route::resource('/admin/dogs','Admin\DogController');
     Route::resource('/admin/article-categories','Admin\ArticleCategoryController');
-    Route::resource('/admin/articles','Admin\AccountController');
+    Route::resource('/admin/articles','Admin\ArticleController');
+    Route::resource('/admin/accounts','Admin\AccountController');
+    Route::resource('/admin/order','Admin\OrdersController');
     Route::put('delete/article/{id}','Admin\ArticleController@DeleteArticle');
     Route::put('delete/account/{id}','Admin\AccountController@DeleteArticle');
     Route::put('delete/dog-category/{id}','Admin\DogCategoryController@DeleteDogCategory');
     Route::put('delete/dogs/{id}','Admin\DogController@updateDog');
     Route::put('delete/article-categories/{id}','Admin\ArticleCategoryController@updateArticleCategory');
 });
+
+
+//Route::resource('dog-products/{id}','DogProducts');
+Route::get('order/{id}','OrderController@show');
+Route::post('order','OrderController@store');
+//Route::resource('timeline/{id}','TimelineController');
+
+//cart
+Route::get('/remove','Home\TransferController@remove');
+
+Route::post('/save-cart','CartController@save_cart');
+Route::get('/product/add-to-cart/{id}','Home\TransferController@addToCart')->name('addToCart');
+Route::get('/product/show-cart','Home\TransferController@showCart')->name('showCart');
+
+Route::get('shop/add-to-cart/{id}','Home\TransferController@addToCart')->name('addToCart');
+Route::get('shop/show-cart','Home\TransferController@showCart')->name('showCart');
+Route::get('shop/update-cart','Home\TransferController@updateCart')->name('updateCart');
+Route::get('shop/delete-cart','Home\TransferController@deleteCart')->name('deleteCart');
+
+

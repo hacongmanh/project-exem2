@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CommentsSeeder::class);
         $this->call(ArticleCategorySeeder::class);
         $this->call(DogCategorySeeder::class);
+        $this->call(OrdersSeeder::class);
 
 
     }

@@ -59,10 +59,10 @@
 @section('menu-navbar')
     <ul class="navbar-nav ml-auto">
         <li class="nav-item"><a href="/homes" class="nav-link">Trang chủ</a></li>
-        <li class="nav-item"><a href="/about" class="nav-link">Chúng tôi</a></li>
         <li class="nav-item active"><a href="#" class="nav-link">Dòng thời Gian</a></li>
         <li class="nav-item"><a href="/transfer" class="nav-link">Sản phẩm</a></li>
         <li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
+        <li class="nav-item"><a href="/about" class="nav-link">Chúng tôi</a></li>
         <li class="nav-item"><a href="/contact" class="nav-link">Liên hệ</a></li>
         <li class="nav-item"><a href="/logins" class="nav-link">Đăng nhập</a></li>
     </ul>
@@ -72,23 +72,23 @@
 @endsection
 @section('section')
     <section class="ftco-section">
-        @foreach($timeline as $timelines)
+{{--        @foreach($timeline as $timelines)--}}
         <div class="container">
 
             <div class="row border-all">
 
                 <div class="col-12 row">
-                    <div class="col-1"><img  class="rounded-circle" src="{{$timelines->account->thumbnail}}" alt="" style="height: 3.75rem ; width: 3.75rem;cursor: pointer;    margin: 10px;"></div>
+{{--                    <div class="col-1"><img  class="rounded-circle" src="{{$timelines->account->thumbnail}}" alt="" style="height: 3.75rem ; width: 3.75rem;cursor: pointer;    margin: 10px;"></div>--}}
                     <div class="col-5" style="margin: 10px;">
-                       <b>{{$timelines->account->full_name}}</b>
-                        <div>{{$timelines->updated_at}}</div>
+{{--                       <b>{{$timelines->account->full_name}}</b>--}}
+{{--                        <div>{{$timelines->updated_at}}</div>--}}
                     </div>
                 </div>
                 <div class="col-md-12 ftco-animate fadeInUp ftco-animated">
                     <div class="work mb-4 img d-flex align-items-end" style="background-image: url({{asset('home/images/test.jpg')}});height: 50rem">
-                        <a href="{{$timelines->account->thumbnail}}" class="icon image-popup d-flex justify-content-center align-items-center">
-                            <span class="fa fa-expand"></span>
-                        </a>
+{{--                        <a href="{{$timelines->account->thumbnail}}" class="icon image-popup d-flex justify-content-center align-items-center">--}}
+{{--                            <span class="fa fa-expand"></span>--}}
+{{--                        </a>--}}
                         <div class="desc w-100 px-4">
                             <div class="text w-100 mb-3">
                                 <span>Cat</span>
@@ -123,7 +123,7 @@
                 </div>
             </div>
             </div>
-            @endforeach
+{{--            @endforeach--}}
             <div class="row mt-5">
                 <div class="col text-center">
                     <div class="block-27">

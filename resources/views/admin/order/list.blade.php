@@ -1,4 +1,4 @@
-@extends('layout.layout-admin', ['current_page' => 'article-list'])
+@extends('layout.layout-admin', ['current_page' => 'order-list'])
 @section('main-content')
     <div class="row">
         <div class="col-12">
@@ -59,31 +59,28 @@
                                 <table class="table table-bordered table-hover dataTable dtr-inline">
                                     <thead>
                                     <th>ID</th>
-                                    <th width="30%">Tiêu đề</th>
-                                    <th>Ảnh đại diện</th>
-                                    <th>Ngày cập nhật</th>
-                                    <th>Trạng thái</th>
-                                    <th>Thao tác</th>
+                                    <th width="30%">Ship Name</th>
+                                    <th>Ship Phone</th>
+                                    <th>Ship Address</th>
+                                    <th>Ship Email</th>
+                                    <th>Trạng Thái</th>
+                                    <th>Tổng Tiền</th>
+                                    <th>Thao Tác</th>
                                     </thead>
                                     <tbody>
                                     @foreach($list as $article)
                                         <tr>
                                             <td>{{$article->id}}</td>
-                                            <td>{{$article->title}}</td>
-                                            <td style=" width: 160px;">
-                                                @foreach($article->large_photos as $photo )
-                                                    <img style="border-radius: 100%;width: 50px;height: 50px;"
-                                                         src="{{$photo}}" class="card-img-top" alt="...">
-                                                @endforeach
-                                            </td>
-                                            <td>{{$article->updated_at}}</td>
-                                            <td>
-                                                {!! $article->statusString !!}
-                                            </td>
+                                            <td>{{$article->ship_name}}</td>
+                                            <td>{{$article->ship_phone}}</td>
+                                            <td> {{$article->ship_address}}</td>
+                                            <td>{{$article->ship_email}}</td>
+                                            <td>{{$article->status}}</td>
+                                            <td>{{$article->total}}</td>
                                             <td>
                                                 <a href="#" class="btn btn-success">Detail
                                                 </a>
-                                                <a href="/admin/articles/{{$article->id}}/edit" class="btn btn-primary">Edit</a>
+                                                <a href="/admin/order/{{$article->id}}/edit" class="btn btn-primary">Edit</a>
                                                 <a href="#" class="btn-delete btn btn-danger mr-1" id="delete-{{$article->id}}">Delete</a>
                                             </td>
                                         </tr>

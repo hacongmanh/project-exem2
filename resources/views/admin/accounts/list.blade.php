@@ -54,6 +54,7 @@
                                     <th>Email</th>
                                     <th>Phone</th>
                                     <th>Ngày cập nhập</th>
+                                    <th>Trạng thái</th>
                                     <th>Thao tác</th>
                                     </thead>
                                     <tbody>
@@ -64,11 +65,12 @@
                                             <td>{{$accounts->email}}</td>
                                             <td>{{$accounts->phone}}</td>
                                             <td>{{$accounts->updated_at}}</td>
+                                            <td>{!!$accounts->StatusString!!}</td>
                                             <td>
                                                 <a href="#" class="btn btn-success">Detail</a>
                                                 <a href="/admin/accounts/{{$accounts->id}}/edit"
                                                    class="btn btn-primary">Edit</a>
-                                            <a href="#" class="btn-delete text-danger mr-1" id="delete-{{$accounts->id}}">Delete</a>
+                                                <a href="#" class="btn-delete btn btn-danger mr-1" id="delete-{{$accounts->id}}">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach

@@ -40,7 +40,7 @@ class ArticleCategoryController extends Controller
         }
         $data['list'] = $category_list
             ->orderBy('created_at', 'DESC')
-            ->orderBy('created_at', 'DESC')
+            ->where('status','!=','2')
             ->paginate(5)
             ->appends(['keyword' => $request->get('keyword'), 'id' => $request
                 ->get('id'), 'start' => $request->get('start'), 'end' => $request->get('end')]);
@@ -111,7 +111,7 @@ class ArticleCategoryController extends Controller
     {
         $obj = ArticleCategory::find($id);
         if ($obj == null) {
-            return 'not found';
+            return view('error/error-404');
         }
         return view('admin.article-categories.form-edit')->with('obj', $obj);
     }

@@ -3,25 +3,15 @@
 @section('menu-navbar')
     <ul class="navbar-nav ml-auto">
         <li class="nav-item"><a href="/homes" class="nav-link">Trang chủ</a></li>
-        <li class="nav-item "><a href="/about" class="nav-link">Chúng tôi</a></li>
         <li class="nav-item"><a href="/timeline" class="nav-link">Dòng thời gian</a></li>
         <li class="nav-item"><a href="/transfer" class="nav-link">Đăng tin</a></li>
         <li class="nav-item active"><a href="/blog" class="nav-link">Blog</a></li>
+        <li class="nav-item "><a href="/about" class="nav-link">Chúng tôi</a></li>
         <li class="nav-item"><a href="/contact" class="nav-link">Liên hệ</a></li>
+        <li class="nav-item"><a href="/logins" class="nav-link">Đăng nhập</a></li>
     </ul>
 @endsection
 @section('main-content')
-    <section class="hero-wrap hero-wrap-2">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row no-gutters slider-text align-items-end">
-                <div class="col-md-9 ftco-animate pb-5 fadeInUp ftco-animated">
-                    <p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Trang chủ <i class="ion-ios-arrow-forward"></i></a></span> <span> About<i class="ion-ios-arrow-forward"></i></span></p>
-                    <h1 class="mb-0 bread">Blog</h1>
-                </div>
-            </div>
-        </div>
-    </section>
 @endsection
 @section('section')
     <section class="ftco-section ftco-degree-bg">

@@ -3,10 +3,10 @@
 @section('menu-navbar')
     <ul class="navbar-nav ml-auto">
         <li class="nav-item active"><a href="" class="nav-link">Trang chủ</a></li>
-        <li class="nav-item"><a href="/about" class="nav-link">Chúng tôi</a></li>
         <li class="nav-item"><a href="/timeline" class="nav-link">Dòng thời gian</a></li>
         <li class="nav-item"><a href="/transfer" class="nav-link">Sản phẩm</a></li>
         <li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
+        <li class="nav-item"><a href="/about" class="nav-link">Chúng tôi</a></li>
         <li class="nav-item"><a href="/contact" class="nav-link">Liên hệ</a></li>
         <li class="nav-item"><a href="/logins" class="nav-link">Đăng nhập</a></li>
     </ul>
@@ -20,7 +20,7 @@
             <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
                  data-scrollax-parent="true" style="height: 969px;">
                 <div class="col-md-11 ftco-animate text-center fadeInUp ftco-animated">
-                    <h1 class="mb-4">Bạn là người yêu chó bạn muốn lưu chữ kỉ niệm đẹp </h1>
+                    <h1 class="mb-4">Bạn là người yêu chó bạn muốn lưu trữ kỉ niệm đẹp </h1>
                 </div>
             </div>
         </div>
@@ -234,13 +234,18 @@
                             @endforeach
                             <div class="text p-4">
                                 <div class="meta mb-2">
-                                    <div>{{$list->birthday}} &nbsp; &nbsp;Tên: {{$list->name}}</div>
-                                    <span style="font-size: 40px; !important;" class="price"> <span style="font-size: 20px;"
-                                            class="number">{{$list->price_format}}</span></span>
-                                    <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
-                                    {{--                                        <li>{{$transfer_1->color}}</li>--}}
-                                    {{--                                        <li>{{$transfer_1->birthday}}</li>--}}
-                                    {{--                                        <li>{{$transfer_1->gender}}</li>--}}
+                                    <div>{{$list->birthday}} &nbsp; <a href="*">&nbsp;Tên: {{$list->name}}</a></div>
+                                    <li>Màu sắc :{{$list->color}}</li>
+                                    <li>Sinh nhật :{{$list->birthday}}</li>
+                                    <div style="font-size: 50px; !important;" class="price">
+                                        <div class="number">{{$list->price_format}}</div>
+                                    </div>
+                                    <a href="/timeline/{{$list->id}}" class="btn btn-success">Chi Tiết</a>
+                                    <a href="#"
+                                       data-url="{{route('addToCart',['id'=>$list->id])}}"
+                                       class="btn btn-primary add_to_cart">
+                                        Add to card
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -289,7 +294,7 @@
                 @foreach($article as $article_new)
                 <div class="col-md-4 d-flex ftco-animate fadeInUp ftco-animated">
                     <div class="blog-entry align-self-stretch">
-                        <a href="blog-single.html" class="block-20 rounded"
+                        <a href="/blog/{{$article_new->id}}" class="block-20 rounded"
                            style="background-image: url({{$article_new->large_photo}});">
                         </a>
                         <div class="text p-4">
@@ -298,7 +303,7 @@
                                 <div><a href="#">Admin</a></div>
                                 <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
                             </div>
-                            <h3 class="heading"><a href="#">{{$article_new->title}}</a></h3>
+                            <h3 class="heading"><a href="/blog/{{$article_new->id}}">{{$article_new->title}}</a></h3>
                         </div>
                     </div>
                 </div>
@@ -306,5 +311,35 @@
             </div>
         </div>
     </section>
+@endsection
+@section('script')
+    <script>
+        function addToCart(event) {
+            event.preventDefault();
+            let urlCart = $(this).data('url');
+            $.ajax({
+                type:"GET",
+                url:urlCart,
+                dataType:'json',
+                success:function (data) {
+                    if(data.code === 200){
+                        alert('thêm sản phẩm thành công');
+                    }
+                },
+                error:function () {
+
+                }
+            });
+        }
+
+        $(function () {
+            $('.add_to_cart').on('click', addToCart)
+        })
+
+
+    </script>
+
+
+
 @endsection
 

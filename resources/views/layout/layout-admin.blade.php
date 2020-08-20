@@ -307,6 +307,32 @@
                             @endif
                         </ul>
                     </li>
+                    <li class="nav-item has-treeview {{($current_page  == 'order-list' || $current_page == 'order-edit') ? 'menu-open' : ''}}">
+                        <a href="/admin/order" class="nav-link">
+                            <i class="nav-icon fas fa-newspaper"></i>
+                            <p>
+                                Quản lý đơn hàng
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview {{($current_page  == 'order-edit')  ? 'menu-open' : ''}}">
+                            <li class="nav-item">
+                                <a href="/admin/order" class="nav-link {{($current_page  == 'order-list') ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Danh sách đơn hàng</p>
+                                </a>
+                            </li>
+                            @if($current_page == 'order-edit')
+                                <li class="nav-item">
+                                    <a href="{{Request::url()}}" class="nav-link {{($current_page  == 'order-edit') ? 'active' : ''}}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Sửa đơn hàng</p>
+                                    </a>
+                                </li>
+                            @endif
+                        </ul>
+                    </li>
+
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

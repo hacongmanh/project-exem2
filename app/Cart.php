@@ -4,28 +4,34 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Account extends Model
+class Cart extends Model
 {
-    public function getStatusStringAttribute(){
-        if($this->status == 2){
-            return '<div class="text-danger">Deactive</div>';
-        }else if($this->status == 1){
-            return '<div class="text-success">Active</div>';
+    public function getGenderStringAttribute(){
+        if($this->gender == 1){
+            return 'male';
         }else{
-            return 'Đợi active';
+            return 'female';
+        }
+
+    }
+    public function timeLine(){
+        return $this->hasOne('App\Timeline','dog_id','id');
+    }
+
+    public function getPriceFormatAttribute(){
+        return ConvertPrice::formatMoney($this->price);
+    }
+
+    public function getStatusStringAttribute(){
+        if($this->status == 0){
+            return '<div class="text-danger">Chờ duyệt</div>';
+        }else if($this->status == 1){
+            return '<div class="text-success">Đã duyệt</div>';
+        }else{
+            return 'Chưa xác định';
         }
     }
-
     private static $cloudinary_link = 'https://res.cloudinary.com/dzpmsbjzh/image/upload/';
-
-    public function timeLine()
-    {
-        return $this->hasOne('App\Timeline', 'created_by', 'id');
-
-    } public function accountComment()
-    {
-        return $this->hasOne('App\Comments', 'created_by', 'id');
-    }
 
     public function getSmallPhotoAttribute()
     {
@@ -104,4 +110,5 @@ class Account extends Model
         }
         return $list_ids;
     }
+
 }

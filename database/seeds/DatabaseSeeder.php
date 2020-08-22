@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ArticleCategorySeeder::class);
         $this->call(DogCategorySeeder::class);
         $this->call(OrdersSeeder::class);
+        $this->call(ImgTimelineSeeder::class);
 
 
     }

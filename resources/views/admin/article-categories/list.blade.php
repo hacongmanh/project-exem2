@@ -66,8 +66,6 @@
                                                 {!! $categories->StatusString !!}
                                             </td>
                                             <td>
-                                                <a href="#" class="btn btn-success">Detail
-                                                </a>
                                                 <a href="/admin/article-categories/{{$categories->id}}/edit" class="btn btn-primary">Edit</a>
                                                 <a href="#" class="btn-delete btn btn-danger mr-1" id="delete-{{$categories->id}}">Delete</a>
                                             </td>

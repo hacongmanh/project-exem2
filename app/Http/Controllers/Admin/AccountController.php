@@ -41,13 +41,12 @@ class AccountController extends Controller
             $account = $account->whereBetween('created_at', [$from, $to]);
         }
         $data['list'] = $account_categories->where('user_name', 'like', '%' .$request->get('keyword'). '%')
-            ->where('status', '!=', 0)
+            ->where('status', '!=', 3)
             ->orderBy('created_at', 'DESC')
             ->paginate(5);
         $data['$account'] = $account;
         return view('admin.accounts.list')
             ->with($data);
-
     }
 
     /**
@@ -69,7 +68,9 @@ class AccountController extends Controller
      * @return string
      */
     public function store(ValidateAccount $request)
-    {   $request->validated();
+    {
+
+        $request->validated();
         $obj = new Account();
         $obj->user_name = $request->get('user_name');
         $password = $request->get('password');
@@ -79,11 +80,13 @@ class AccountController extends Controller
         $obj->full_name = $request->get('full_name');
         $obj->phone = $request->get('phone');
         $obj->address = $request->get('address');
-        $thumbnails = $request->get('thumbnails');
+        $thumbnails = $request->get('thumbnail');
         foreach ($thumbnails as $thumbnail) {
             $obj->thumbnail .= $thumbnail . ',';
         }
-        $obj->role = $request->get('role');
+        $obj->role =  $request->get('role');
+        $obj->salt = $salt;
+        $obj->status = 1;
         $obj->updated_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->created_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->save();
@@ -128,6 +131,7 @@ class AccountController extends Controller
      */
     public function update(ValidateAccount $request, $id)
     {   $request->validated();
+
         $obj = Account::find($id);
         $obj->user_name = $request->get('user_name');
         $password = $request->get('password');
@@ -143,6 +147,8 @@ class AccountController extends Controller
             $obj->thumbnail .= $thumbnail . ',';
         }
         $obj->role = $request->get('role');
+        $obj->salt = $salt;
+        $obj->status = $request->get('status');
         $obj->updated_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->created_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->save();
@@ -164,7 +170,7 @@ class AccountController extends Controller
         if ($obj == null){
             return view('error/error-404');
         }
-        $obj->status = 0;
+        $obj->status = 3;
         $obj->save();
     }
 

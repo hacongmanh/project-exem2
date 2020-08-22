@@ -78,8 +78,6 @@
                                             <td>{{$article->status}}</td>
                                             <td>{{$article->total}}</td>
                                             <td>
-                                                <a href="#" class="btn btn-success">Detail
-                                                </a>
                                                 <a href="/admin/order/{{$article->id}}/edit" class="btn btn-primary">Edit</a>
                                                 <a href="#" class="btn-delete btn btn-danger mr-1" id="delete-{{$article->id}}">Delete</a>
                                             </td>

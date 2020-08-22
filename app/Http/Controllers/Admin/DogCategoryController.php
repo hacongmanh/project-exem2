@@ -38,8 +38,8 @@ class DogCategoryController extends Controller
             $to = date($request->get('end') . ' 23:59:00');
             $dogs_categories = $dogs_categories->whereBetween('created_at', [$from, $to]);
         }
+        $dogs_categories = $dogs_categories->where('status', '!=', 2);
         $data['list'] = $dogs_categories
-            ->where('status', '=', 1)
             ->orderBy('created_at', 'DESC')
             ->paginate(5)
             ->appends(['keyword' => $request->get('keyword'), 'category_id' => $request
@@ -71,9 +71,9 @@ class DogCategoryController extends Controller
         $obj->name = $request->get('name');
         $obj->breedType = $request->get('breedType');
         $obj->status = 1;
-        $thumbnail = $request->get('thumbnails');
-        foreach ($thumbnail as $thumbnails) {
-            $obj->thumbnail .= $thumbnails . ',';
+        $thumbnails = $request->get('thumbnail');
+        foreach ($thumbnails as $thumbnail) {
+            $obj->thumbnail .= $thumbnail . ',';
         }
         $obj->updated_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->created_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
@@ -159,7 +159,7 @@ class DogCategoryController extends Controller
         if ($obj == null) {
             return view('error/error-404');
         }
-        $obj->status = 0;
+        $obj->status = 2;
         $obj->save();
     }
 }

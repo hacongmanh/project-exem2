@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Account;
 use App\ArticleCategory;
 use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -57,5 +59,11 @@ class UserController extends Controller
         $obj->created_at = Carbon::now()->addDays()->format('Y-m-d H:i:s');
         $obj->save();
         return view('home.login.signin');
+    }
+    public function logOutUser(){
+        Session::remove('email');
+        Session::remove('role');
+
+        return redirect('/homes');
     }
 }

@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 use App\Account;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -28,5 +29,10 @@ class LoginController extends Controller
         $request->getSession()->put('email', $existingAccount->email);
         $request->getSession()->put('role', $existingAccount->role);
         return redirect('/admin/dogs');
+    }
+    public function logOutAdmin(){
+        Session::remove('email');
+        Session::remove('role');
+        return redirect('/homes');
     }
 }

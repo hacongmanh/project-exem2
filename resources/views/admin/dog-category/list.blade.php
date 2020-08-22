@@ -80,10 +80,8 @@
                                                 {{ $dogs_categories->dogCategoryString}}
                                             </td>
                                             <td>
-                                                <a href="#" class="btn btn-success">Detail
-                                                </a>
                                                 <a href="/admin/dogs-categories/{{$dogs_categories->id}}/edit" class="btn btn-primary">Edit</a>
-                                                <a href="#" class=" btn-delete text-danger mr-1" id="delete-{{$dogs_categories->id}}">Delete</a>
+                                                <a href="#" class=" btn-delete btn btn-danger mr-1" id="delete-{{$dogs_categories->id}}">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach

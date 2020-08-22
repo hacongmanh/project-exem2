@@ -63,15 +63,28 @@
                                         @endif
                                     </div>
                                 </div>
+
                                 <div class="row form-group">
                                     <div class="col-3">
                                         <select name="role" class="custom-select">
-                                            <option value="0">----Quyền Người Dùng----</option>
-                                            <option value="1">User </option>
-                                            <option value="2">Admin</option>
+                                            <option value="{{$errors->role}}">----Quyền Người Dùng----</option>
+                                            <option value="1" {{$obj->role == 1 ? 'selected': ''}}>User</option>
+                                            <option value="0" {{$obj->role == 2 ? 'selected': ''}}>Admin</option>
                                         </select>
                                         @if($errors->has('role'))
                                             <span class="text-danger">* {{$errors->first('role')}}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-3">
+                                        <select name="status" class="custom-select">
+                                            <option value="2">----Trạng thái----</option>
+                                            <option value="1" {{$obj->status == 1 ? 'selected': ''}}>Đang hoạt động</option>
+                                            <option value="0" {{$obj->status == 0 ? 'selected': ''}}>Không hoạt động</option>
+                                        </select>
+                                        @if($errors->has('status'))
+                                            <span class="text-danger">* {{$errors->first('status')}}</span>
                                         @endif
                                     </div>
                                 </div>

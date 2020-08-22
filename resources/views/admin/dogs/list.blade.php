@@ -74,8 +74,6 @@
                                                 {!! $dogs->statusString !!}
                                             </td>
                                             <td>
-                                                <a href="#" class="btn btn-success">Detail
-                                                </a>
                                                 <a href="/admin/dogs/{{$dogs->id}}/edit" class="btn btn-primary">Edit</a>
                                                 <a href="#" class="btn-delete btn btn-danger mr-1" id="delete-{{$dogs->id}}">Delete</a>
                                             </td>

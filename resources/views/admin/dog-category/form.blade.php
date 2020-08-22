@@ -60,12 +60,12 @@
                 uploadPreset: 'atlr6nn5',
                 multiple: true,
                 form: '#product_form',
-                fieldName: 'thumbnails[]',
+                fieldName: 'thumbnail[]',
                 thumbnails: '.thumbnails'
             }, function (error, result) {
                 if (!error && result && result.event === "success") {
                     console.log('Done! Here is the image info: ', result.info.url);
-                    var arrayThumnailInputs = document.querySelectorAll('input[name="thumbnails[]"]');
+                    var arrayThumnailInputs = document.querySelectorAll('input[name="thumbnail[]"]');
                     for (let i = 0; i < arrayThumnailInputs.length; i++) {
                         arrayThumnailInputs[i].value = arrayThumnailInputs[i].getAttribute('data-cloudinary-public-id');
                     }

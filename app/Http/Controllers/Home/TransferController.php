@@ -39,7 +39,7 @@ class TransferController extends Controller
         $article_footer = Article::orderByRaw("RAND()")->take(2)->get();
         $data['article_footer'] = $article_footer;
         $data['list'] = $articles_list
-//            ->where('status', '=', 1)
+// ->where('status', '=', 1)
             ->orderBy('created_at', 'DESC')
             ->paginate(6)
             ->appends(['keyword' => $request->get('keyword'), 'category_id' => $request
@@ -55,7 +55,7 @@ class TransferController extends Controller
      */
     public function create()
     {
-        //
+//
     }
 
     /**
@@ -95,21 +95,28 @@ class TransferController extends Controller
     {
         {
 
-            $product = Dog::find($id);
+            $dog = Dog::find($id);
             $cart = session()->get('cart');
-            if (isset($cart[$id])) {
-                $cart[$id]['quantity'] = $cart[$id]['quantity'] + 1;
-
-            } else {
-                $cart[$id] = [
-                    'id' => $product->id,
-                    'name' => $product->name,
-                    'price' => $product->price,
-                    'quantity' => 1,
-                    'thumbnail' => $product->large_photo
-                ];
+            if ($cart == null){
+                $cart = array();
             }
-            session()->put('cart', $cart);
+            $dogArray = null;
+            if (array_key_exists($dog->id,$cart)){
+                $dogArray = $cart[$dog->id];
+            }
+            if ($dogArray == null){
+                $dogArray = array(
+                    'id' => $dog->id,
+                    'name' => $dog->name,
+                    'price' => $dog->price,
+                    'quantity' => 1,
+                    'thumbnail' => $dog->large_photo
+                );
+            }else{
+                return ;
+            }
+            $cart[$dog->id] = $dogArray;
+            Session::put('cart',$cart);
             return response()->json([
                 'code' => 200,
                 'message' => 'success'
@@ -121,7 +128,7 @@ class TransferController extends Controller
 
 
     public function submitCart(ValidataOrder $request)
-    {   $request->validated();
+    { $request->validated();
         $cart = Session::get('cart');
         if ($cart == null) {
             $cart = array();
@@ -152,12 +159,13 @@ class TransferController extends Controller
             array_push($cart, $orderDetail);
         }
         DB::transaction(function () use ($cart,$orderDetail){
-           $cart ->save();
-           foreach ($orderDetail as $orderDetail){
-               $orderDetail->order_id = $cart->id;
-               $orderDetail->save();
-           }
+            $cart ->save();
+            foreach ($orderDetail as $orderDetail){
+                $orderDetail->order_id = $cart->id;
+                $orderDetail->save();
+            }
         });
+        Session::remove('cart');
     }
 
 }

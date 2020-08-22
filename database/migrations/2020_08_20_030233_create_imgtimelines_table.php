@@ -15,6 +15,8 @@ class CreateImgtimelinesTable extends Migration
     {
         Schema::create('imgtimelines', function (Blueprint $table) {
             $table->id();
+            $table->text('title');
+            $table->text('description');
             $table->text('thumbnail');
             $table->unsignedBigInteger('thumbnail_by');
             $table->foreign('thumbnail_by')->references('id')->on('dogs');

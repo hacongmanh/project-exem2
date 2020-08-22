@@ -1,16 +1,11 @@
 @extends('home.layout.layout')
 @section('title' , 'Chúng tôi | Dog Lovers')
-
-@section('menu-navbar')
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a href="/homes" class="nav-link">Trang chủ</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Chúng tôi</a></li>
-        <li class="nav-item"><a href="/timeline" class="nav-link">Dòng thời gian</a></li>
-        <li class="nav-item"><a href="/transfer" class="nav-link">Sản Phẩm</a></li>
-        <li class="nav-item"><a href="/flow" class="nav-link">Theo dõi</a></li>
-        <li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
-        <li class="nav-item"><a href="/logins" class="nav-link">Đăng nhập</a></li>
-    </ul>
+@section('header')
+    <style>
+        .low{
+            visibility: hidden;
+        }
+    </style>
 @endsection
 @section('section')
     <section class="ftco-section ftco-degree-bg">

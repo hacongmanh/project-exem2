@@ -61,6 +61,7 @@ Route::middleware(['admin.middleware'])->group(function (){
     Route::put('delete/dog-category/{id}','Admin\DogCategoryController@DeleteDogCategory');
     Route::put('delete/dogs/{id}','Admin\DogController@updateDog');
     Route::put('delete/article-categories/{id}','Admin\ArticleCategoryController@updateArticleCategory');
+    Route::get('/logout-admin', 'Admin\LoginController@logOutAdmin');
 });
 
 
@@ -81,4 +82,13 @@ Route::get('shop/show-cart','Home\TransferController@showCart')->name('showCart'
 Route::get('shop/update-cart','Home\TransferController@updateCart')->name('updateCart');
 Route::get('shop/delete-cart','Home\TransferController@deleteCart')->name('deleteCart');
 
+Route::get('/logins', 'Admin\LoginController@login');
+Route::get('/logout-user', 'Admin\UserController@logOutUser');
+Route::get('/logins', 'Admin\LoginController@login');
+Route::post('/logins', 'Admin\LoginController@processLogin');
+Route::get('/registers', 'Admin\UserController@create');
+Route::post('/registers', 'Admin\UserController@store');;
 
+
+
+Route::resource('/admin/timeline','Admin\TimelineController');

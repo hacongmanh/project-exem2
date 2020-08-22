@@ -81,8 +81,6 @@
                                                 {!! $article->statusString !!}
                                             </td>
                                             <td>
-                                                <a href="#" class="btn btn-success">Detail
-                                                </a>
                                                 <a href="/admin/articles/{{$article->id}}/edit" class="btn btn-primary">Edit</a>
                                                 <a href="#" class="btn-delete btn btn-danger mr-1" id="delete-{{$article->id}}">Delete</a>
                                             </td>
@@ -175,15 +173,15 @@
                 $('#search-form').submit();
             });
 
-            ClassicEditor
-                .create(document.querySelector('#editor'))
-                .then(editor => {
-                    console.log(editor);
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-        });
+        //     ClassicEditor
+        //         .create(document.querySelector('#editor'))
+        //         .then(editor => {
+        //             console.log(editor);
+        //         })
+        //         .catch(error => {
+        //             console.error(error);
+        //         });
+         });
         var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         var btnDeletes =document.getElementsByClassName('btn-delete');
         for (let i = 0; i < btnDeletes.length; i++) {

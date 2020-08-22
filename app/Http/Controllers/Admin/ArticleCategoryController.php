@@ -71,7 +71,7 @@ class ArticleCategoryController extends Controller
         $obj->name = $request->get('name');
         $obj->description = $request->get('description');
         $obj->id = $request->get('id');
-        $thumbnails = $request->get('thumbnails');
+        $thumbnails = $request->get('thumbnail');
         foreach ($thumbnails as $thumbnail) {
             $obj->thumbnail .= $thumbnail . ',';
         }

@@ -1,16 +1,5 @@
 @extends('home.layout.layout')
-@section('title' , 'Trang chủ | Pet sitting')
-@section('menu-navbar')
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item active"><a href="" class="nav-link">Trang chủ</a></li>
-        <li class="nav-item"><a href="/timeline" class="nav-link">Dòng thời gian</a></li>
-        <li class="nav-item"><a href="/transfer" class="nav-link">Sản phẩm</a></li>
-        <li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
-        <li class="nav-item"><a href="/about" class="nav-link">Chúng tôi</a></li>
-        <li class="nav-item"><a href="/contact" class="nav-link">Liên hệ</a></li>
-        <li class="nav-item"><a href="/logins" class="nav-link">Đăng nhập</a></li>
-    </ul>
-@endsection
+@section('title' , 'Trang chủ | Dog Lovers')
 @section('main-content')
     <div class="hero-wrap js-fullheight"
          style="background-image: url({{asset('home/images/bg_1.jpg')}}); height: 969px; background-position: 50% 170px;"
@@ -37,10 +26,8 @@
                             <span class="flaticon-blind"></span>
                         </div>
                         <div class="media-body">
-                            <h3 class="heading">Cách nuôi dạy chó</h3>
-                            <p>Nắm rõ kinh nghiệm nuôi chó thì mới có thể giúp cho chú cún của bạn khỏe mạnh. Không phải
-                                bạn cứ ra cửa hàng chọn một em nhanh nhẹn về và cho ăn thật nhiều, tắm sạch sẽ là được.
-                                Vậy phải làm thế nào?</p>
+                            <h3 class="heading">Câu chuyện của một con chó</h3>
+                            <p>Đây là một câu chuyện thật, một bài học cảm động từ một con chó hai chân: Faith.</p>
                             <a href="/blog-home-1" class="btn-custom d-flex align-items-center justify-content-center"><span
                                     class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
                         </div>
@@ -52,10 +39,8 @@
                             <span class="flaticon-dog-eating"></span>
                         </div>
                         <div class="media-body">
-                            <h3 class="heading">Thực phẩm riêng cho chó</h3>
-                            <p>Bạn là người chăm sóc chó của mình và muốn điều tốt nhất cho cún cưng. Sức khỏe của chúng
-                                phần lớn do thức ăn quyết định. Tuy nhiên, có quá nhiều lựa chọn về thức ăn, làm thế nào
-                                bạn chọn được thứ tốt nhất cho chó của mình?</p>
+                            <h3 class="heading">Tìm một con chó</h3>
+                            <p>Cuộc đoàn tụcủa cụ bà và chó cưng ở Ha Giang</p>
                             <a href="/blog-home-2" class="btn-custom d-flex align-items-center justify-content-center"><span
                                     class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
                         </div>
@@ -67,11 +52,8 @@
                             <span class="flaticon-grooming"></span>
                         </div>
                         <div class="media-body">
-                            <h3 class="heading">Cách chăm sóc làm đẹp cho chó</h3>
-                            <p>Nếu là người chủ tốt, đôi lúc bạn phải cạo lông cho chó nếu thời tiết quá nóng. Trên thực
-                                tế, chó không cần phải cạo lông, nếu có thì cũng nên do chuyên gia thực hiện. Tuy nhiên,
-                                nếu muốn đích thân cạo lông cho chúng, bạn cần hết sức cẩn trọng và bảo đảm an toàn cho
-                                người bạn của mình.</p>
+                            <h3 class="heading">Nuôi dạy chó</h3>
+                            <p>Ít ai nhận ra rằng khi trẻ có một người bạn là thú cưng, chúng sẽ tự học cách chịu trách nhiệm, cải thiện sự tự tin, hòa đồng hơn rất nhiều. Đây là những điều cực kỳ tốt trong quá trình phát triển tính cách ở trẻ.</p>
                             <a href="/blog-home-3" class="btn-custom d-flex align-items-center justify-content-center"><span
                                     class="fa fa-chevron-right"></span><i class="sr-only">Read more</i></a>
                         </div>
@@ -292,21 +274,21 @@
             </div>
             <div class="row d-flex">
                 @foreach($article as $article_new)
-                <div class="col-md-4 d-flex ftco-animate fadeInUp ftco-animated">
-                    <div class="blog-entry align-self-stretch">
-                        <a href="/blog/{{$article_new->id}}" class="block-20 rounded"
-                           style="background-image: url({{$article_new->large_photo}});">
-                        </a>
-                        <div class="text p-4">
-                            <div class="meta mb-2">
-                                <div><a href="#">{{$article_new->updated_at}}</a></div>
-                                <div><a href="#">Admin</a></div>
-                                <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
+                    <div class="col-md-4 d-flex ftco-animate fadeInUp ftco-animated">
+                        <div class="blog-entry align-self-stretch">
+                            <a href="/blog/{{$article_new->id}}" class="block-20 rounded"
+                               style="background-image: url({{$article_new->large_photo}});">
+                            </a>
+                            <div class="text p-4">
+                                <div class="meta mb-2">
+                                    <div><a href="#">{{$article_new->updated_at}}</a></div>
+                                    <div><a href="#">Admin</a></div>
+                                    <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
+                                </div>
+                                <h3 class="heading"><a href="/blog/{{$article_new->id}}">{{$article_new->title}}</a></h3>
                             </div>
-                            <h3 class="heading"><a href="/blog/{{$article_new->id}}">{{$article_new->title}}</a></h3>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>
@@ -342,4 +324,3 @@
 
 
 @endsection
-

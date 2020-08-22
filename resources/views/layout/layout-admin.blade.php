@@ -33,9 +33,11 @@
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="/homes" class="nav-link">Home</a>
             </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Contact</a>
-            </li>
+            @if(\Illuminate\Support\Facades\Session::has('email'))
+                <li class="nav-item"> <a href="/logout-admin" class="nav-link">Đăng xuất</a></li>
+            @else
+
+            @endif
         </ul>
 
         <!-- SEARCH FORM -->
@@ -332,7 +334,37 @@
                             @endif
                         </ul>
                     </li>
-
+                    <li class="nav-item has-treeview {{($current_page  == 'timeline-list' || $current_page  == 'timeline-form' || $current_page == 'timeline-edit') ? 'menu-open' : ''}}">
+                        <a href="/admin/timeline" class="nav-link">
+                            <i class="fas fa-comments"></i>
+                            <p>
+                                Quản lý timeline
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview {{($current_page  == 'timeline-edit' || $current_page  == 'timeline-form') ? 'menu-open' : ''}}">
+                            <li class="nav-item">
+                                <a href="/admin/timeline" class="nav-link {{($current_page  == 'timeline-list') ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Danh sách timeline</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/timeline/create" class="nav-link {{($current_page  == 'timeline-form') ? 'active' : ''}}">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Thêm mới timeline</p>
+                                </a>
+                            </li>
+                            @if($current_page == 'timeline-edit')
+                                <li class="nav-item">
+                                    <a href="{{Request::url()}}" class="nav-link {{($current_page  == 'timeline-edit') ? 'active' : ''}}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Sửa timeline</p>
+                                    </a>
+                                </li>
+                            @endif
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

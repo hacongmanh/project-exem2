@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Article;
 use App\Comments;
 use App\Http\Controllers\Controller;
+use App\imgtimeline;
 use App\Timeline;
 use Illuminate\Http\Request;
 
@@ -17,12 +18,10 @@ class TimelineController extends Controller
      */
     public function index()
     {   $data = array();
-        $comment = Comments::orderByRaw("RAND()")->take(2)->get();
-        $timeline = Timeline::orderByRaw("RAND()")->take(2)->get();
+        $timeline = imgtimeline::orderByRaw("RAND()")->paginate(15);
         $article_footer = Article::orderByRaw("RAND()")->take(2)->get();
         $data['article_footer'] = $article_footer;
         $data['timeline'] = $timeline;
-        $data['comment'] = $comment;
         return view('home.pagination.timeline')->with($data);
     }
 

@@ -50,7 +50,12 @@
                 <div class="col-md-6 d-flex align-items-center">
                     <p class="mb-0 phone pl-md-2">
                         <a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span>+84 343895161</a>
-                        <a href="#"><span class="fa fa-paper-plane mr-1"></span> petsitting@email.com</a>
+                        <a href="#"><span class="fa fa-paper-plane mr-1"></span> doglovers@email.com</a>
+                        @if(\Illuminate\Support\Facades\Session::has('email'))
+                            <a href="#">Xin chào {{\Illuminate\Support\Facades\Session::get('email')}} </a>
+                        @else
+
+                        @endif
                     </p>
                 </div>
                 <div class="col-md-6 d-flex justify-content-md-end">
@@ -76,11 +81,35 @@
             <span class="fa fa-bars"></span> Menu
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
-            @yield('menu-navbar')
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a href="/homes" class="nav-link">Trang chủ</a></li>
+                <li class="nav-item"><a href="/timeline" class="nav-link">Dòng thời gian</a></li>
+                <li class="nav-item"><a href="/transfer" class="nav-link">Sản phẩm</a></li>
+                <li class="nav-item"><a href="/blog" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="/about" class="nav-link">Chúng tôi</a></li>
+                <li class="nav-item"><a href="/contact" class="nav-link">Liên hệ</a></li>
+                @if(\Illuminate\Support\Facades\Session::has('email'))
+                    <li class="nav-item"> <a href="/logout-user" class="nav-link">Đăng xuất</a></li>
+                @else
+                    <li class="nav-item"><a href="/logins" class="nav-link">Đăng nhập</a></li>
+                @endif
+            </ul>
         </div>
     </div>
 </nav>
-
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/5f3ff33ccc6a6a5947adba29/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
 {{--endnavbar--}}
 {{--main content--}}
 @yield('main-content')
@@ -89,16 +118,16 @@
 @yield('section')
 {{----}}
 {{--footer--}}
-<div class="low" style=" border-radius: 100%; width: 80px;height: 70px; background-color: #6d7aad69;text-align: center; position: fixed; right: 50px; bottom: 10px">
+<div class="low" style=" border-radius: 70%; width: 80px;height: 68px; background-color: #6d7aad69;text-align: center; position: fixed; right: 85px; bottom: 14px">
     <a href="{{route('showCart')}}" class="nav-link"> <img src="https://img.icons8.com/material/48/000000/shopping-basket-2.png"/></a>
 </div>
 <footer class="footer">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                <h2 class="footer-heading">Pet Lovers</h2>
-                <p>Petsitting! Trung tâm nuôi dưỡng và đào tạo pet uy tín, đạt chuẩn chất lượng quốc tế.</p>
-                <p>Petsitting © 2020  PRIVACY POLICY</p>
+                <h2 class="footer-heading">Dog Lovers</h2>
+                <p>Dog Lovers! Trung tâm nuôi dưỡng và đào tạo pet uy tín, đạt chuẩn chất lượng quốc tế.</p>
+                <p>Dog Lovers © 2020  PRIVACY POLICY</p>
                 <ul class="ftco-footer-social p-0">
                     <li class="ftco-animate fadeInUp ftco-animated"><a href="https://www.twitch.tv/chefdogshow" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a></li>
                     <li class="ftco-animate fadeInUp ftco-animated"><a href="https://www.facebook.com/scdogshop/?__tn__=%2Cd%2CP-R&eid=ARAdVYt5d24HCTrrqc1nrmlKXb4S02fApdbY9SrZywYFsGWGncMFUSZYG1nHLyITC4UlVcZsGgvF4MAW" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a></li>
@@ -108,17 +137,17 @@
             <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
                 <h2 class="footer-heading">Tin mới nhất</h2>
                 @foreach($article_footer as $article_footer)
-                <div class="block-21 mb-4 d-flex">
-                    <a href="/blog/{{$article_footer->id}}"  class="img mr-4 rounded" style="background-image: url({{$article_footer->large_photo}});"></a>
-                    <div class="text">
-                        <h3 class="heading"><a href="/blog/{{$article_footer->id}}">{{$article_footer->title}}</a></h3>
-                        <div class="meta">
-                            <div><a href="#"><span class="icon-calendar"></span> 04, 08, 2020</a></div>
-                            <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                            <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                    <div class="block-21 mb-4 d-flex">
+                        <a href="/blog/{{$article_footer->id}}"  class="img mr-4 rounded" style="background-image: url({{$article_footer->large_photo}});"></a>
+                        <div class="text">
+                            <h3 class="heading"><a href="/blog/{{$article_footer->id}}">{{$article_footer->title}}</a></h3>
+                            <div class="meta">
+                                <div><a href="#"><span class="icon-calendar"></span> 04, 08, 2020</a></div>
+                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
             <div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
@@ -150,7 +179,7 @@
                         </div>
 
                         <li style="margin-top: 20px"> <a href="#"><span class="icon fa fa-phone"></span><span class="text">+84 343895161</span></a></li>
-                        <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">Petsitting@gmail.com</span></a></li>
+                        <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">doglovers@gmail.com</span></a></li>
                     </ul>
                 </div>
             </div>

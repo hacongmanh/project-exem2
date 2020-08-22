@@ -18,7 +18,7 @@ class DogsSeeder extends Seeder
         DB::table('dogs')->insert([
             [
                 'id'=>1,
-                'name'=>'Pug Xệ',
+                'name'=>'catlyn',
                 'price'=>'13000000',
                 'birthday'=>'2019-05-10',
                 'gender'=>1,

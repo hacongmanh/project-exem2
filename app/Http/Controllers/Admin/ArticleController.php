@@ -65,9 +65,9 @@ class ArticleController extends Controller
         $obj->title = $request->get('title');
         $obj->description = $request->get('description');
         $obj->category_id = $request->get('category_id');
-        $thumbnail = $request->get('thumbnail');
-        foreach ($thumbnail as $thumbnails) {
-            $obj->thumbnail .= $thumbnails . ',';
+        $thumbnails = $request->get('thumbnail');
+        foreach ($thumbnails as $thumbnail) {
+            $obj->thumbnail .= $thumbnail . ',';
         }
         $obj->status = 1;
         $obj->create_by = 2;
